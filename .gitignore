@@ -1,0 +1,22 @@
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Large audio/media binaries (optional local storage)
+# audio/*.mp3
+# audio/*.wav
+
+# Local scripts
+github_push.bat
+push.bat

@@ -1,0 +1,100 @@
+# 에스라 성경강좌 & 대하설교 인터랙티브 아카이브 (Ezra Bible Archive)
+
+> **노우호 목사님의 에스라하우스 성경강좌 관점 & 샤론강단 대하설교 500여 편 집대성**  
+> 창세기부터 요한계시록까지 성경 66권 전체를 역사적 사실과 하나님의 심정으로 관통하는 **100% 완전 독립 실행형 웹 애플리케이션**입니다.
+
+[![GitHub Pages](https://img.shields.io/badge/GitHub-Pages_Ready-success?style=flat-square&logo=github)](https://ttlkjk.github.io/bible/)
+[![Vanilla JS](https://img.shields.io/badge/Vanilla-JavaScript_ES6+-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/ko/docs/Web/JavaScript)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS_CDN-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
+
+---
+
+## 🌟 프로젝트 개요
+
+본 프로젝트는 노우호 목사님(에스라하우스)의 성경통독 강좌와 샤론강단 대하설교 녹취록을 체계적으로 보존하고, 누구나 웹 브라우저만 있으면 언제 어디서든 스마트폰이나 PC로 성경의 거대한 맥을 입체적으로 공부할 수 있도록 설계된 오픈소스 아카이브입니다.
+
+별도의 빌드 도구(Node.js, Webpack 등)나 백엔드 서버 설치 없이, `index.html` 파일을 열거나 **GitHub Pages**에 올리는 것만으로 즉시 동작합니다.
+
+---
+
+## 🚀 주요 핵심 기능 (Features)
+
+### 1. 📖 성경 66권 완간 입체 탐색 (Bible Explorer)
+- **정경 순서 vs 연대기 역사 순서 전환:** 창세기~계시록 전통 정경 배치와 실제 역사가 일어난 순서로 정렬 방식을 1초 만에 전환.
+- **실시간 초성 & 키워드 검색:** 권명, 영문명, 핵심 주제, 저자, 카테고리(율법서, 역사서, 바울서신 등) 실시간 필터링.
+- **권별 성경학적 메타데이터 패널:** 저자, 기록 연대, 분량, 연대기 순번 클릭 시 심층 해설 아코디언 확장.
+
+### 2. ⏳ 구속사 성경 연대기 타임라인 (Timeline Panorama)
+- **📜 전체 요약 파노라마 모드:** 창조시대부터 바벨론 포로, 중간사 400년, 서신서 시대, 새 하늘과 새 땅까지 11대 시대를 시각적 타임라인으로 조망.
+- **🔍 시대별 자세히 보기 (심층 해설) 모드:** 각 시대별 역사적 흐름, 구속사적 의미, 에스라하우스 관점의 통독 열쇠, 해당 시대 성경 바로가기 연동.
+- **모바일 가로 스크롤 탭:** 스마트폰에서도 좌우 스와이프를 통해 11대 시대를 쾌적하게 탐색.
+
+### 3. 🎙️ 대하설교 녹취록 분석 & 전문 리더 (Sermon Reader)
+- **권별 다회차 설교 강해 목록:** 66권 전 권에 대해 구조별 핵심 설교 요약, 3대 핵심 포인트, 삶의 적용 메시지 수록.
+- **전문 독서 리더 모달:** 역사적 배경, 형식주의 비판, 구속사적 성취, 참회 기도문까지 아우르는 30분~1시간 분량의 실제 대하설교 전문 텍스트 지원.
+
+### 4. 📽️ 인터랙티브 PPT 슬라이드 스튜디오 (Slide Studio)
+- **내장 프리젠테이션 교재:** 66권 전 권 및 8대 집중특강(성경강좌원리, 신구약중간사, 로마사 등) 슬라이드 내장.
+- **발표자 모드 & F11 전체화면:** 브라우저 내에서 강의안을 직접 발표하거나 편집할 수 있는 슬라이드 에디터 탑재.
+
+### 5. 🎧 성경강좌 & 낭독 오디오 플레이어 (Audio Studio)
+- **반응형 미디어 컨트롤러:** 0.8x ~ 2.0x 배속 재생, A-B 구간 반복, 트랙 연속 재생.
+- **Web Speech TTS 지원:** 오디오 파일이 없는 환경에서도 브라우저 내장 음성 합성 엔진을 통해 성경 본문 및 강좌 요약 자동 낭독.
+- **로컬 파일 원클릭 연동:** 개인 소장 MP3 파일을 드래그앤드롭하거나 `audio/` 폴더에 복사 시 자동 인식.
+
+### 6. 🎯 성경 골든벨 퀴즈 시스템 (Interactive Quiz)
+- **권별 맞춤 퀴즈:** 객관식 퀴즈, 상세한 오답 및 정답 해설.
+- **스마트 학습 관리:** 미답변 문제만 풀기, 오답 노트 모아보기, 실시간 연속 정답(Streak) 애니메이션.
+- **골든벨 서바이벌 모드:** 타이머와 함께 도전하는 성경 골든벨 모드.
+
+### 7. 🗺️ 성경 지리 & 인포그래픽 SVG 지도 (Biblical Maps)
+- **고해상도 인터랙티브 벡터 지도:** 아브라함 여정, 출애굽 광야 경로, 사도 바울의 1~3차 전도여행 등.
+- **3대 배경 모드:** 간단한 벡터 지도, 물리 지형도, 위성 사진 모드 지원.
+- **다중 장(Chapter) 전환:** 각 권별 1장 배경 지도, 2장 주요 사건, 3장 심층 인포그래픽 슬라이드 제공.
+
+---
+
+## 📂 파일 및 디렉토리 구조
+
+```
+bible/
+├── index.html                  # 메인 단독 실행 애플리케이션
+├── README.md                   # 프로젝트 설명 문서
+├── css/
+│   └── style.css               # 커스텀 타이포그래피, 애니메이션, 다크모드 스타일
+├── js/
+│   ├── app.js                  # 메인 상태 제어, 이벤트 바인딩, DOM 렌더러
+│   ├── bible_data.js           # 66권 성경 메타데이터 (저자, 연대, 요절, 장별 구조, 퀴즈)
+│   ├── timeline_data.js        # 11대 시대별 성경 연대기 심층 해설 데이터
+│   ├── lecture_index.js        # 대하설교 녹취록 분석 색인 및 3대 핵심 포인트
+│   ├── lecture_full_text.js    # 30분 분량의 대하설교 전문 텍스트 데이터셋 및 생성기
+│   ├── lecture_media_studio.js # PPT 슬라이드 스튜디오 및 A-B 오디오 플레이어
+│   ├── maps_data.js            # 성경 지리 SVG 지도 데이터
+│   ├── maps_multi_data.js      # 권별 다중 인포그래픽 슬라이드 데이터
+│   ├── quiz_data.js            # 성경 골든벨 퀴즈 데이터셋
+│   └── youtube_links.js        # 에스라하우스TV 공식 유튜브 링크 연동
+└── audio/                      # (선택 사항) 로컬 MP3 파일 보관 폴더
+```
+
+---
+
+## 💻 실행 및 배포 방법 (How to Run)
+
+### 1. GitHub Pages로 웹에서 즉시 무료 배포하기
+1. 본 저장소를 GitHub에 푸시합니다: `https://github.com/ttlkjk/bible`
+2. 저장소의 **Settings** -> **Pages** 메뉴로 이동합니다.
+3. **Build and deployment** 항목의 Source를 `Deploy from a branch`로 설정하고 Branch를 `main` (또는 `master`), 폴더를 `/(root)`로 지정 후 **Save**를 누릅니다.
+4. 약 1~2분 후 생성되는 주소(예: `https://ttlkjk.github.io/bible/`)로 전 세계 어디서나 무료로 접속할 수 있습니다!
+
+### 2. 내 컴퓨터에서 오프라인 단독 실행하기
+- 아무런 설치 과정 없이, `index.html` 파일을 크롬(Chrome), 엣지(Edge), 사파리(Safari) 등 웹 브라우저로 더블 클릭하여 열면 바로 실행됩니다.
+- 인터넷이 연결되지 않은 환경에서도 슬라이드 교재, 대하설교 전문, 연대기 타임라인, 성경 퀴즈, 지도를 100% 이용할 수 있습니다.
+
+---
+
+## 📜 저작권 및 안내 (Credits & License)
+
+- 본 프로그램의 성경 강해 맥락 및 설교 녹취록은 **노우호 목사님(에스라하우스)**의 강의와 저작물을 기반으로 복음 전파와 성도들의 말씀 통독 학습을 돕기 위해 제작되었습니다.
+- 에스라하우스 공식 유튜브 채널: [@ezrahousetv](https://www.youtube.com/@ezrahousetv)
+- 코드 라이선스: [MIT License](LICENSE)

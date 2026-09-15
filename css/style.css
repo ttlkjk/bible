@@ -1,0 +1,281 @@
+/* ==========================================================================
+   에스라 성경강좌 인터랙티브 웹 프로그램 스타일시트
+   ========================================================================== */
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+:root {
+  --primary: #d97706; /* amber-600 */
+  --primary-light: #fef3c7; /* amber-100 */
+  --primary-dark: #b45309; /* amber-700 */
+  --accent: #2563eb; /* blue-600 */
+  
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-sidebar: #0f172a;
+  --border-color: #e2e8f0;
+  
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-inverse: #f8fafc;
+  
+  --font-base-size: 16px;
+}
+
+[data-theme="dark"] {
+  --bg-main: #0b0f19;
+  --bg-card: #151d30;
+  --bg-sidebar: #090d16;
+  --border-color: #243049;
+  
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-inverse: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  font-size: var(--font-base-size);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.65;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  overflow-x: hidden;
+}
+
+/* 스크롤바 세련된 커스텀 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* 애니메이션 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 성경 권별 카드 */
+.book-card {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+}
+.book-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px -5px rgba(217, 119, 6, 0.15);
+  border-color: var(--primary);
+}
+.book-card.active {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary);
+  background: linear-gradient(135deg, rgba(217, 119, 6, 0.08), transparent);
+}
+
+/* 탭 버튼 */
+.tab-btn {
+  padding: 0.65rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.tab-btn:hover {
+  color: var(--primary);
+}
+.tab-btn.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+/* 퀴즈 가독성 폰트 및 카드 인터랙션 */
+.quiz-card {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.quiz-card:hover {
+  transform: translateY(-2px);
+}
+.quiz-question-text {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  letter-spacing: -0.015em;
+}
+.quiz-option-btn {
+  width: 100%;
+  text-align: left;
+  padding: 0.95rem 1.2rem;
+  border-radius: 0.85rem;
+  border: 1.5px solid var(--border-color);
+  background-color: var(--bg-card);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  font-size: 0.96rem;
+  line-height: 1.6;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+.quiz-option-btn:hover:not(:disabled) {
+  border-color: var(--primary);
+  background-color: rgba(217, 119, 6, 0.07);
+  transform: translateX(6px);
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.1);
+}
+.quiz-option-btn.correct {
+  background-color: rgba(34, 197, 94, 0.15) !important;
+  border-color: #22c55e !important;
+  color: #15803d !important;
+  font-weight: 700;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.25);
+}
+.dark .quiz-option-btn.correct {
+  color: #4ade80 !important;
+  background-color: rgba(34, 197, 94, 0.2) !important;
+}
+.quiz-option-btn.wrong {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+  border-color: #ef4444 !important;
+  color: #b91c1c !important;
+  text-decoration: line-through;
+  opacity: 0.85;
+}
+.dark .quiz-option-btn.wrong {
+  color: #f87171 !important;
+  background-color: rgba(239, 68, 68, 0.2) !important;
+}
+.quiz-option-btn.dimmed {
+  opacity: 0.45;
+  filter: grayscale(0.5);
+}
+
+/* 골든벨 진행도 및 콤보 뱃지 애니메이션 */
+@keyframes pulse-golden {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+.animate-pulse-golden {
+  animation: pulse-golden 1.8s infinite ease-in-out;
+}
+.quiz-progress-fill {
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 모달 레이어 */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* 타임라인 카드 라인 */
+.timeline-stem {
+  position: relative;
+}
+.timeline-stem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 3px;
+  background: linear-gradient(to bottom, #d97706, #3b82f6, #ec4899);
+}
+
+/* 토스트 알림 */
+#toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #0f172a;
+  color: #f8fafc;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  z-index: 10000;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  border-left: 4px solid var(--primary);
+}
+#toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 전체 화면 & 와이드 뷰 최적화 */
+#book-detail-section {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#books-sidebar-col {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tab-panel svg {
+  max-height: 75vh;
+  width: 100%;
+}
+
+/* 메타 정보 설명 패널 애니메이션 */
+@keyframes metaFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: metaFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* 메타 정보 배경 (Tailwind /8, /15 opacity - CDN에서 누락될 수 있어 직접 정의) */
+.bg-amber-500\/8   { background-color: rgb(245 158 11 / 0.08); }
+.bg-blue-500\/8    { background-color: rgb(59 130 246 / 0.08); }
+.bg-emerald-500\/8 { background-color: rgb(16 185 129 / 0.08); }
+.bg-indigo-500\/8  { background-color: rgb(99 102 241 / 0.08); }
+.bg-amber-500\/15  { background-color: rgb(245 158 11 / 0.15); }
+.bg-blue-500\/15   { background-color: rgb(59 130 246 / 0.15); }
+.bg-emerald-500\/15{ background-color: rgb(16 185 129 / 0.15); }
+.bg-indigo-500\/15 { background-color: rgb(99 102 241 / 0.15); }
+
+/* 메타 뱃지 버튼 호버 효과 */
+#detail-meta-badges button {
+  border: none;
+  outline: none;
+}
+#detail-meta-badges button:focus-visible {
+  outline: 2px solid rgb(245 158 11 / 0.6);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
