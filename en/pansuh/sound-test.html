@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sound Test · Whiteboard Lectures | Ezra Bible Course</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/theme.js"></script>
+<style>
+  .t { max-width: 640px; margin: 0 auto; padding: 24px 16px 64px; }
+  .t h1 { font-size: 26px; margin: 0 0 6px; }
+  .t p { margin: 0 0 14px; color: var(--ink-2); font-size: 15px; }
+  .t button { display: block; width: 100%; margin: 10px 0; padding: 16px; font: 700 17px/1.3 var(--f-body);
+    border-radius: 12px; border: 0; color: #fff; background: var(--accent); }
+  .t button.sub { background: var(--ink-2); }
+  .t pre { white-space: pre-wrap; word-break: break-all; font-size: 13px; line-height: 1.55; background: var(--card);
+    border: 1px solid var(--line); border-radius: 12px; padding: 14px; color: var(--ink); min-height: 120px; }
+</style>
+</head>
+<body>
+<main class="t">
+  <h1>Sound Test</h1>
+  <p>If the board's voice does not play on your phone, use this screen to find out why. Turn the sound on (silent mode off, media volume up), then press the buttons one by one from the top.</p>
+  <button id="b1">① Read with the default voice</button>
+  <button id="b2">② Read with a Korean voice from the list</button>
+  <button id="b3" class="sub">③ Reload the list</button>
+  <p>The box below shows the results. After pressing all the buttons, please take a screenshot of this screen and send it.</p>
+  <pre id="out"></pre>
+</main>
+<script>
+(function () {
+  var out = document.getElementById("out"), t0 = Date.now();
+  function log(s) { out.textContent += ((Date.now() - t0) / 1000).toFixed(1) + "s  " + s + "\n"; }
+  var S = window.speechSynthesis;
+  log("Device: " + navigator.userAgent);
+  log("speechSynthesis: " + (S ? "yes" : "no ← this browser cannot read aloud"));
+  var board = document.createElement("script");
+  board.src = "assets/board.js";
+  fetch(board.src, { cache: "no-store" }).then(function (r) { return r.text(); })
+    .then(function (s) { log("Board file: " + (s.indexOf("noVoice") >= 0 ? "new version" : "old version ← file from before the fix")); })
+    .catch(function () { log("Board file: could not check"); });
+  if (!S) return;
+  function voices() {
+    var all = S.getVoices(), ko = all.filter(function (v) { return /^en/i.test(v.lang); });
+    log("Voices: " + all.length + "found, Korean: " + ko.length + "found" +
+      (ko.length ? " (" + ko.map(function (v) { return v.name + "/" + v.lang + (v.localService ? "" : "/online"); }).join(", ") + ")" : ""));
+    return ko;
+  }
+  voices();
+  S.addEventListener && S.addEventListener("voiceschanged", function () { log("Got a list-changed signal"); voices(); });
+  function say(withVoice) {
+    try { S.cancel(); } catch (e) { log("cancel failed: " + e.message); }
+    var u = new SpeechSynthesisUtterance("Hello. This is the Whiteboard Lectures sound test.");
+    u.lang = "en-US";
+    if (withVoice) {
+      var ko = voices();
+      if (!ko.length) { log("② No Korean voice in the list"); return; }
+      u.voice = ko[0]; u.lang = ko[0].lang;
+    }
+    var tag = withVoice ? "②" : "①";
+    u.onstart = function () { log(tag + " started reading (you should hear sound)"); };
+    u.onend = function () { log(tag + " finished reading"); };
+    u.onerror = function (e) { log(tag + " error: " + e.error); };
+    log(tag + " speak called");
+    S.speak(u);
+    setTimeout(function () { log(tag + " after 2 seconds: speaking=" + S.speaking + " pending=" + S.pending + " paused=" + S.paused); }, 2000);
+  }
+  document.getElementById("b1").onclick = function () { say(false); };
+  document.getElementById("b2").onclick = function () { say(true); };
+  document.getElementById("b3").onclick = function () { voices(); };
+})();
+</script>
+</body>
+</html>

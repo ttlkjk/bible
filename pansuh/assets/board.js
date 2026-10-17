@@ -145,6 +145,12 @@
     });
     t.textContent = str;
     var bb = t.getBBox();
+    // 칠판 밖으로 넘치면 그만큼 글씨를 줄인다 (영어판처럼 글이 길어졌을 때의 안전장치)
+    var room = anchor === "middle" ? 2 * Math.min(p.x - 20, W - 20 - p.x) : anchor === "end" ? p.x - 20 : W - 20 - p.x;
+    if (room > 0 && bb.width > room) {
+      t.setAttribute("font-size", Math.max(size * 0.55, size * room / bb.width).toFixed(1));
+      bb = t.getBBox();
+    }
     boxes[id] = { x: bb.x, y: bb.y, w: bb.width, h: bb.height, base: p.y };
     // writing = a clip rectangle sweeping left to right
     var cid = "c" + (++seq);

@@ -1,0 +1,322 @@
+// 1 Kings whiteboard script. The spoken lines (say) are the lecture notes smoothed for reading aloud; the content is unchanged.
+// Board size 1600 x 900. See the top of assets/board.js for what each op does.
+window.BOARD = {
+  scenes: [
+    {
+      id: "adonijah", title: "David's Old Age and Adonijah",
+      beats: [
+        { say: "1 Kings chapter 1. King David is old and advanced in years, and even when they cover him with clothes, he can't get warm. His servants find Abishag the Shunammite to serve him, but he does not lie with her.",
+          draw: [["title", "t", "David's old age"],
+                 ["write", "a1", [120, 290], "cold in bed", { size: 60 }],
+                 ["write", "a2", { after: "a1", gap: 50 }, "Abishag the Shunammite", { size: 52, color: "gray" }]] },
+        { say: "By now he should name a successor, but David keeps putting it off. So one of his sons gets the wrong idea and steps forward. That's Adonijah. Handsome face, great body, and his father never once scolded him growing up.",
+          draw: [["write", "a3", [120, 410], "successor put off"],
+                 ["write", "a4", { after: "a3", gap: 110 }, "Adonijah", { size: 72, color: "red" }],
+                 ["arrow", "a3", "a4"]] },
+        { say: "Adonijah had the claim to the throne, Joab had the army, and the priest Abiathar had the religious world. He thought the game was over. But David's mighty men did not follow him.",
+          draw: [["write", "a5", [120, 530], "Joab (army) + Abiathar (religion)", { size: 50 }],
+                 ["write", "a6", { after: "a5", gap: 50 }, "mighty men: X", { size: 50, color: "blue" }]] },
+        { say: "In the end, Nathan and Bathsheba speak to David, and only then does he make Solomon king.",
+          draw: [["write", "a7", [120, 650], "Nathan + Bathsheba", { size: 60 }],
+                 ["write", "a8", { after: "a7", gap: 110 }, "Solomon crowned", { size: 64, color: "green" }],
+                 ["arrow", "a7", "a8"],
+                 ["box", "a8", "green"]] },
+        { say: "Startled by the people's huge shout, Adonijah runs to the altar and grabs its horns. The horns of the altar are a symbol of forgiveness.",
+          draw: [["write", "a9", [120, 790], "altar horns = forgiveness", { color: "red" }],
+                 ["photo", "p1", "img/image130.jpg", [1110, 250, 400, 225], { tilt: 3, caption: "Horns of the altar" }]] },
+        { say: "At a burnt offering, you hold the horns of the altar and watch until the sacrifice is completely burned. Adonijah begs for his life, and Solomon does not kill him but sends him home.",
+          draw: [["under", "a9"],
+                 ["write", "a10", { after: "a9", gap: 50 }, "→ spared", { size: 56, color: "gray" }]] }
+      ]
+    },
+    {
+      id: "list", title: "David's Last Words and the Hit List",
+      beats: [
+        { say: "Chapter 2. David leaves his son a charge. First, keep God's statutes and judgments. Second, people to repay with kindness. Third is the purge list.",
+          draw: [["clear"],
+                 ["title", "t", "David's last words"],
+                 ["write", "b1", [120, 290], "① statutes  ② repay kindness  ③ hit list", { size: 56 }],
+                 ["circle", "b1"]] },
+        { say: "Adonijah asks to marry Abishag, angers Solomon, and is put to death. She was like a mother to him, so to speak. After being forgiven, he should have kept his head down. In a kingdom, if you can't read the room, you die.",
+          draw: [["write", "b2", [120, 420], "Adonijah", { color: "red" }],
+                 ["write", "b3", { after: "b2", gap: 40 }, ": asks for Abishag → dies", { size: 56 }],
+                 ["write", "b4", { after: "b3", gap: 40 }, "(clueless)", { size: 48, color: "gray" }]] },
+        { say: "Abiathar, in recognition of his service to David, is only removed from the priesthood and sent back to his hometown.",
+          draw: [["write", "b5", [120, 540], "Abiathar", { color: "blue" }],
+                 ["write", "b6", { after: "b5", gap: 40 }, ": priesthood removed · sent home", { size: 56 }]] },
+        { say: "When Joab hears the news, he flees and grabs the horns of the altar, but he is dragged out and killed.",
+          draw: [["write", "b7", [120, 660], "Joab", { color: "red" }],
+                 ["write", "b8", { after: "b7", gap: 40 }, ": held altar horns, still dies", { size: 56 }]] },
+        { say: "Shimei was told he would die if he left Jerusalem. Three years later he goes out after runaway slaves, gets caught, and dies. Solomon was looking for a pretext to kill him, but if you're that foolish, nothing can be done.",
+          draw: [["write", "b9", [120, 780], "Shimei", { color: "red" }],
+                 ["write", "b10", { after: "b9", gap: 40 }, ": left Jerusalem → dies", { size: 56 }]] }
+      ]
+    },
+    {
+      id: "wisdom", title: "A Listening Heart",
+      beats: [
+        { say: "Chapter 3. Solomon makes a political marriage with the daughter of Pharaoh, king of Egypt. A nation that had once been slaves has now become a country even Egypt can't ignore.",
+          draw: [["clear"],
+                 ["title", "t", "Solomon's start"],
+                 ["write", "c1", [120, 290], "marries Pharaoh's daughter", { size: 60 }],
+                 ["write", "c2", { after: "c1", gap: 50 }, "→ can't be ignored", { size: 56, color: "blue" }]] },
+        { say: "But they still sacrificed at the high places. The high places were mostly where foreign gods were worshiped, and sacrifices to God were mixed in with that. Good kings always removed the high places, but they only disappeared after the Babylonian Exile.",
+          draw: [["write", "c3", [120, 400], "high places = foreign gods + God mixed", { size: 56, color: "red" }],
+                 ["under", "c3"]] },
+        { say: "The thousand burnt offerings at the high place of Gibeon were not a thousand separate sacrifices. They were offered all at once, with a thousand oxen. The word eleph can mean the number a thousand, and it can also mean ox.",
+          draw: [["write", "c4", [120, 520], "1,000 burnt offerings", { color: "blue" }],
+                 ["write", "c5", { after: "c4", gap: 40 }, "= 1,000 at once", { size: 56 }],
+                 ["write", "c6", { below: "c4", gap: 70 }, "(eleph = 1,000 / ox)", { size: 46, color: "gray" }]] },
+        { say: "When God asks what he should give him, Solomon asks for a listening heart to judge the people. Because you have asked this thing! That's one of the few times in the Bible that God exclaims in delight.",
+          draw: [["write", "c7", [120, 690], "listening heart", { size: 72, color: "red" }],
+                 ["circle", "c7"],
+                 ["write", "c8", { after: "c7", gap: 60 }, "\"you have asked this\"", { size: 56, color: "green" }]] },
+        { say: "Right away comes the case of the two prostitutes. Cut the child in two! The real mother says, Just give him to her. Only through this did Solomon's rule become firm.",
+          draw: [["write", "c9", [120, 810], "two prostitutes' case → firm rule", { size: 56 }]] }
+      ]
+    },
+    {
+      id: "burden", title: "A Heavy Yoke",
+      beats: [
+        { say: "Chapter 4. Twelve officers each provided food for the royal household for one month a year. That means the tax rate was enormous. One day's provisions works out to food for five thousand people, in a tiny little country.",
+          draw: [["clear"],
+                 ["title", "t", "Solomon's shadow"],
+                 ["write", "d1", [120, 290], "12 officers · 5,000 a day", { size: 60 }],
+                 ["write", "d2", { below: "d1", gap: 90 }, "→ heavy taxes", { size: 60, color: "red" }]] },
+        { say: "On top of that, thirteen years for the palace and seven years for the temple. The people suffered under forced labor. Later, under Rehoboam, the nation splits in two. But the one who really split the nation was Solomon.",
+          draw: [["write", "d3", [120, 500], "forced labor (palace 13 · temple 7 yrs)", { size: 56 }],
+                 ["write", "d4", [120, 610], "Solomon split the nation", { color: "red" }],
+                 ["under", "d4"]] },
+        { say: "The king was told not to multiply horses, but he had forty thousand stalls. He also took many wives and piled up much silver and gold.",
+          draw: [["photo", "p2", "img/image133.jpg", [1100, 190, 420, 237], { tilt: -2, caption: "The king shall not…" }],
+                 ["write", "d5", [120, 730], "horses · wives · gold", { color: "blue" }],
+                 ["write", "d6", { after: "d5", gap: 40 }, "→ breaks the Law", { size: 56 }]] },
+        { say: "If you look closely, Solomon was full of vanity and loved to show off, and in his last years he was a king corrupted by foreign women.",
+          draw: [["write", "d7", [120, 840], "wise king? vanity · show · late fall", { size: 50, color: "gray" }]] }
+      ]
+    },
+    {
+      id: "temple", title: "Building the Temple",
+      beats: [
+        { say: "Chapter 5 is the preparation for building, and in fact David had already prepared a great deal. In chapter 6 he builds the temple. Converted, it's about two hundred forty square meters, not very big.",
+          draw: [["clear"],
+                 ["title", "t", "Temple and palace"],
+                 ["write", "e1", [120, 290], "temple ≈ 240 m²", { size: 64, color: "blue" }],
+                 ["write", "e2", { after: "e1", gap: 40 }, "(David prepared)", { size: 50, color: "gray" }],
+                 ["photo", "p3", "img/image134.jpg", [1110, 200, 400, 225], { tilt: 2 }]] },
+        { say: "Building the temple doesn't give you a pardon for your sins. You still have to keep the statutes and judgments.",
+          draw: [["write", "e3", [120, 410], "temple ≠ indulgence", { color: "red" }],
+                 ["box", "e3"]] },
+        { say: "Chapter 7. God's house took seven years. His own house took thirteen.",
+          draw: [["write", "e4", [120, 540], "God's house 7 yrs", { size: 60 }],
+                 ["write", "e5", { after: "e4", gap: 40 }, "vs", { size: 52, color: "gray" }],
+                 ["write", "e6", { after: "e5", gap: 40 }, "his own 13 yrs", { size: 60, color: "red" }]] },
+        { say: "Chapter 8. Solomon's prayer is based on Leviticus 26. When they are defeated, when there is no rain, in famine and disaster, when they are carried off as captives, if they pray toward this temple, please hear them.",
+          draw: [["write", "e7", [120, 670], "basis of prayer = Lev 26", { color: "blue" }],
+                 ["under", "e7", "blue"]] },
+        { say: "He prays as if he knew what was going to happen later. Daniel, in exactly that situation, prayed toward the temple and was saved.",
+          draw: [["write", "e8", [120, 800], "captive, pray toward temple", { size: 56 }],
+                 ["write", "e9", { after: "e8", gap: 110 }, "Daniel", { size: 64, color: "green" }],
+                 ["arrow", "e8", "e9", "green"]] }
+      ]
+    },
+    {
+      id: "sheba", title: "Dedication and Warning",
+      beats: [
+        { say: "At the dedication, he offers peace offerings of twenty-two thousand oxen and a hundred twenty thousand sheep. Anyway, he's a man who wins by sheer numbers.",
+          draw: [["clear"],
+                 ["title", "t", "Dedication and after"],
+                 ["write", "f1", [120, 290], "22,000 oxen · 120,000 sheep", { size: 60 }],
+                 ["write", "f2", { after: "f1", gap: 50 }, "(sheer numbers)", { size: 50, color: "gray" }]] },
+        { say: "Chapter 9. God appears again. I will put my name, my eyes, and my heart there. But if you don't keep my statutes and judgments, I will cast even this temple out of my sight.",
+          draw: [["write", "f3", [120, 410], "but disobey → even temple goes", { color: "red" }],
+                 ["under", "f3"]] },
+        { say: "2 Chronicles chapter 7 has a gentler tone. Why Kings and Chronicles are so different, I'll explain when we get to Chronicles. Keep it in mind.",
+          draw: [["write", "f4", [120, 530], "Kings ≠ Chronicles in tone → explained later", { size: 50, color: "gray" }]] },
+        { say: "Solomon reigned forty years. Twenty years he spent building, and the other twenty he spent wrapped up in women's skirts, falling into corruption.",
+          draw: [["write", "f5", [120, 650], "40 yrs = 20 building + 20 falling", { color: "blue" }],
+                 ["box", "f5", "blue"]] },
+        { say: "Chapter 10. The queen of Sheba comes to test him. Sheba is today's Yemen. She says he's more than the reports, and she praises God. But when you have lots of time and lots of money, you will surely fall into corruption.",
+          draw: [["write", "f6", [120, 780], "queen of Sheba (Yemen)", { size: 56 }],
+                 ["write", "f7", { after: "f6", gap: 60 }, "time + money → fall", { size: 60, color: "red" }]] }
+      ]
+    },
+    {
+      id: "fall", title: "Solomon's Fall",
+      beats: [
+        { say: "Chapter 11. Solomon builds high places for foreign gods, for his foreign wives. He turned Jerusalem into a world religion fair.",
+          draw: [["clear"],
+                 ["title", "t", "Solomon's fall (ch. 11)"],
+                 ["write", "g1", [120, 290], "Jerusalem = world religion fair", { color: "red" }]] },
+        { say: "And the result? Just as the rules of reward and punishment in Leviticus 26 say, enemies rise up. Hadad the Edomite, Rezon, and Jeroboam son of Nebat, Solomon's own servant.",
+          draw: [["write", "g2", [120, 410], "enemies: Hadad · Rezon · Jeroboam", { size: 60 }],
+                 ["circle", "g2"]] },
+        { say: "The prophet Ahijah tears his garment into twelve pieces and gives ten pieces to Jeroboam. I will give you ten tribes. But keep the law faithfully.",
+          draw: [["write", "g3", [120, 530], "Ahijah's robe: 12 pieces", { size: 60 }],
+                 ["write", "g4", { after: "g3", gap: 110 }, "10 = Jeroboam", { size: 60, color: "blue" }],
+                 ["arrow", "g3", "g4"]] },
+        { say: "Verse 33. The reason is terrible. Because they have worshiped Ashtoreth, Chemosh, and Milcom, and have not walked in my ways as David did. Verses like this show God's heart exactly.",
+          draw: [["write", "g5", [120, 660], "v. 33 = God's heart", { color: "red" }],
+                 ["write", "g6", { after: "g5", gap: 50 }, "Ashtoreth · Chemosh · Milcom", { size: 50, color: "gray" }]] },
+        { say: "The reason Korean Christianity is criticized is that it just sells blessings and doesn't teach God's heart like this. People go to church for thirty years and still never grow up.",
+          draw: [["write", "g7", [120, 790], "selling blessings", { size: 60 }],
+                 ["strike", "g7"],
+                 ["write", "g8", { after: "g7", gap: 50 }, "→ teach God's heart", { size: 60, color: "green" }]] }
+      ]
+    },
+    {
+      id: "split", title: "The Kingdom Divides",
+      beats: [
+        { say: "When Solomon tries to kill Jeroboam, he flees to Egypt. There he sees calf gods being worshiped, and later, after he comes back, he causes no end of trouble.",
+          draw: [["clear"],
+                 ["title", "t", "Rehoboam and the split"],
+                 ["write", "h1", [120, 290], "Jeroboam → Egypt (sees calf gods)", { size: 56 }]] },
+        { say: "When Solomon dies and Rehoboam becomes king, the people ask him to lighten their yoke. The old men tell him to lighten it. The young men he grew up with tell him to make it heavier.",
+          draw: [["write", "h2", { at: [420, 420] }, "old men: lighter", { anchor: "middle", size: 60, color: "green" }],
+                 ["write", "h3", { at: [1140, 420] }, "young men: heavier", { anchor: "middle", size: 60, color: "red" }]] },
+        { say: "Rehoboam listens to the young men and wounds the people with harsh words. Ten tribes rebel, and the nation splits into two.",
+          draw: [["circle", "h3"],
+                 ["write", "h4", { at: [800, 560] }, "10 tribes revolt → two nations", { anchor: "middle", size: 64, color: "red" }],
+                 ["arrow", "h3", "h4"]] },
+        { say: "Chapter 12, verse 15. The cause was from the LORD. That's the historian's point of view. Solomon bears the greatest responsibility.",
+          draw: [["write", "h5", [120, 690], "\"from the LORD\" · Solomon's fault", { size: 56, color: "blue" }]] },
+        { say: "From now on, the northern kings are judged by whether they followed the sin of Jeroboam, and the southern kings by whether they were like David or not.",
+          draw: [["write", "h6", [120, 810], "North: Jeroboam's sin", { size: 56, color: "red" }],
+                 ["write", "h7", { after: "h6", gap: 80 }, "South: like David?", { size: 56, color: "green" }]] }
+      ]
+    },
+    {
+      id: "jeroboam", title: "The Sin of Jeroboam",
+      beats: [
+        { say: "The people kept going down to the southern kingdom, so, afraid for his throne, Jeroboam made golden calves, made ordinary people priests, and changed the dates of the feasts.",
+          draw: [["clear"],
+                 ["title", "t", "The sin of Jeroboam"],
+                 ["write", "i1", [120, 290], "golden calves · common priests · new feasts", { size: 52, color: "red" }],
+                 ["under", "i1"]] },
+        { say: "Chapter 13. As he is burning incense at Bethel, a man of God appears and cries out. A son named Josiah will be born to the house of David, and on this altar he will offer the priests of the high places.",
+          draw: [["write", "i2", [120, 410], "\"O altar, altar\" → Josiah foretold", { size: 60, color: "blue" }]] },
+        { say: "Seize him! Jeroboam's outstretched hand dries up on the spot. He quickly backs down and asks for prayer, and his hand is restored.",
+          draw: [["write", "i3", [120, 530], "hand dries up", { size: 60 }],
+                 ["write", "i4", { after: "i3", gap: 110 }, "healed by prayer", { size: 60, color: "green" }],
+                 ["arrow", "i3", "i4"]] },
+        { say: "The man of God refuses a reward, saying he was told not to eat bread or drink water. But an old prophet deceives him, and in the end he dies. The one who lied was in the wrong, yet the prophet who was deceived died. I see it as God punishing strictly because it was an evil age.",
+          draw: [["write", "i5", [120, 650], "deceived by old prophet → dies", { size: 56, color: "red" }]] },
+        { say: "Jeroboam doesn't come to his senses and keeps on sinning, and his son dies. But chapter 14, verse 13. Only this child will come to the grave, because in him there was found some good thing toward the LORD.",
+          draw: [["write", "i6", [120, 780], "14:13 only he to the grave", { size: 60 }],
+                 ["write", "i7", { after: "i6", gap: 50 }, "(some good)", { size: 56, color: "green" }]] }
+      ]
+    },
+    {
+      id: "judah", title: "The Kings of Judah",
+      beats: [
+        { say: "In the southern kingdom, Rehoboam too falls into sin. He sets up high places, idols, and Asherah poles, and copies the wrongs of the nations that had been driven out.",
+          draw: [["clear"],
+                 ["title", "t", "Southern Judah"],
+                 ["write", "j1", [120, 290], "Rehoboam: high places · idols · Asherah", { size: 56, color: "red" }]] },
+        { say: "His mother was Naamah, an Ammonite. The text keeps mentioning his mother's name, quietly hinting that it's because of this woman. In Rehoboam's fifth year, Shishak king of Egypt takes the treasures of the temple and the palace, even the gold shields.",
+          draw: [["write", "j2", [120, 400], "mother Naamah (Ammon)", { size: 52, color: "gray" }],
+                 ["write", "j3", { after: "j2", gap: 60 }, "Shishak takes treasures", { size: 52 }]] },
+        { say: "Abijam did the same sins as his father, but for David's sake, God let his line continue.",
+          draw: [["write", "j4", [120, 520], "Abijam: heir for David's sake", { size: 56 }]] },
+        { say: "Asa did what was right, like David. He removed the idols, and he removed his mother Maacah from being queen mother, because she had made an Asherah image. But he didn't remove the high places.",
+          draw: [["write", "j5", [120, 640], "Asa: upright like David", { color: "green" }],
+                 ["box", "j5", "green"],
+                 ["write", "j6", { after: "j5", gap: 50 }, "(high places stay)", { size: 50, color: "gray" }]] },
+        { say: "The flaw in the jewel is this. When Baasha attacked, he scraped together the silver and gold left in the temple and palace and gave it to Ben-hadad, king of Aram. Even though God had said not to rely on great powers.",
+          draw: [["write", "j7", [120, 770], "a flaw: silver & gold to Ben-hadad", { size: 56, color: "red" }]] }
+      ]
+    },
+    {
+      id: "israel", title: "The Kings of Northern Israel",
+      beats: [
+        { say: "In the north, Jeroboam's son Nadab becomes king, but Baasha kills him and wipes out Jeroboam's whole line. Just as God had said through Ahijah.",
+          draw: [["clear"],
+                 ["title", "t", "Northern Israel"],
+                 ["write", "k1", [120, 290], "Nadab", { size: 60 }],
+                 ["write", "k2", { after: "k1", gap: 100 }, "Baasha", { size: 60 }],
+                 ["arrow", "k1", "k2"],
+                 ["write", "k3", { after: "k2", gap: 50 }, "Jeroboam's line wiped out", { size: 50, color: "gray" }]] },
+        { say: "Baasha also walks in the way of Jeroboam, and the prophet Jehu says, I will sweep away your house too. His son Elah is killed by the army commander Zimri, and Baasha's line is wiped out.",
+          draw: [["write", "k4", [120, 410], "Elah", { size: 60 }],
+                 ["write", "k5", { after: "k4", gap: 100 }, "Zimri", { size: 60 }],
+                 ["arrow", "k4", "k5"],
+                 ["write", "k6", { after: "k5", gap: 50 }, "as Jehu (prophet) said", { size: 50, color: "gray" }]] },
+        { say: "Zimri was king for seven days. When the people made Omri king, Zimri set the palace on fire and killed himself.",
+          draw: [["write", "k7", [120, 530], "Zimri 7 days", { size: 60, color: "red" }],
+                 ["write", "k8", { after: "k7", gap: 100 }, "Omri", { size: 60 }],
+                 ["arrow", "k7", "k8"]] },
+        { say: "Omri buys a hill for two talents of silver, names it Samaria, and builds a city. He did more evil than everyone before him.",
+          draw: [["write", "k9", [120, 650], "Omri: builds Samaria · more evil", { size: 56 }]] },
+        { say: "And then Ahab. He was more evil than all the kings before him. He took Jezebel as his wife, served Baal, and even built an altar for Baal in Samaria.",
+          draw: [["write", "k10", [120, 790], "Ahab + Jezebel = Baal", { size: 72, color: "red" }],
+                 ["box", "k10"]] }
+      ]
+    },
+    {
+      id: "elijah", title: "Elijah",
+      beats: [
+        { say: "Until now it was the sin of Jeroboam, the golden calves. Now Jezebel spreads Baal worship. When a powerful prophet appears, it means the age is that evil.",
+          draw: [["clear"],
+                 ["title", "t", "Elijah"],
+                 ["write", "l1", [120, 290], "great prophet = evil age", { color: "blue" }]] },
+        { say: "Elijah didn't change Ahab and Jezebel at all. God works personally, through persons, so even with almighty power, there are many things that just don't happen.",
+          draw: [["write", "l2", [120, 410], "power can't do it", { color: "red" }],
+                 ["write", "l3", { after: "l2", gap: 40 }, "(God works personally)", { size: 52, color: "gray" }]] },
+        { say: "Elijah means 'The LORD is God.' He is fed by ravens. Then he raises the son of the widow of Zarephath, in the land of Sidon, Jezebel's home country, and she confesses, You are a man of God.",
+          draw: [["write", "l4", [120, 530], "Elijah = the LORD is God", { size: 60, color: "blue" }],
+                 ["write", "l5", { after: "l4", gap: 50 }, "ravens · widow", { size: 52, color: "gray" }]] },
+        { say: "On Mount Carmel: How long will you waver between two opinions? God answers with fire, and the prophets of Baal are all killed.",
+          draw: [["write", "l6", [120, 650], "Mt. Carmel: answer by fire", { color: "red" }],
+                 ["circle", "l6"]] },
+        { say: "When Jezebel threatens to kill him, Elijah runs away to Beersheba and on to Mount Horeb and asks God to take his life. God says there's still a mountain of work to do and sends him back. Elisha, plowing with twelve yoke of oxen, follows him the moment Elijah throws his cloak on him. He gets it instantly.",
+          draw: [["write", "l7", [120, 780], "flees → much work left", { size: 56 }],
+                 ["write", "l8", { after: "l7", gap: 60 }, "Elisha: gets it instantly", { size: 56, color: "green" }]] }
+      ]
+    },
+    {
+      id: "naboth", title: "Ben-hadad and Naboth",
+      beats: [
+        { say: "Chapter 20. Ben-hadad, who had once received gold from Asa, seems to have gotten a taste for it. He gathers thirty-two vassal kings and besieges Samaria. God helps, and Israel wins.",
+          draw: [["clear"],
+                 ["title", "t", "Ahab's mistake"],
+                 ["write", "m1", [120, 290], "Ben-hadad + 32 kings", { size: 60 }],
+                 ["write", "m2", { after: "m1", gap: 110 }, "God gives victory", { size: 60, color: "green" }],
+                 ["arrow", "m1", "m2"]] },
+        { say: "The terms of surrender are to return the captured cities and to make streets for Ahab in Damascus. Ahab likes this and lets Ben-hadad go. The bear did the tricks, but someone else takes the credit.",
+          draw: [["write", "m3", [120, 410], "Ahab's streets in Damascus", { size: 60, color: "red" }],
+                 ["write", "m4", { after: "m3", gap: 50 }, "→ let go", { size: 56 }]] },
+        { say: "A prophet appears. You let go the man I had devoted to destruction, so your life will go for his life.",
+          draw: [["write", "m5", [120, 530], "\"your life for his life\"", { size: 56, color: "gray" }]] },
+        { say: "Chapter 21, verse 1. It came to pass after these things. We studied this with David, didn't we? Because of the earlier event, the later event happened. This is the story of Ahab seizing Naboth's vineyard and in the end dying.",
+          draw: [["write", "m6", [120, 660], "after these things", { color: "blue" }],
+                 ["under", "m6", "blue"],
+                 ["write", "m7", { below: "m6", gap: 110 }, "Naboth's vineyard", { size: 60, color: "red" }]] },
+        { say: "Jezebel schemes. She sends her daughter Athaliah to Judah to marry Jehoram. Then kill Jehoram and unite north and south. This becomes Jehoshaphat's decisive mistake.",
+          draw: [["photo", "p4", "img/image140.jpg", [1120, 420, 400, 225], { tilt: 2, caption: "North-south royal family ties" }],
+                 ["write", "m8", { at: [1310, 300] }, "Athaliah → Judah", { anchor: "middle", size: 52, color: "red" }]] }
+      ]
+    },
+    {
+      id: "ahab", title: "Ahab's End",
+      beats: [
+        { say: "When Ahab proposes taking back Ramoth-gilead, his in-law Jehoshaphat says yes without thinking. Then, oops, let's call a prophet.",
+          draw: [["clear"],
+                 ["title", "t", "Ramoth-gilead"],
+                 ["write", "n1", [120, 290], "Jehoshaphat: thoughtless Yes", { size: 60 }]] },
+        { say: "Four hundred false prophets sing in chorus: Go up! The technical term for this is a rigged card game.",
+          draw: [["write", "n2", [120, 410], "chorus of 400", { size: 60 }],
+                 ["write", "n3", { after: "n2", gap: 50 }, "= rigged game", { size: 60, color: "red" }]] },
+        { say: "The true prophet Micaiah says he has seen God's royal council. The topic was how to kill Ahab. One spirit said it would become a lying spirit.",
+          draw: [["write", "n4", [120, 530], "Micaiah: council = how to kill Ahab", { size: 56, color: "blue" }]] },
+        { say: "Once he knew it wasn't God's will, he shouldn't have gone, but Jehoshaphat goes along again. Ahab sweet-talks him: I'll go as an ordinary soldier, and you, my in-law, be the commander. All this came out of Jezebel's head.",
+          draw: [["write", "n5", [120, 650], "Ahab soldier · Jehoshaphat commander", { size: 56 }],
+                 ["write", "n6", { after: "n5", gap: 50 }, "(Jezebel's plan)", { size: 50, color: "gray" }]] },
+        { say: "In the end, only Ahab dies in this battle. An arrow shot by some soldier happens to go right between the joints of his armor. Ahab's son Ahaziah also serves Baal. That's the end of 1 Kings.",
+          draw: [["write", "n7", [120, 780], "arrow through armor", { size: 60 }],
+                 ["write", "n8", { after: "n7", gap: 110 }, "only Ahab dies", { size: 72, color: "red" }],
+                 ["arrow", "n7", "n8"],
+                 ["circle", "n8"]] }
+      ]
+    }
+  ]
+};

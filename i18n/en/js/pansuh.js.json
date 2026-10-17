@@ -1,0 +1,10 @@
+{
+ "${esc(book)}의 판서 강의는 아직 없습니다.": "There is no whiteboard lecture for ${esc(book)} yet.",
+ "${esc(current.title)} · 판서 강의": "${esc(current.title)} · Whiteboard Lectures",
+ "슬라이드·원고까지 새 창에서 보기 ↗": "Open with slides and lecture notes in a new window ↗",
+ "${esc(current.title)} 판서 강의": "${esc(current.title)} whiteboard lecture",
+ "칠판의 ▶를 누르면 목소리와 함께 판서가 그려집니다. 슬라이드 ${current.slides}장 분량의 강의 원고를 바탕으로 했습니다.": "Press ▶ on the board, and the whiteboard notes are drawn along with the voice. It is based on lecture notes covering ${current.slides} slides.",
+ "${part.pages.length}강": "${part.pages.length} lectures",
+ "슬라이드 ${pg.slides}": "${pg.slides} slides",
+ "▶ 판서 강의": "▶ Whiteboard lecture"
+}
