@@ -55,7 +55,10 @@
 
       <!-- 메인 뷰 전환 탭 -->
       <nav class="hidden md:flex items-center gap-1 bg-slate-100 dark:bg-slate-800/80 p-1 rounded-xl border border-slate-200 dark:border-slate-700/50">
-        <button data-nav-view="bible" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all text-amber-600 bg-white dark:bg-slate-900 shadow-sm active">
+        <button data-nav-view="pansuh" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all text-amber-600 bg-white dark:bg-slate-900 shadow-sm active">
+          🖍️ 판서 강의
+        </button>
+        <button data-nav-view="bible" class="px-4 py-1.5 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
           📖 66권 강좌 탐색
         </button>
         <button data-nav-view="timeline" class="px-4 py-1.5 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
@@ -63,9 +66,6 @@
         </button>
         <button data-nav-view="files" class="px-4 py-1.5 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
           📽️ 강의 슬라이드 &amp; 미디어
-        </button>
-        <button data-nav-view="pansuh" class="px-4 py-1.5 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
-          🖍️ 판서 강의
         </button>
       </nav>
 
@@ -100,10 +100,10 @@
 
     <!-- 모바일 전용 뷰 탭 -->
     <div class="flex md:hidden border-t border-slate-200 dark:border-slate-800 px-4 py-2 bg-slate-50 dark:bg-slate-900 justify-around text-xs font-bold">
-      <button data-nav-view="bible" class="text-amber-600">66권 강좌</button>
+      <button data-nav-view="pansuh" class="text-amber-600">판서 강의</button>
+      <button data-nav-view="bible" class="text-slate-500">66권 강좌</button>
       <button data-nav-view="timeline" class="text-slate-500">연대기 타임라인</button>
       <button data-nav-view="files" class="text-slate-500">슬라이드 &amp; 미디어</button>
-      <button data-nav-view="pansuh" class="text-slate-500">판서 강의</button>
     </div>
   </header>
 
@@ -115,7 +115,7 @@
     <!-- ================================================================== -->
     <!-- VIEW 1: 66권 강좌 탐색 (Bible Navigator & Detail) -->
     <!-- ================================================================== -->
-    <section id="view-bible" class="space-y-5">
+    <section id="view-bible" class="hidden space-y-5">
       
       <!-- 상단 필터 & 검색 바 -->
       <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
@@ -399,7 +399,7 @@
     <!-- ================================================================== -->
     <!-- VIEW 4: 판서 강의 (pansuh/ 칠판 강의 76강) — js/pansuh.js가 채운다 -->
     <!-- ================================================================== -->
-    <section id="view-pansuh" class="hidden space-y-6 animate-fade-in">
+    <section id="view-pansuh" class="space-y-6 animate-fade-in">
       <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
         <div class="max-w-4xl">
           <div class="flex flex-wrap items-center gap-2 mb-2">
