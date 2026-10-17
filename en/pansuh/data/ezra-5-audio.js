@@ -1,19 +1,19 @@
-// 판서 녹음 목록 (선희 AI 음성). tools/make_audio.py가 만든다. 손으로 고치지 말 것.
+// 판서 녹음 목록 (Ava AI 음성). tools/make_audio.py가 만든다. 손으로 고치지 말 것.
 window.BOARD_AUDIO = {
-"선지자 학개와 잇도의 손자 스가랴가 유다 사람들에게 예언합니다. 방금 우리가 공부한 학개서, 스가랴서죠.": "audio/ezra-5/d841956c5f3a.mp3",
-"그러자 스룹바벨과 예수아가 일어나 하나님의 전 건축을 시작하고, 선지자들이 함께 돕습니다.": "audio/ezra-5/49d1e071591e.mp3",
-"사람이 하려고 해야 선지자도 도울 수 있고, 하나님도 도우실 수 있어요.": "audio/ezra-5/8ab0c2cdac9d.mp3",
-"건축이 다시 시작되니까, 강 서편 총독 닷드내와 스달보스내와 그 동료들이 또 시비를 걸어 옵니다.": "audio/ezra-5/204297711667.mp3",
-"그래서 이번에는 다리오 왕에게 고레스의 조서를 한번 찾아보라고 건의를 해요.": "audio/ezra-5/d3c6b4374735.mp3",
-"다리오 왕이 바벨론 서적 곳간을 조사하게 하니, 메대 도 악메다 궁에서 두루마리 하나가 나옵니다.": "audio/ezra-5/34821a021160.mp3",
-"다리우스가 스룹바벨의 친구인데, 청원이 들어오니까 알아봤더니 성전 건축 정식 허가서가 나와 버렸네?": "audio/ezra-5/073a4601fb64.mp3",
-"잘됐다, 방해하려고 민원 넣고 난리 치더니, 허가서가 나왔으니 이제 입 다물어야지.": "audio/ezra-5/1d7d47a1389b.mp3",
-"그래서 왕이 엄명을 내립니다. 당장 성전 건축을 도와라. 방해하는 놈은 다 죽이고, 그 집을 거름터로 만들라.": "audio/ezra-5/75b60a287739.mp3",
-"방해하려던 사람들이 혼쭐이 나서 신속히 도와주니, 일사천리로 진행됩니다. 다리오 왕 6년 아달월 3일에 성전이 완공돼요.": "audio/ezra-5/8bd6337b09f2.mp3",
-"B.C 516년에 완공해서, 성전이 무너진 후 70년 만에 정확히 회복되었습니다.": "audio/ezra-5/938cf2cc631c.mp3",
-"이스라엘 자손이 즐거이 하나님의 전 봉헌식을 행합니다.": "audio/ezra-5/9adc71cb98b8.mp3",
-"제사장의 반차, 그러니까 당번을 다시 세워서 성전 봉사를 하게 하고, 정월 14일에 유월절을 지킵니다.": "audio/ezra-5/cf4b8994284e.mp3",
-"그리고 자기 땅 이방 사람의 더러운 것들을 다 제하여 버립니다.": "audio/ezra-5/c73fc67cc68c.mp3",
-"여기까지가 에스라서 1부입니다. 그 사이에 에스더 시대가 있고, 7장부터 10장까지는 에스라가 인솔한 2차 귀환 이야기가 나와요.": "audio/ezra-5/d87dc5214d59.mp3",
-"자, 이때 페르시아에서는 유대인들이 몰살당할 뻔한 일이 있었어요. 페르시아에 나가 있는 에스더 특파원 연결해 보겠습니다.": "audio/ezra-5/dcfdad4f09c0.mp3"
+"So, the prophets Haggai and Zechariah, Iddo's grandson, prophesied to the Jews. Yes, that's the same Haggai and Zechariah we just studied.": "../../pansuh/audio-en/ezra-5/52c104c874f1.mp3",
+"And then Zerubbabel and Jeshua got up and started building the house of God again. And the prophets were right there with them, helping.": "../../pansuh/audio-en/ezra-5/356a7ad7b9ee.mp3",
+"Here's the thing. People have to be willing first. Then the prophets can help, and God helps too.": "../../pansuh/audio-en/ezra-5/235c95fdd271.mp3",
+"Now, as soon as the building starts again, guess who shows up? Tattenai, the governor beyond the River, Shethar-bozenai, and their friends, picking a fight all over again.": "../../pansuh/audio-en/ezra-5/b1f2aeaf273e.mp3",
+"So this time, they suggest to King Darius, why don't you look for the decree of Cyrus?": "../../pansuh/audio-en/ezra-5/d13803653def.mp3",
+"So King Darius has the archives in Babylon searched. And a scroll turns up in the palace at Ecbatana, over in the province of Media.": "../../pansuh/audio-en/ezra-5/a2d42eba1a73.mp3",
+"Now, Darius was a friend of Zerubbabel's. When the petition came in, he checked it out, and what did they find? An official permit to build the temple!": "../../pansuh/audio-en/ezra-5/d4428361b7ca.mp3",
+"Good. They complained and made a big fuss to stop it. But now that the permit has turned up? They'd better keep quiet.": "../../pansuh/audio-en/ezra-5/26d37305bc96.mp3",
+"So the king gives a strict order. Help build the temple, right now. Anyone who gets in the way will be put to death, and his house will be made a dunghill.": "../../pansuh/audio-en/ezra-5/840170365218.mp3",
+"Well, the people who'd tried to block it got a real scare. They helped fast, and everything went smoothly. The temple was finished on the third day of the month Adar, in the sixth year of King Darius.": "../../pansuh/audio-en/ezra-5/4e3976b45d2a.mp3",
+"That's 516 B.C. Exactly seventy years after the temple was destroyed. Think about that.": "../../pansuh/audio-en/ezra-5/9b7d4e30c157.mp3",
+"And the children of Israel held the dedication of the house of God with great joy.": "../../pansuh/audio-en/ezra-5/fc7005347c35.mp3",
+"They set the priests in their divisions again, their duty rotations, so they could serve in the temple. And they kept the Passover on the fourteenth day of the first month.": "../../pansuh/audio-en/ezra-5/a0657092e490.mp3",
+"And they separated themselves from all the filthiness of the nations of the land.": "../../pansuh/audio-en/ezra-5/11d6fcaea4cf.mp3",
+"And that's the end of part one of Ezra. In between comes the time of Esther. Then chapters 7 to 10 tell about the second return, the one Ezra led.": "../../pansuh/audio-en/ezra-5/709af4ee690d.mp3",
+"Now, around this time in Persia, the Jews almost got wiped out. Let's go live to our correspondent Esther, reporting from Persia.": "../../pansuh/audio-en/ezra-5/d287845b13d2.mp3"
 };

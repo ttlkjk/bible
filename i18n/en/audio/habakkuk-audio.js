@@ -1,0 +1,27 @@
+// 판서 녹음 목록 (Ava AI 음성). tools/make_audio.py가 만든다. 손으로 고치지 말 것.
+window.BOARD_AUDIO = {
+"Okay, Habakkuk. He's a prophet who served around the same time as Zephaniah and Jeremiah.": "../../pansuh/audio-en/habakkuk/40e9f5a44ad9.mp3",
+"Picture it. The Babylonian army has come and surrounded Jerusalem. People are being killed, and people are being carried off.": "../../pansuh/audio-en/habakkuk/aabe97cb751d.mp3",
+"Now, if you've lost a war and you're under siege, what does that mean? It's God's discipline. And not a light one, either. It's discipline of a middle level.": "../../pansuh/audio-en/habakkuk/7169bf392d2e.mp3",
+"God held back His anger again and again, and only then did He discipline them. Even if they just took the beating quietly and repented, it still wouldn't be enough.": "../../pansuh/audio-en/habakkuk/0466450eb947.mp3",
+"But Habakkuk? He argues with God. You're God, so why are You just standing there? The wicked are tormenting the righteous. Is this normal?": "../../pansuh/audio-en/habakkuk/86cd8f6154f7.mp3",
+"Chapter 1, verses 1 to 4. O Lord, how long shall I cry, and thou wilt not hear! The wicked doth compass about the righteous; therefore wrong judgment proceedeth.": "../../pansuh/audio-en/habakkuk/130deda3e50b.mp3",
+"In Habakkuk's mind, the wicked are Babylon, and the righteous are Jerusalem. And he's fuming.": "../../pansuh/audio-en/habakkuk/02755a81ecf2.mp3",
+"But God says, I sent them. I raised up the Chaldeans, that bitter and hasty nation.": "../../pansuh/audio-en/habakkuk/c4034d9fed79.mp3",
+"And then He says, I was going to destroy them anyway. Why? Because they tormented you far too much.": "../../pansuh/audio-en/habakkuk/3d22ff33ade8.mp3",
+"So Habakkuk boldly says, I'm going to climb up to the watchtower, and I'll hear what God answers.": "../../pansuh/audio-en/habakkuk/1f63b97485cc.mp3",
+"God is just dumbfounded, and He answers him. The vision is for an appointed time. Though it tarry, it will surely come. Until then, Babylon gets to strut around.": "../../pansuh/audio-en/habakkuk/0f7c5207f02e.mp3",
+"Chapter 2, verse 4. The just shall live by his faith. In other words, the righteous won't die, because of their faith.": "../../pansuh/audio-en/habakkuk/ec8e4c2a2de1.mp3",
+"But people died yesterday too! Well, those weren't righteous. And lots of people died today! They weren't righteous either.": "../../pansuh/audio-en/habakkuk/a454d624679b.mp3",
+"So is there no one righteous? None. Not even one? Not even one.": "../../pansuh/audio-en/habakkuk/bb5b1c0eb67d.mp3",
+"See, Habakkuk said they were the righteous and Babylon was the wicked, and he wanted the righteous saved. But God says there isn't a single righteous person. And a Jerusalem with not one righteous person left? That's no different from Babylon.": "../../pansuh/audio-en/habakkuk/2e5e553b206c.mp3",
+"So look at verse 6. Those who will bite Babylon are going to rise up, suddenly.": "../../pansuh/audio-en/habakkuk/9eb1dbb6d000.mp3",
+"And that's exactly what happened. In 539 B.C., Babylon fell to Cyrus, the king of Persia.": "../../pansuh/audio-en/habakkuk/21c848bd493e.mp3",
+"Chapter 2, verse 14. For the earth shall be filled with the knowledge of the glory of the Lord, as the waters cover the sea. When the nations see mighty Babylon fall, they'll all acknowledge the glory of the Lord.": "../../pansuh/audio-en/habakkuk/ef1e236c16e9.mp3",
+"Now, this has already been fulfilled. So it's not something that's still coming. That song we sing? It doesn't really fit.": "../../pansuh/audio-en/habakkuk/83e0f0d5d4a4.mp3",
+"Once Habakkuk hears all this, he starts to tremble. Why does Babylon fall? Because it tormented Israel far too much.": "../../pansuh/audio-en/habakkuk/d4b1c5462472.mp3",
+"Then it's already settled that Israel gets trampled by Babylon, isn't it? When that sinks in, his whole body starts shaking.": "../../pansuh/audio-en/habakkuk/0bd21d37b913.mp3",
+"Chapter 3, verse 2. In wrath remember mercy. The Lord's work here is the fall of Babylon and of Israel, and right in the middle of it, he pleads for mercy.": "../../pansuh/audio-en/habakkuk/dad194e964f0.mp3",
+"He's thinking, maybe I'm not righteous either. If I keep complaining like this, maybe I'll be cast away too. I'd better pull myself together.": "../../pansuh/audio-en/habakkuk/0def298416d2.mp3",
+"So here's the song he sang, trembling. Although the fig tree shall not blossom, neither shall fruit be in the vines, yet I will rejoice in the Lord.": "../../pansuh/audio-en/habakkuk/70e78896acfd.mp3"
+};

@@ -1,18 +1,18 @@
-// 판서 녹음 목록 (선희 AI 음성). tools/make_audio.py가 만든다. 손으로 고치지 말 것.
+// 판서 녹음 목록 (Ava AI 음성). tools/make_audio.py가 만든다. 손으로 고치지 말 것.
 window.BOARD_AUDIO = {
-"역대기는 아담부터 시작해서 고레스 칙령까지의 역사를 다룹니다.": "audio/chronicles/4cd96c56a8f0.mp3",
-"열왕기서는 여호수아, 사사기, 룻기, 사무엘서로 이어져 온 역사를 자연스럽게 기록하는데, 역대기는 그 시작을 아담 때까지 거슬러 올라가요. 근원까지 파헤쳐 봤다는 뜻이고, 분명한 목적이 있다는 겁니다.": "audio/chronicles/831586d3ea6a.mp3",
-"바벨론 포로에서 70년 만에 돌아와 보니, 나라가 엉망이에요. 완전히 무너져 버린 황무지 같은 곳에서 새로 시작하려는 상황입니다.": "audio/chronicles/b204244a05a8.mp3",
-"이번에는 바벨론에서 배운 것도 있겠다, 제대로 해 보고 싶은 거죠. 과거 역사를 쭉 돌아보면서, 모델이 될 만한 국가상을 고민합니다.": "audio/chronicles/31846a468b16.mp3",
-"이 역대기를 기록한 사람은 아마도 에스라입니다.": "audio/chronicles/06eb22c26984.mp3",
-"아담, 셋, 에노스, 게난, 마할랄렐. 앞의 역사는 사람 이름만 말하는 정도로 확확 날려 버려요. 우리도 유튜브 볼 때 앞에 광고는 빨리 감기로 지나가잖아요?": "audio/chronicles/fb019fb987d2.mp3",
-"다윗과 솔로몬 시대가 나오니까, 잠깐 잠깐, 거기 좀 천천히 돌려 봐. 아예 허리띠 풀어 놓고 자세히 기록합니다.": "audio/chronicles/34e3abb55485.mp3",
-"그런데 다윗과 솔로몬이 죄와 허물이 있어요, 없어요? 그게 좀 마음에 안 드니까, 밧세바 사건은 빼 버리고, 솔로몬이 타락했던 것도 다 빼 버립니다.": "audio/chronicles/9a4fecdab1d3.mp3",
-"원래 역사는 열왕기서처럼 직필로 써야 하고, 더하고 빼면 안 되는 거예요. 하지만 역대기는 순수 역사서가 아니라, 가장 바람직한 시대를 모델로 나라를 세우려는 목적을 지닌 역사서입니다.": "audio/chronicles/7b464d9242b2.mp3",
-"그래서 본받을 것 없는 부분은 이름만 줄줄 나오고, 본받을 만한 부분은 의례, 제도, 예식, 경제까지 자세하게 다룹니다. 심지어 열왕기에서 천하의 죽일 놈이던 므낫세가 회개하고 어느 정도 용서받은 것처럼 기록해요. 이제라도, 늦었지만 하나님께 돌아가자는 심정이죠.": "audio/chronicles/e57f766ebd53.mp3",
-"역대하 36장 22절에서 23절, 고레스 칙령입니다. 여호와께서 예레미야의 입으로 하신 말씀을 응하게 하시려고, 고레스의 마음을 감동시키셨어요.": "audio/chronicles/7e915c68f810.mp3",
-"유다 예루살렘에 전을 건축하라, 너희 중에 그 백성 된 자는 다 올라갈지어다.": "audio/chronicles/9eb010af6d39.mp3",
-"에스라서 첫 부분을 펴서 포개 보세요. 그대로 일치하죠? 역사가 그대로 이어지게요.": "audio/chronicles/7d28a7a3c6b7.mp3",
-"사실 열왕기서로 이어야 제대로 이어지는 역사인데, 역대기 기자는 의도적으로 에스라서로 이어지게 썼다는 겁니다. 그래서 역대기는 적어도 고레스 칙령 이후에 기록된 거죠.": "audio/chronicles/7586a1fb8972.mp3",
-"역대기에는 열왕기에 기록되지 않은 많은 소스가 있어요. 열왕기를 읽을 때 관주된 역대기를 함께 읽으면, 당시 상황을 이해하는 데 많은 도움이 됩니다.": "audio/chronicles/e4a67b500cee.mp3"
+"Okay, Chronicles. It covers history from Adam, all the way to the decree of Cyrus.": "../../pansuh/audio-en/chronicles/42b4cfd71dc8.mp3",
+"Kings just picks up where Joshua, Judges, Ruth, and Samuel left off. But Chronicles? It goes all the way back to Adam. That tells you the writer dug right down to the roots. And he had a clear purpose.": "../../pansuh/audio-en/chronicles/0a9ec57b778b.mp3",
+"Think about it. They'd spent seventy years in the Babylonian Exile. Now they're back, and the country's a mess. They're trying to start over in a place that's become a total wasteland.": "../../pansuh/audio-en/chronicles/9ee06bcae5c3.mp3",
+"This time they'd learned a few things in Babylon, and they wanted to get it right. So they looked back over their own history and asked, what kind of nation should be our model?": "../../pansuh/audio-en/chronicles/7ed68bbca68f.mp3",
+"And who wrote Chronicles? Most likely, Ezra.": "../../pansuh/audio-en/chronicles/fd4d876ddf24.mp3",
+"Adam, Seth, Enosh, Kenan, Mahalalel. The early history just zips by, hardly more than a list of names. It's like when you watch YouTube and skip the ads at the start, right?": "../../pansuh/audio-en/chronicles/5bc494a6123f.mp3",
+"Then David and Solomon show up, and it's, wait, wait, slow down right here. The writer settles in and records everything in detail.": "../../pansuh/audio-en/chronicles/601e7426e3ff.mp3",
+"But now, did David and Solomon have sins and faults? Sure they did. The writer didn't like that, so he leaves out the Bathsheba affair. And he leaves out Solomon's fall, too.": "../../pansuh/audio-en/chronicles/6f5f59510755.mp3",
+"Normally, history should be told straight, like Kings, nothing added and nothing taken away. But Chronicles isn't a pure history book. It's history with a purpose. To build the nation on the model of its very best days.": "../../pansuh/audio-en/chronicles/1ca8199b80e5.mp3",
+"So the parts with nothing worth copying? Just lists of names. The parts worth copying get the full treatment, right down to the rituals, the institutions, the ceremonies, even the economy. It even shows Manasseh, the worst villain under heaven in Kings, repenting and being forgiven, at least to a degree. The feeling is, even now, late as it is, let's go back to God.": "../../pansuh/audio-en/chronicles/91ff9d4d8196.mp3",
+"Second Chronicles chapter 36, verses 22 and 23. The decree of Cyrus. To fulfill the word of the LORD spoken by the mouth of Jeremiah, the LORD stirred up the spirit of Cyrus.": "../../pansuh/audio-en/chronicles/363c1697ea44.mp3",
+"Build him a house at Jerusalem, which is in Judah. Whoever there is among you of all his people, let him go up.": "../../pansuh/audio-en/chronicles/4f92c2890c26.mp3",
+"Now open the start of Ezra and lay it right on top of this. It matches word for word, doesn't it? That's so the history carries straight on.": "../../pansuh/audio-en/chronicles/b518e44c8990.mp3",
+"Really, the history would connect better if it ran on from Kings. But the writer of Chronicles wrote it on purpose so it leads into Ezra. So Chronicles was written, at the earliest, after the decree of Cyrus.": "../../pansuh/audio-en/chronicles/1aab22d203ee.mp3",
+"Chronicles has lots of sources you won't find in Kings. So when you read Kings, read the matching passages in Chronicles too. It really helps you understand what was going on at the time.": "../../pansuh/audio-en/chronicles/58617df07396.mp3"
 };

@@ -1,0 +1,26 @@
+// 판서 녹음 목록 (Ava AI 음성). tools/make_audio.py가 만든다. 손으로 고치지 말 것.
+window.BOARD_AUDIO = {
+"So now we come to the book of Ezra. Remember how the record of the escape from Egypt was called Exodus?": "../../pansuh/audio-en/ezra-1/8d5c432a4052.mp3",
+"Ezra and Nehemiah tell how, after Babylon fell, the people were set free and came back to Jerusalem. You could call it the Exodus from Babylon.": "../../pansuh/audio-en/ezra-1/f4c1aab2086d.mp3",
+"In the first year of Cyrus king of Persia, to fulfill what He'd spoken through Jeremiah, the Lord stirred up the spirit of Cyrus.": "../../pansuh/audio-en/ezra-1/836b22dcbc39.mp3",
+"So Cyrus sent a decree through his whole kingdom. Go up to Jerusalem in Judah and build the house of the Lord. That's what we call the Decree of Cyrus.": "../../pansuh/audio-en/ezra-1/fe8416aa2708.mp3",
+"And here's the interesting part. This Decree of Cyrus is exactly the same as 2 Chronicles chapter 36, verse 22 and on.": "../../pansuh/audio-en/ezra-1/55d4529dabd8.mp3",
+"If they were scrolls, you could just glue one right onto the end of the other.": "../../pansuh/audio-en/ezra-1/d6bc8e6a689c.mp3",
+"They match word for word, not even one little particle different. So people think Ezra probably wrote Chronicles.": "../../pansuh/audio-en/ezra-1/2649927622ed.mp3",
+"We're studying the Bible in chronological order like this. How's it going? Are you starting to see the Bible a little?": "../../pansuh/audio-en/ezra-1/5a74fc38b603.mp3",
+"The Return from Exile happened in three waves. The first return was in five thirty-six B.C., led by Zerubbabel.": "../../pansuh/audio-en/ezra-1/247d0b4f7ffd.mp3",
+"The second return was in four fifty-seven B.C., led by Ezra. And the third was in four forty-four B.C., led by Nehemiah.": "../../pansuh/audio-en/ezra-1/c68aa947f31e.mp3",
+"The leaders of the first return were the governor Sheshbazzar, who's also called Zerubbabel, and the high priest Joshua.": "../../pansuh/audio-en/ezra-1/f3aaf6cc042a.mp3",
+"The Decree of Cyrus came out in five thirty-eight B.C. But just because a decree's issued doesn't mean you can come right away. They had lives there. People had to be recruited, and the word had to get around.": "../../pansuh/audio-en/ezra-1/0187929f593c.mp3",
+"And that's exactly seventy years after six oh six B.C., the first deportation, when King Jehoiakim and Daniel were taken captive.": "../../pansuh/audio-en/ezra-1/cecbdeb46a2b.mp3",
+"When they got back, the first thing they had to do was build places to live. That took about a year. Then, after one year and two months, they laid the foundation of the temple.": "../../pansuh/audio-en/ezra-1/fb357bf001db.mp3",
+"People who'd been taken captive at about ten years old came back at eighty. They'd seen Solomon's temple burn before they left.": "../../pansuh/audio-en/ezra-1/ad57d0096415.mp3",
+"Like Psalm 126 says, when the Lord brought back the captives of Zion, we were like those who dream. Can you feel it? He's letting us rebuild the ruined temple with our own hands.": "../../pansuh/audio-en/ezra-1/cd1d1469cc57.mp3",
+"The old men who'd seen the first temple wept out loud when they saw the foundation laid. And many others shouted for joy.": "../../pansuh/audio-en/ezra-1/88786bacbb45.mp3",
+"So the people couldn't tell the shouts of joy from the sound of weeping.": "../../pansuh/audio-en/ezra-1/fa40b2efe473.mp3",
+"But here's the problem. There were people who'd been living in that land for seventy years. For seventy years they'd thought, this is my land. If someone suddenly told them to leave, they'd be stunned, right?": "../../pansuh/audio-en/ezra-1/16fc171898c6.mp3",
+"So the troublemakers around them came and got in the way. They sent letters saying it was illegal construction, bribed Persian officials, and filed complaint after complaint. And they got the work stopped.": "../../pansuh/audio-en/ezra-1/85d3d9187b4a.mp3",
+"Even when something's God's will, there can be plenty of opposition. In fact, the more something is God's will, the more the devil fights it.": "../../pansuh/audio-en/ezra-1/77de9f9115da.mp3",
+"So when hard times come, don't think, I guess this isn't God's will. Think instead, the devil's getting in the way like this, so this must be God's will. And nobody's opposed this Bible camp at all. Now that's a real problem.": "../../pansuh/audio-en/ezra-1/10d3fb81ea18.mp3",
+"In the end, an official order came down from Persia, and the work stopped for fifteen years, until the second year of Darius king of Persia. If a prophet showed up then, what would he say? Build the temple, right? Next, we're going to meet Haggai.": "../../pansuh/audio-en/ezra-1/860b06c80286.mp3"
+};

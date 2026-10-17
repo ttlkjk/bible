@@ -1,0 +1,27 @@
+// 판서 녹음 목록 (Ava AI 음성). tools/make_audio.py가 만든다. 손으로 고치지 말 것.
+window.BOARD_AUDIO = {
+"So, the Psalms. They're not really poetry in the usual sense. Think of them as the hymnal of the Hebrews.": "../../pansuh/audio-en/psalms/63e9083c5658.mp3",
+"It's a collection of the hymns the people of Israel sang back in the time of Zerubbabel's temple.": "../../pansuh/audio-en/psalms/564f4c9f0c08.mp3",
+"Some had melodies, and some were just lyrics, like literature. Today, though, we can't know what the melodies were.": "../../pansuh/audio-en/psalms/6ac50f3c8279.mp3",
+"And here's the thing. The Psalms weren't written all at once, and they weren't collected all at once either.": "../../pansuh/audio-en/psalms/89bcdf0df0c1.mp3",
+"The writing took about a thousand years, all the way from Moses down to the descendants of Asaph.": "../../pansuh/audio-en/psalms/7c3b3d52faf1.mp3",
+"It was put together in five stages. Psalms 1 to 41, then 42 to 72, then 73 to 89,": "../../pansuh/audio-en/psalms/c14e4fd50c66.mp3",
+"then 90 to 106, and finally 107 to 150.": "../../pansuh/audio-en/psalms/f7a00ffd32d0.mp3",
+"Of all the books in our Bible, this is the one that took the longest to finish.": "../../pansuh/audio-en/psalms/d4a932bba9eb.mp3",
+"Now, who wrote them? Almost half, about 73 psalms, are psalms of David.": "../../pansuh/audio-en/psalms/17e4896d563f.mp3",
+"He was a soldier and a statesman, and on top of that, he had this gift for music.": "../../pansuh/audio-en/psalms/b92c7ccc64ad.mp3",
+"So how could he leave so many psalms? He thought through his prayers, put them in order, and always wrote them down.": "../../pansuh/audio-en/psalms/91420e7e7d3b.mp3",
+"Besides David, there are 12 by the sons of Asaph, 10 by the sons of Korah, and 2 by Solomon. There are others by Moses, Heman, Ethan, and Ezra, and some by authors we don't know.": "../../pansuh/audio-en/psalms/092415702aaa.mp3",
+"Psalm 119 in particular is thought to have been written by Ezra. And it follows the order of the Hebrew alphabet.": "../../pansuh/audio-en/psalms/47e9a49a61e5.mp3",
+"And almost every verse has a word like your law, your testimonies, ways, precepts, statutes, commandments, judgments, word, ordinances, or your truth.": "../../pansuh/audio-en/psalms/93695adee5d8.mp3",
+"In a word? It's a psalm in praise of the law.": "../../pansuh/audio-en/psalms/ce80a0128ea3.mp3",
+"Let's look at the kinds of psalms. A mizmor is a pure poem, and a shir is a song. That's why the Song of Songs is called Shir Hashirim.": "../../pansuh/audio-en/psalms/32d22b545a06.mp3",
+"A maskil is a meditation, and a miktam is a satire.": "../../pansuh/audio-en/psalms/4572909bc2ab.mp3",
+"A tefillah is a prayer, and a tehillah is praise.": "../../pansuh/audio-en/psalms/b9e7247e3195.mp3",
+"There are also psalms that confess faith, wisdom psalms, history psalms, teaching psalms, and yes, even psalms of cursing.": "../../pansuh/audio-en/psalms/1ee527500bbf.mp3",
+"Some psalms are a lot easier to understand if you know the history well.": "../../pansuh/audio-en/psalms/0c64d56839e8.mp3",
+"Psalm 34 is the one David wrote after he pretended to be mad in front of Abimelech and got driven out.": "../../pansuh/audio-en/psalms/8d62b2d7f748.mp3",
+"Psalm 51 is from when the prophet Nathan came to David, after he'd slept with Bathsheba.": "../../pansuh/audio-en/psalms/0b0ceec1c785.mp3",
+"Psalm 126 is from when they came back from captivity,": "../../pansuh/audio-en/psalms/1682598270dc.mp3",
+"and Psalm 137 was written when they were being mocked during the Babylonian Exile.": "../../pansuh/audio-en/psalms/071b17d9c35e.mp3"
+};

@@ -1,0 +1,26 @@
+// 판서 녹음 목록 (Ava AI 음성). tools/make_audio.py가 만든다. 손으로 고치지 말 것.
+window.BOARD_AUDIO = {
+"Okay, now the third missionary journey, from Ephesus over to Greece. Paul's done his work in Ephesus, and here's his plan. Go through Macedonia and Achaia, then Jerusalem, and then on to Rome.": "../../pansuh/audio-en/acts-19/13726a0df928.mp3",
+"And notice something. Paul's ministry is getting more and more organized.": "../../pansuh/audio-en/acts-19/a84ebdbd0b21.mp3",
+"He sends an advance team ahead to get things ready. That saves Paul a lot of time. So Timothy and Erastus go on ahead to Macedonia.": "../../pansuh/audio-en/acts-19/b45d06bb1763.mp3",
+"And a little later, you'll see him leave a team behind, too, to follow up.": "../../pansuh/audio-en/acts-19/801954358a66.mp3",
+"Right around then, there's no small commotion. There's a silversmith named Demetrius. He makes little silver shrines of Artemis, tiny silver houses for the goddess, and it's bringing the craftsmen no small business.": "../../pansuh/audio-en/acts-19/ea94ff33fa26.mp3",
+"So who's Artemis? She's an idol of fertility and abundance. You might also know her as Diana.": "../../pansuh/audio-en/acts-19/96b817d9e0f8.mp3",
+"And her temple was huge. Kings from all kinds of nations each gave one of its 127 columns. It took 120 years to build. It was 115 meters long, 55 meters wide, and 19 meters high. The biggest temple in the whole ancient world.": "../../pansuh/audio-en/acts-19/30ff592b6135.mp3",
+"Everything within 300 meters of it was sacred ground. So if a criminal ran in there, nobody could arrest him. And there were a thousand priestesses there, called sacred prostitutes.": "../../pansuh/audio-en/acts-19/198db2ac597a.mp3",
+"So Demetrius gets the craftsmen together and says, look, our whole living comes from this business. But this Paul goes all over Asia saying gods made with hands aren't gods at all.": "../../pansuh/audio-en/acts-19/bc410e6cf0b6.mp3",
+"Think about that. Just one sentence, and that great temple of Artemis starts to shake.": "../../pansuh/audio-en/acts-19/e1d569a6ddbd.mp3",
+"Here's the thing. Idolatry is the height of pride. I make something with my own hands, and then I call it a god. So who's really greater here?": "../../pansuh/audio-en/acts-19/de9bab78055d.mp3",
+"And it's the height of foolishness, too. I just made it, and now I bow down to it? That's about as foolish as it gets.": "../../pansuh/audio-en/acts-19/a42360aa0cb8.mp3",
+"And that magnificent temple? Today, there's just one stone column like this left standing.": "../../pansuh/audio-en/acts-19/867abd759ca8.mp3",
+"Now the idol makers see their income dropping. So they pack into the theater, and there's an uproar.": "../../pansuh/audio-en/acts-19/09d278d123db.mp3",
+"This theater is huge, but the design is amazing. It's round, so when the wind comes in off the sea, you can hear even a coin drop on the stage. No microphone. No amplifier.": "../../pansuh/audio-en/acts-19/315e5b5783fd.mp3",
+"And most of the crowd didn't even know why they were there. For two hours they just kept shouting, Great is Artemis! Great is Artemis!": "../../pansuh/audio-en/acts-19/261921b9eec1.mp3",
+"In the middle of all this, Paul wants to go in. So many people, right? Maybe he can preach to them. But his friends stop him. They want to kill you! Do you know where you're going? In the end, the town clerk just barely calms the crowd down.": "../../pansuh/audio-en/acts-19/37ca35afbbf6.mp3",
+"And after that, Paul doesn't say, I'll go in and be a martyr. He sees it's time to leave. So he leaves for Greece.": "../../pansuh/audio-en/acts-19/c812d0afdb3c.mp3",
+"Once the uproar's over, Paul encourages the disciples and says goodbye. He goes to Macedonia, encourages them with many words, and then comes to Greece and stays three months.": "../../pansuh/audio-en/acts-19/62375f6826d3.mp3",
+"Greece here means Corinth, Athens, the region of Achaia. And during those three months there, he writes Romans.": "../../pansuh/audio-en/acts-19/edef0ecd6fb4.mp3",
+"He's about to sail for Syria, but the Jews are plotting against him. So he decides to go back through Macedonia instead.": "../../pansuh/audio-en/acts-19/ca9648396cab.mp3",
+"Now, at this point, they're carrying the collection. And it's not just the money. Representatives from the churches travel together, so everyone can see it's handled fairly. Sopater, Aristarchus, Secundus, Gaius, Timothy, Tychicus, and Trophimus.": "../../pansuh/audio-en/acts-19/cce53f298f40.mp3",
+"Titus had already gone ahead to Corinth and gotten everything ready. That's why they could hold meetings steadily for three whole months. You can see how organized Paul's team was.": "../../pansuh/audio-en/acts-19/ebad285ad0fa.mp3"
+};

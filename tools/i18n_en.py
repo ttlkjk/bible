@@ -635,6 +635,31 @@ def write_text(path, text):
         f.write(text)
 
 
+def link_scripts(ids):
+    """영어 강의 페이지: 대본·녹음 목록의 ?v= 를 영어 파일 내용으로 다시 매기고 (휴대폰이 새 파일을 받게),
+    한국어 페이지에 녹음 목록이 아직 없어도 영어 녹음이 있으면 연결한다."""
+    import hashlib
+
+    def ver(name):
+        with open(os.path.join(OUT, "pansuh", "data", name), "rb") as f:
+            return hashlib.sha1(f.read()).hexdigest()[:8]
+
+    for pid in ids:
+        page = os.path.join(OUT, "pansuh", pid + ".html")
+        if not os.path.exists(page):
+            continue
+        with open(page, encoding="utf-8") as f:
+            html = f.read()
+        audio = os.path.exists(os.path.join(OUT, "pansuh", "data", pid + "-audio.js"))
+        if audio and (pid + "-audio.js") not in html:
+            html = re.sub(r'(<script src="data/%s-board\.js[^"]*"></script>\n)' % re.escape(pid),
+                          lambda m: m.group(1) + '<script src="data/%s-audio.js"></script>\n' % pid, html, count=1)
+        for name in (pid + ".js", pid + "-board.js", pid + "-audio.js"):
+            if os.path.exists(os.path.join(OUT, "pansuh", "data", name)):
+                html = re.sub(r'data/%s(\?v=[^"]*)?"' % re.escape(name), 'data/%s?v=%s"' % (name, ver(name)), html)
+        write_text(page, html)
+
+
 def cmd_build():
     tr = load_all()
     if os.path.isdir(OUT):
@@ -645,9 +670,21 @@ def cmd_build():
         text = translate_file(rel, read(rel), tr, stats)
         write_text(os.path.join(OUT, rel), fix_paths(rel, text))
         report.append((rel, stats))
-    # 한국어 녹음 목록(*-audio.js)은 한국어 문장으로 찾으므로 영어판에서는 맞는 것이 없다 → 기기 영어 음성으로 읽는다
-    for rel in COPY_AS_IS + sorted(f.replace("\\", "/") for f in glob.glob("pansuh/data/*-audio.js", root_dir=ROOT)):
+    for rel in COPY_AS_IS:
         write_text(os.path.join(OUT, rel), read(rel))
+    # 녹음 목록: 영어 녹음(Ava, i18n/en/audio/, 판서강좌/tools/make_audio.py --en)이 있으면 그것을 쓴다.
+    # 없으면 한국어 목록을 둔다 — 한국어 문장으로 찾으니 맞는 것이 없어 기기 영어 음성으로 읽는다.
+    audio_missing = []
+    ids = sorted(os.path.basename(f)[:-len("-board.js")] for f in glob.glob(os.path.join(ROOT, "pansuh", "data", "*-board.js")))
+    for pid in ids:
+        name = pid + "-audio.js"
+        en_list, ko_list = os.path.join(STORE, "audio", name), os.path.join(ROOT, "pansuh", "data", name)
+        src = en_list if os.path.exists(en_list) else ko_list if os.path.exists(ko_list) else None
+        if src != en_list:
+            audio_missing.append(name)
+        if src:
+            with open(src, encoding="utf-8") as f:
+                write_text(os.path.join(OUT, "pansuh", "data", name), f.read())
     boards_missing = []
     for src in sorted(glob.glob(os.path.join(ROOT, "pansuh", "data", "*-board.js"))):
         name = os.path.basename(src)
@@ -657,12 +694,14 @@ def cmd_build():
         with open(en if os.path.exists(en) else src, encoding="utf-8") as f:
             text = f.read()
         write_text(os.path.join(OUT, "pansuh", "data", name), fix_paths("pansuh/data/" + name, text))
+    link_scripts(ids)
     total = sum(s["done"] + s["missing"] for _, s in report)
     miss = sum(s["missing"] for _, s in report)
     for rel, s in report:
         if s["missing"]:
             print("%-36s 번역 안 됨 %4d / %d" % (rel, s["missing"], s["done"] + s["missing"]))
-    print("en/ 만듦 · 문장 %d 중 번역 안 된 것 %d · 판서 대본 영어판 없음 %d개" % (total, miss, len(boards_missing)))
+    print("en/ 만듦 · 문장 %d 중 번역 안 된 것 %d · 판서 대본 영어판 없음 %d개 · 영어 녹음 없음 %d개"
+          % (total, miss, len(boards_missing), len(audio_missing)))
 
 
 def cmd_status():

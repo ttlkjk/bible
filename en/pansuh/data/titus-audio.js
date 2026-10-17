@@ -1,0 +1,27 @@
+// 판서 녹음 목록 (Ava AI 음성). tools/make_audio.py가 만든다. 손으로 고치지 말 것.
+window.BOARD_AUDIO = {
+"Okay, Titus chapter 1, verse 5. Here Paul tells us why he left Titus behind in Crete.": "../../pansuh/audio-en/titus/08d79ee35038.mp3",
+"It was to set in order the things that were still lacking, and to appoint elders in every city.": "../../pansuh/audio-en/titus/1bd9da680743.mp3",
+"Now, if you look at his status, his position, he's an elder. If you look at the work he does, he's an overseer.": "../../pansuh/audio-en/titus/2b78b2d86c73.mp3",
+"But the Methodists and the Presbyterians use these two words separately. That's kind of strange too, isn't it?": "../../pansuh/audio-en/titus/861cbfeb56c1.mp3",
+"So, let's look at the qualifications. He has to be blameless, the husband of one wife, with children who believe.": "../../pansuh/audio-en/titus/d3f891de7b22.mp3",
+"An overseer is God's steward. So he can't be self-willed, or quick to anger. Not given to wine, not violent, not greedy of filthy lucre.": "../../pansuh/audio-en/titus/035a15008235.mp3",
+"But he does need to be hospitable, a lover of good, sober-minded, just, holy, and self-controlled.": "../../pansuh/audio-en/titus/40ea1189b5a5.mp3",
+"He has to hold fast the faithful word, just as he was taught. Then he can encourage people with sound teaching, and correct the ones who oppose it.": "../../pansuh/audio-en/titus/7c983e9d5151.mp3",
+"Now chapter 2. But speak thou the things which become sound doctrine.": "../../pansuh/audio-en/titus/6a39a7089f91.mp3",
+"Older men should be temperate, reverent, and sober-minded. Sound in faith, in love, and in patience.": "../../pansuh/audio-en/titus/a130385656f9.mp3",
+"Older women should be holy in how they live. Not slanderers, not slaves to much wine. And they should teach the young women.": "../../pansuh/audio-en/titus/c0b8f3b11038.mp3",
+"Young men, urge them to be sober-minded. And you, in all things, be an example of good works yourself.": "../../pansuh/audio-en/titus/fc9aeaab4659.mp3",
+"Servants should obey their masters in everything. They shouldn't steal from them, and they should show real, good faithfulness.": "../../pansuh/audio-en/titus/e9e73627b925.mp3",
+"Why? So that they adorn the teaching of God in all things. Think about it. When Christ's people do good, God's teaching shines.": "../../pansuh/audio-en/titus/624bfdc0a12f.mp3",
+"Then in chapter 3, he says, reject foolish myths and genealogies. And someone caught up in heresy? Warn him once or twice, and then stay away.": "../../pansuh/audio-en/titus/8f51e7f4a28c.mp3",
+"And he says, I'll send Artemas or Tychicus to you, so hurry and come to me at Nicopolis.": "../../pansuh/audio-en/titus/944a7f54c897.mp3",
+"Here we meet Zenas the lawyer. Now, the word lawyer, in this sense, shows up only once in the whole New Testament. It means someone who makes church law.": "../../pansuh/audio-en/titus/ed9641cf8734.mp3",
+"Paul's urging them to send people out well ahead of time, and to learn to devote themselves to the good work of getting things ready.": "../../pansuh/audio-en/titus/2150e53d759b.mp3",
+"Here's the thing. If you prepare long and prepare well, even a short ministry bears fruit.": "../../pansuh/audio-en/titus/a496ea239d25.mp3",
+"And then the final greeting. All that are with me salute thee. Grace be with you all.": "../../pansuh/audio-en/titus/ea83b2d02fb0.mp3",
+"You know, Titus was a truly outstanding man.": "../../pansuh/audio-en/titus/e577a49f4cab.mp3",
+"He's the one who sorted out the problems in the Corinthian church.": "../../pansuh/audio-en/titus/bf2741cb499f.mp3",
+"And Paul left him in Crete, a place full of evil, lazy people. He was the kind of person who went to the hard places and did the work well.": "../../pansuh/audio-en/titus/de3871f49139.mp3",
+"Alright, now let's move on to Second Timothy.": "../../pansuh/audio-en/titus/dcd4e1eae159.mp3"
+};

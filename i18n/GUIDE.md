@@ -170,3 +170,20 @@ on a 1600 × 900 board in a handwriting font. See the top of `pansuh/assets/boar
 | 학개 (학) | Haggai | Hag | | | | |
 | 스가랴 (슥) | Zechariah | Zech | | | | |
 | 말라기 (말) | Malachi | Mal | | | | |
+
+## C. Spoken style for `say` (recorded with an AI voice)
+
+The `say` lines are recorded with a natural AI voice (en-US-AvaNeural), the way the Korean side is read by
+a soft, conversational Korean voice. They must sound like a warm Bible teacher **talking** to a small group,
+not like text being read aloud.
+
+- Conversational: contractions (it's, they're, that's), short sentences, natural openers where they fit
+  ("So,", "Now,", "Here's the thing.", "Think about it."), questions to the listener, light emphasis.
+  Compare the Korean model: "출애굽기는 이집트 탈출기입니다." → "자, 출애굽기예요. 한마디로 하면, 이집트 탈출기죠."
+  In English: "Exodus is the story of the escape from Egypt." → "Okay, Exodus. In a word? It's the great escape from Egypt."
+- Same content and the same facts as now. Don't add teaching, don't drop points. Bible quotations stay as quoted (KJV/WEB).
+- Written for the ear: no parentheses, no slashes, no symbols (→ = ≠ ~ &), no abbreviations (ch., v., B.C. is fine,
+  "chapter 3 verse 16", "versus"). Years and numbers the way you'd say them.
+- One beat = one or a few sentences, roughly the same length as now (the board drawing is timed to the speech).
+- Change only `say`. Board text, ids, positions, scenes stay exactly as they are.
+  Check: `node tools/check_say_only.js i18n/en/boards/<id>-board.js` (from the bible folder) must print ok.
