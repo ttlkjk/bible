@@ -56,7 +56,7 @@
     '<button type="button" class="bd-next" aria-label="다음 문장">⏭</button>' +
     '<div class="bd-track" role="slider" tabindex="0" aria-label="진행 위치" aria-valuemin="1" aria-valuemax="' + beats.length + '"><div class="bd-fill"></div></div>' +
     '<span class="bd-count"></span>' +
-    '<select class="bd-rate" aria-label="말하기 속도"><option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.2">1.2×</option><option value="1.5">1.5×</option></select>' +
+    '<select class="bd-rate" aria-label="말하기 속도"><option value="0.9">0.9×</option><option value="1">1×</option><option value="1.2">1.2×</option><option value="1.5" selected>1.5×</option></select>' +
     '<button type="button" class="bd-cc on" aria-pressed="true" aria-label="자막">자막</button>' +
     '<button type="button" class="bd-full" aria-label="전체 화면">⛶</button>' +
     '<button type="button" class="bd-mode" aria-pressed="false">🎤 강사 모드</button>' +
@@ -361,11 +361,18 @@
       note.appendChild(a);
     }
   }
-  if (!synth) noVoice();
-  else if (inApp) noVoice("inapp");
-  else {
+  // 미리 녹음한 목소리(선희 AI 음성). 녹음이 있으면 기기 음성 대신 이것을 튼다.
+  // 녹음은 그냥 소리 파일이라 카카오톡 안의 브라우저에서도 나온다.
+  var AUDIO = window.BOARD_AUDIO || null;
+  var clip = AUDIO ? new Audio() : null;
+  if (clip) clip.preload = "auto";
+  if (synth && !inApp) {
     pickVoice();
     synth.addEventListener("voiceschanged", pickVoice);
+  }
+  if (!AUDIO) {
+    if (!synth) noVoice();
+    else if (inApp) noVoice("inapp");
   }
 
   // ---------- player ----------
@@ -393,6 +400,7 @@
     run++;
     cancelAnimationFrame(raf);
     if (synth) synth.cancel();
+    if (clip) { clip.onended = clip.onerror = null; clip.pause(); }
     utter = null;
   }
 
@@ -436,12 +444,24 @@
     }
     raf = requestAnimationFrame(frame);
 
-    // speech (falls back to a reading-time timer when this device cannot speak Korean)
+    // speech: the recording if there is one, else the device voice, else a reading-time timer
     if (!voice) pickVoice();
     var timer = function () {
       setTimeout(function () { if (my === run) { spoken = true; maybeNext(); } }, (900 + b.say.length * 140) / speed);
     };
-    if (!speechBroken) {
+    var file = AUDIO && AUDIO[b.say];
+    if (file) {
+      var finish = function () { if (my !== run || spoken) return; spoken = true; maybeNext(); };
+      clip.onended = finish;
+      clip.onerror = function () { if (my === run) timer(); }; // 파일을 못 받으면 자막으로 넘어간다
+      clip.src = file;
+      clip.playbackRate = speed;
+      var started = clip.play();
+      if (started && started.catch) started.catch(function () { if (my === run && !spoken) timer(); });
+      // 다음 문장 녹음을 미리 받아 둔다
+      var next = beats[idx + 1] && AUDIO[beats[idx + 1].say];
+      if (next) { var pre = new Audio(); pre.preload = "auto"; pre.src = next; }
+    } else if (!speechBroken) {
       // Chrome drops 'end' events now and then, and cuts off long utterances,
       // so speak sentence by sentence and also watch synth.speaking ourselves.
       var parts = b.say.split(/(?<=[.?!])\s+/);
