@@ -59,7 +59,13 @@
         ? '<span class="next soon"><small>다음 · 준비 중</small><b>' + esc(L.next.label) + "</b></span>"
         : '<a class="next" href="' + L.next.href + '"><small>다음 →</small><b>' + esc(L.next.label) + "</b></a>";
     }
-    body.innerHTML = b + pager + "</nav>";
+    pager += "</nav>";
+    body.innerHTML = b + pager;
+    // 칠판 바로 아래에도 이전·다음을 둔다: 강의를 다 듣고 곧장 다음 강의로 갈 수 있게
+    var top = pager.replace('class="pager"', 'class="pager pager-top"');
+    var player = document.getElementById("player");
+    if (player) player.insertAdjacentHTML("beforeend", top);
+    else body.insertAdjacentHTML("afterbegin", top);
 
     spy(toc);
     lightbox(body);
