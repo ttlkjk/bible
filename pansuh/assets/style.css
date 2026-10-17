@@ -384,6 +384,10 @@ dialog.lb img { max-width: 96vw; max-height: 94vh; width: auto; height: auto; bo
 }
 .bd-scenes button.on { color: var(--ink); border-color: var(--accent); background: var(--accent-soft); }
 .bd-note { margin: 12px 0 0; font-size: 14px; color: var(--red); }
+.bd-note .bd-open {
+  display: inline-block; margin: 6px 0 0; padding: 8px 14px; border-radius: 10px; text-decoration: none;
+  font-weight: 700; color: #fff; background: var(--accent);
+}
 .board:fullscreen { background: #11141b; display: flex; flex-direction: column; justify-content: center; padding: 2vh 3vw; }
 .board:fullscreen .bd-stage { width: min(100%, calc((100vh - 200px) * 16 / 9)); margin: 0 auto; }
 .board:fullscreen .bd-cap { color: #eceef2; font-size: 22px; }

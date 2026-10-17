@@ -320,23 +320,46 @@
   var voice = null;
   // 안드로이드 크롬은 목소리 목록을 늦게 주거나 아예 비워 둔다.
   // 그래서 목록에서 못 찾아도 lang만 "ko-KR"로 주고 휴대폰 기본 음성에 맡긴다.
-  var speechBroken = !synth;
+  var speechBroken = !synth, speechChecked = false;
+  // 카카오톡·네이버·인스타그램 같은 앱 안의 브라우저(WebView)는 읽기 기능이 겉모양만 있고
+  // 소리를 내지 않는다. 오류도 알려 주지 않으니 미리 알아보고 크롬으로 열게 한다.
+  var ua = navigator.userAgent;
+  var inApp = /KAKAOTALK|NAVER\(inapp|Instagram|FBAN|FBAV| Line\/|DaumApps|; wv\)/i.test(ua);
   function pickVoice() {
     if (!synth) return;
-    var ko = synth.getVoices().filter(function (v) { return /^ko/i.test(v.lang); });
+    // ko-KR, ko_KR만 (코카니어 kok_IN 같은 것은 빼고)
+    var ko = synth.getVoices().filter(function (v) { return /^ko([-_]|$)/i.test(v.lang); });
     var good = ko.filter(function (v) { return /natural|online|google|neural/i.test(v.name); });
     voice = good[0] || ko[0] || voice;
   }
-  function noVoice() {
+  // 지금 페이지를 크롬(또는 기본 브라우저)으로 여는 주소. 아카이브 안에 끼워져 있으면 바깥 페이지를 연다.
+  function outsideUrl() {
+    var here = location.href.replace(/([?&])embed=1&?/, "$1").replace(/[?&]$/, "");
+    try { if (window.top !== window && window.top.location.host === location.host) here = window.top.location.href; } catch (e) {}
+    if (/KAKAOTALK/i.test(ua)) return "kakaotalk://web/openExternal?url=" + encodeURIComponent(here);
+    if (/Android/i.test(ua)) return "intent://" + here.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
+    return "";
+  }
+  function noVoice(why) {
     speechBroken = true;
     note.hidden = false;
-    note.textContent = "이 기기에서는 한국어 목소리를 낼 수 없어서 자막으로만 진행됩니다. 휴대폰 설정 → 텍스트 음성 변환(TTS)에서 한국어를 설치하거나, Chrome·Edge에서 열어 주세요.";
+    var go = outsideUrl();
+    var text = why === "inapp"
+      ? "카카오톡 같은 앱 안의 브라우저에서는 목소리가 나오지 않아요. 크롬에서 열면 목소리와 함께 들을 수 있습니다. (지금은 자막으로만 진행돼요)"
+      : "이 브라우저에서는 목소리가 나오지 않아 자막으로만 진행됩니다. 크롬에서 열어 보세요. 크롬에서도 안 나오면 휴대폰 설정 → 텍스트 음성 변환(TTS)에서 한국어를 설치해 주세요.";
+    note.innerHTML = "";
+    note.appendChild(document.createTextNode(text + " "));
+    if (go) {
+      var a = document.createElement("a");
+      a.href = go; a.target = "_top"; a.className = "bd-open"; a.textContent = "크롬에서 열기 ↗";
+      note.appendChild(a);
+    }
   }
-  if (synth) {
+  if (!synth) noVoice();
+  else if (inApp) noVoice("inapp");
+  else {
     pickVoice();
     synth.addEventListener("voiceschanged", pickVoice);
-  } else {
-    noVoice();
   }
 
   // ---------- player ----------
@@ -440,10 +463,13 @@
         return u;
       });
       var began = Date.now(), heard = false;
+      // 오류 없이 조용히 아무 소리도 안 내는 브라우저가 있다: 처음 한 번은 2.5초 안에 시작하는지 본다
+      if (!speechChecked) utter[0].addEventListener("start", function () { speechChecked = true; });
       var limit = (3000 + b.say.length * 300) / speed;
       var watch = setInterval(function () {
         if (my !== run) { clearInterval(watch); return; }
-        if (synth.speaking) heard = true;
+        if (synth.speaking) { heard = true; speechChecked = true; }
+        if (!speechChecked && Date.now() - began > 2500) { clearInterval(watch); noVoice(); timer(); return; }
         var quiet = !synth.speaking && !synth.pending;
         // 휴대폰은 음성 엔진이 깨어나는 데 시간이 걸려서 처음 3초는 기다린다
         if ((heard && quiet) || (!heard && quiet && Date.now() - began > 3000) || Date.now() - began > limit) done();
