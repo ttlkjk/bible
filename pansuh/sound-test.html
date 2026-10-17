@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>소리 시험 · 판서 강의 | 에스라 성경강좌</title>
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/theme.js"></script>
+<style>
+  .t { max-width: 640px; margin: 0 auto; padding: 24px 16px 64px; }
+  .t h1 { font-size: 26px; margin: 0 0 6px; }
+  .t p { margin: 0 0 14px; color: var(--ink-2); font-size: 15px; }
+  .t button { display: block; width: 100%; margin: 10px 0; padding: 16px; font: 700 17px/1.3 var(--f-body);
+    border-radius: 12px; border: 0; color: #fff; background: var(--accent); }
+  .t button.sub { background: var(--ink-2); }
+  .t pre { white-space: pre-wrap; word-break: break-all; font-size: 13px; line-height: 1.55; background: var(--card);
+    border: 1px solid var(--line); border-radius: 12px; padding: 14px; color: var(--ink); min-height: 120px; }
+</style>
+</head>
+<body>
+<main class="t">
+  <h1>소리 시험</h1>
+  <p>휴대폰에서 칠판 목소리가 안 날 때, 이 화면에서 원인을 찾습니다. 소리를 켜고(무음 해제, 미디어 볼륨) 버튼을 위에서부터 하나씩 눌러 주세요.</p>
+  <button id="b1">① 기본 목소리로 읽기</button>
+  <button id="b2">② 목록의 한국어 목소리로 읽기</button>
+  <button id="b3" class="sub">③ 목록 다시 불러오기</button>
+  <p>아래 칸이 결과입니다. 버튼을 다 누른 뒤 이 화면을 캡처해서 보내 주세요.</p>
+  <pre id="out"></pre>
+</main>
+<script>
+(function () {
+  var out = document.getElementById("out"), t0 = Date.now();
+  function log(s) { out.textContent += ((Date.now() - t0) / 1000).toFixed(1) + "s  " + s + "\n"; }
+  var S = window.speechSynthesis;
+  log("기기: " + navigator.userAgent);
+  log("speechSynthesis: " + (S ? "있음" : "없음 ← 이 브라우저는 읽기 기능이 없습니다"));
+  var board = document.createElement("script");
+  board.src = "assets/board.js";
+  fetch(board.src, { cache: "no-store" }).then(function (r) { return r.text(); })
+    .then(function (s) { log("칠판 파일: " + (s.indexOf("noVoice") >= 0 ? "새 버전" : "옛 버전 ← 고치기 전 파일")); })
+    .catch(function () { log("칠판 파일: 확인 못 함"); });
+  if (!S) return;
+  function voices() {
+    var all = S.getVoices(), ko = all.filter(function (v) { return /^ko/i.test(v.lang); });
+    log("목소리 " + all.length + "개, 한국어 " + ko.length + "개" +
+      (ko.length ? " (" + ko.map(function (v) { return v.name + "/" + v.lang + (v.localService ? "" : "/온라인"); }).join(", ") + ")" : ""));
+    return ko;
+  }
+  voices();
+  S.addEventListener && S.addEventListener("voiceschanged", function () { log("목록 바뀜 신호 받음"); voices(); });
+  function say(withVoice) {
+    try { S.cancel(); } catch (e) { log("cancel 실패: " + e.message); }
+    var u = new SpeechSynthesisUtterance("안녕하세요. 판서 강의 소리 시험입니다.");
+    u.lang = "ko-KR";
+    if (withVoice) {
+      var ko = voices();
+      if (!ko.length) { log("② 한국어 목소리가 목록에 없음"); return; }
+      u.voice = ko[0]; u.lang = ko[0].lang;
+    }
+    var tag = withVoice ? "②" : "①";
+    u.onstart = function () { log(tag + " 읽기 시작 (소리가 들려야 정상)"); };
+    u.onend = function () { log(tag + " 읽기 끝"); };
+    u.onerror = function (e) { log(tag + " 오류: " + e.error); };
+    log(tag + " speak 호출");
+    S.speak(u);
+    setTimeout(function () { log(tag + " 2초 뒤: speaking=" + S.speaking + " pending=" + S.pending + " paused=" + S.paused); }, 2000);
+  }
+  document.getElementById("b1").onclick = function () { say(false); };
+  document.getElementById("b2").onclick = function () { say(true); };
+  document.getElementById("b3").onclick = function () { voices(); };
+})();
+</script>
+</body>
+</html>
