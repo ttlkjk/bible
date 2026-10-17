@@ -64,6 +64,9 @@
         <button data-nav-view="files" class="px-4 py-1.5 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
           📽️ 강의 슬라이드 &amp; 미디어
         </button>
+        <button data-nav-view="pansuh" class="px-4 py-1.5 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
+          🖍️ 판서 강의
+        </button>
       </nav>
 
       <!-- 우측 액션 도구 모음 -->
@@ -100,6 +103,7 @@
       <button data-nav-view="bible" class="text-amber-600">66권 강좌</button>
       <button data-nav-view="timeline" class="text-slate-500">연대기 타임라인</button>
       <button data-nav-view="files" class="text-slate-500">슬라이드 &amp; 미디어</button>
+      <button data-nav-view="pansuh" class="text-slate-500">판서 강의</button>
     </div>
   </header>
 
@@ -198,6 +202,7 @@
           <!-- 상세 탭 네비게이션 -->
           <div class="flex overflow-x-auto border-b border-slate-200 dark:border-slate-800 px-4 bg-slate-50/50 dark:bg-slate-900/50">
             <button data-detail-tab="overview" class="tab-btn active">📖 개요 및 구조</button>
+            <button data-detail-tab="pansuh" class="tab-btn">🖍️ 판서 강의</button>
             <button data-detail-tab="timeline" class="tab-btn">⏳ 연대기 맥락</button>
             <button data-detail-tab="ezra" class="tab-btn">💡 에스라 통독 관점</button>
             <button data-detail-tab="lectures" class="tab-btn">🎙️ 대하설교 녹취록</button>
@@ -215,6 +220,7 @@
             <div id="tab-panel-media" class="tab-panel hidden"></div>
             <div id="tab-panel-quiz" class="tab-panel hidden"></div>
             <div id="tab-panel-maps" class="tab-panel hidden"></div>
+            <div id="tab-panel-pansuh" class="tab-panel hidden"></div>
           </div>
 
         </div>
@@ -390,6 +396,30 @@
 
     </section>
 
+    <!-- ================================================================== -->
+    <!-- VIEW 4: 판서 강의 (pansuh/ 칠판 강의 76강) — js/pansuh.js가 채운다 -->
+    <!-- ================================================================== -->
+    <section id="view-pansuh" class="hidden space-y-6 animate-fade-in">
+      <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="max-w-4xl">
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 inline-block">🖍️ 목소리 + 칠판 판서</span>
+            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">창세기 ~ 요한계시록 · 76강</span>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-slate-100">판서 강의 — 칠판에 그리며 설명하는 성경강좌</h3>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+            강의 원고와 슬라이드를 바탕으로, 컴퓨터 목소리가 한 문장씩 읽는 동안 칠판에 판서가 그려집니다. 강의 순서대로 놓았고, 선지서는 열왕기 역사 사이사이에 함께 읽습니다.
+            각 강의 페이지 아래에는 슬라이드와 원고 전문이 그대로 있습니다. 66권 화면의 책 상세에서도 <strong>🖍️ 판서 강의</strong> 탭으로 바로 볼 수 있습니다.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <a href="pansuh/intro.html#player" class="px-4 py-2 rounded-lg bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold shadow-sm transition">▶ 서론부터 시작</a>
+            <a href="pansuh/index.html" class="px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-bold hover:border-amber-500 transition">판서 강의 첫 화면</a>
+          </div>
+        </div>
+      </div>
+      <div id="pansuh-shelf" class="space-y-8"></div>
+    </section>
+
   </main>
 
   <!-- ==================================================================== -->
@@ -464,5 +494,7 @@
   <script src="js/quiz_data.js"></script>
   <script src="js/lecture_media_studio.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/pansuh_index.js"></script>
+  <script src="js/pansuh.js"></script>
 </body>
 </html>
