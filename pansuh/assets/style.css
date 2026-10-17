@@ -318,14 +318,16 @@ footer { border-top: 1px solid var(--line); padding: 32px 0 48px; color: var(--i
 .pager b { font-family: var(--f-display); font-weight: 800; font-size: 30px; }
 .pager .soon b { color: var(--ink-3); }
 .pager .next { text-align: right; margin-left: auto; }
-.pager-top { margin-top: 20px; padding: 0; border-top: 0; gap: 12px; }
-.pager-top a, .pager-top span {
-  flex: 1 1 0; max-width: 360px; padding: 12px 16px; border-radius: 12px;
-  border: 1.5px solid var(--line); background: var(--card);
+/* 칠판 오른쪽 위의 작은 이전·다음 */
+.player-head { display: flex; align-items: center; justify-content: space-between; gap: 8px 12px; flex-wrap: wrap; margin: 0 0 12px; }
+.player-head h2 { margin: 0; }
+.pager-top { display: flex; gap: 6px; margin-left: auto; }
+.pager-top a {
+  font-size: 13px; font-weight: 600; line-height: 1; text-decoration: none; white-space: nowrap;
+  padding: 7px 11px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--ink-2);
 }
-.pager-top a:hover { border-color: var(--accent); }
-.pager-top .next { border-color: var(--accent); background: var(--accent-soft); }
-.pager-top b { font-size: 20px; }
+.pager-top a:hover { border-color: var(--accent); color: var(--ink); }
+.pager-top a.next { border-color: var(--accent); color: var(--accent); }
 html.embed .pager-top { display: none; }
 
 dialog.lb { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 94vh; }

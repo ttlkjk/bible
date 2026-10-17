@@ -61,11 +61,20 @@
     }
     pager += "</nav>";
     body.innerHTML = b + pager;
-    // 칠판 바로 아래에도 이전·다음을 둔다: 강의를 다 듣고 곧장 다음 강의로 갈 수 있게
-    var top = pager.replace('class="pager"', 'class="pager pager-top"');
+    // 칠판 오른쪽 위에도 작은 이전·다음: 강의를 다 듣고 곧장 다음 강의로 갈 수 있게
     var player = document.getElementById("player");
-    if (player) player.insertAdjacentHTML("beforeend", top);
-    else body.insertAdjacentHTML("afterbegin", top);
+    var heading = player && player.querySelector("h2");
+    if (heading) {
+      var small = '<nav class="pager-top" aria-label="이전·다음 강의">' +
+        (L.prev ? '<a href="' + L.prev.href + '" title="이전 강의: ' + esc(L.prev.label) + '">← ' + esc(L.prev.label) + "</a>" : "") +
+        (L.next && !L.next.soon ? '<a class="next" href="' + L.next.href + '" title="다음 강의: ' + esc(L.next.label) + '">' + esc(L.next.label) + " →</a>" : "") +
+        "</nav>";
+      var row = document.createElement("div");
+      row.className = "player-head";
+      heading.parentNode.insertBefore(row, heading);
+      row.appendChild(heading);
+      row.insertAdjacentHTML("beforeend", small);
+    }
 
     spy(toc);
     lightbox(body);
