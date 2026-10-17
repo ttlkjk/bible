@@ -318,21 +318,25 @@
   // ---------- voice ----------
   var synth = window.speechSynthesis;
   var voice = null;
+  // 안드로이드 크롬은 목소리 목록을 늦게 주거나 아예 비워 둔다.
+  // 그래서 목록에서 못 찾아도 lang만 "ko-KR"로 주고 휴대폰 기본 음성에 맡긴다.
+  var speechBroken = !synth;
   function pickVoice() {
     if (!synth) return;
     var ko = synth.getVoices().filter(function (v) { return /^ko/i.test(v.lang); });
     var good = ko.filter(function (v) { return /natural|online|google|neural/i.test(v.name); });
-    voice = good[0] || ko[0] || null;
-    if (!voice) {
-      note.hidden = false;
-      note.textContent = "이 브라우저에는 한국어 음성이 없어서 소리 없이 자막으로만 진행됩니다. Edge나 Chrome에서 열면 목소리가 나옵니다.";
-    } else {
-      note.hidden = true;
-    }
+    voice = good[0] || ko[0] || voice;
+  }
+  function noVoice() {
+    speechBroken = true;
+    note.hidden = false;
+    note.textContent = "이 기기에서는 한국어 목소리를 낼 수 없어서 자막으로만 진행됩니다. 휴대폰 설정 → 텍스트 음성 변환(TTS)에서 한국어를 설치하거나, Chrome·Edge에서 열어 주세요.";
   }
   if (synth) {
     pickVoice();
     synth.addEventListener("voiceschanged", pickVoice);
+  } else {
+    noVoice();
   }
 
   // ---------- player ----------
@@ -403,8 +407,12 @@
     }
     raf = requestAnimationFrame(frame);
 
-    // speech (falls back to a reading-time timer without a Korean voice)
-    if (synth && voice) {
+    // speech (falls back to a reading-time timer when this device cannot speak Korean)
+    if (!voice) pickVoice();
+    var timer = function () {
+      setTimeout(function () { if (my === run) { spoken = true; maybeNext(); } }, (900 + b.say.length * 140) / speed);
+    };
+    if (!speechBroken) {
       // Chrome drops 'end' events now and then, and cuts off long utterances,
       // so speak sentence by sentence and also watch synth.speaking ourselves.
       var parts = b.say.split(/(?<=[.?!])\s+/);
@@ -416,10 +424,18 @@
       };
       utter = parts.map(function (s, i) {
         var u = new SpeechSynthesisUtterance(s);
-        u.voice = voice;
-        u.lang = voice.lang;
+        if (voice) u.voice = voice;
+        u.lang = voice ? voice.lang : "ko-KR";
         u.rate = speed;
-        if (i === parts.length - 1) u.onend = u.onerror = done;
+        u.onerror = function (e) {
+          // 끊거나 넘긴 것(interrupted, canceled)은 정상. 그 밖의 실패는 이 기기가 못 읽는 것이다.
+          if (my !== run || spoken) return;
+          if (e.error === "interrupted" || e.error === "canceled") { if (i === parts.length - 1) done(); return; }
+          clearInterval(watch);
+          noVoice();
+          timer();
+        };
+        if (i === parts.length - 1) u.onend = done;
         synth.speak(u);
         return u;
       });
@@ -429,10 +445,11 @@
         if (my !== run) { clearInterval(watch); return; }
         if (synth.speaking) heard = true;
         var quiet = !synth.speaking && !synth.pending;
-        if ((heard && quiet) || (!heard && quiet && Date.now() - began > 1500) || Date.now() - began > limit) done();
+        // 휴대폰은 음성 엔진이 깨어나는 데 시간이 걸려서 처음 3초는 기다린다
+        if ((heard && quiet) || (!heard && quiet && Date.now() - began > 3000) || Date.now() - began > limit) done();
       }, 250);
     } else {
-      setTimeout(function () { if (my === run) { spoken = true; maybeNext(); } }, (900 + b.say.length * 140) / speed);
+      timer();
     }
   }
 
