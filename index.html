@@ -43,55 +43,48 @@
     <div class="w-full px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
       <!-- 로고 & 타이틀 -->
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-600 to-amber-400 text-white font-black text-xl flex items-center justify-center shadow-md shadow-amber-500/20">
+      <div class="flex items-center gap-3 min-w-0 sm:shrink-0 sm:whitespace-nowrap">
+        <div class="w-10 h-10 shrink-0 rounded-xl bg-gradient-to-tr from-amber-600 to-amber-400 text-white font-black text-xl flex items-center justify-center shadow-md shadow-amber-500/20">
           에
         </div>
         <div>
           <h1 class="text-base sm:text-lg font-black tracking-tight text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
             <span>에스라 성경강좌 아카이브</span>
-            <span class="text-xs px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 font-bold hidden sm:inline-block">
+            <span class="text-xs px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 font-bold hidden min-[1920px]:inline-block">
               창세기~요한계시록 66권
             </span>
           </h1>
-          <p class="text-[11px] text-slate-500 hidden md:block">
+          <p class="text-[11px] text-slate-500 hidden min-[1920px]:block">
             노우호 목사님의 에스라하우스 성경강좌 관점 &amp; 66권 완간 단독 실행형 학습 시스템
           </p>
         </div>
       </div>
 
       <!-- 메인 뷰 전환 탭 -->
-      <nav class="hidden md:flex items-center gap-1 bg-slate-100 dark:bg-slate-800/80 p-1 rounded-xl border border-slate-200 dark:border-slate-700/50">
-        <button data-nav-view="pansuh" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all text-amber-600 bg-white dark:bg-slate-900 shadow-sm active">
+      <nav class="hidden min-[1440px]:flex shrink-0 items-center gap-1 bg-slate-100 dark:bg-slate-800/80 p-1 rounded-xl border border-slate-200 dark:border-slate-700/50">
+        <button data-nav-view="pansuh" class="px-3 min-[1920px]:px-4 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all text-amber-600 bg-white dark:bg-slate-900 shadow-sm active">
           🖍️ 판서 강의
         </button>
-        <button data-nav-view="movie" class="px-4 py-1.5 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
+        <button data-nav-view="movie" class="px-3 min-[1920px]:px-4 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
           🎬 대하 MOVIE
         </button>
-        <button data-nav-view="bible" class="px-4 py-1.5 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
+        <button data-nav-view="bible" class="px-3 min-[1920px]:px-4 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
           📖 66권 강좌 탐색
         </button>
-        <button data-nav-view="timeline" class="px-4 py-1.5 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
+        <button data-nav-view="timeline" class="px-3 min-[1920px]:px-4 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
           ⏳ 성경 연대기 타임라인
         </button>
-        <button data-nav-view="files" class="px-4 py-1.5 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
+        <button data-nav-view="files" class="px-3 min-[1920px]:px-4 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
           📽️ 강의 슬라이드 &amp; 미디어
         </button>
       </nav>
 
       <!-- 우측 액션 도구 모음 -->
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-2 shrink-0 whitespace-nowrap">
         <!-- 언어 전환 (영어판 en/ 에서는 tools/i18n_en.py가 '한국어'로 바꾼다) -->
         <a href="en/index.html" data-lang-switch hreflang="en" lang="en" title="English version"
            class="shrink-0 whitespace-nowrap flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-amber-500 text-slate-700 dark:text-slate-200 text-xs font-bold transition shadow-sm">
           <span aria-hidden="true">🌐</span><span>English</span>
-        </a>
-
-        <!-- 에스라하우스TV 바로가기 버튼 -->
-        <a href="https://www.youtube.com/@ezrahousetv" target="_blank" 
-           class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs font-bold shadow-sm transition">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-          <span class="hidden sm:inline">에스라하우스TV</span>
         </a>
 
         <!-- 폰트 크기 조절 버튼 -->
@@ -103,7 +96,7 @@
         <!-- 전체화면 토글 버튼 -->
         <button id="btn-fullscreen-toggle" title="전체화면 전환 (F11)" class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition shadow-sm">
           <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 4l-5-5m-7 11v4m0 0H4m4 0l-5-5m16 5v-4m0 0h-4m4 0l-5 5"></path></svg>
-          <span class="hidden md:inline">전체화면</span>
+          <span class="hidden min-[1920px]:inline">전체화면</span>
         </button>
 
         <!-- 다크모드 토글 -->
@@ -115,7 +108,7 @@
     </div>
 
     <!-- 모바일 전용 뷰 탭 -->
-    <div class="flex md:hidden border-t border-slate-200 dark:border-slate-800 px-4 py-2 bg-slate-50 dark:bg-slate-900 justify-around text-xs font-bold">
+    <div class="flex min-[1440px]:hidden border-t border-slate-200 dark:border-slate-800 px-4 py-2 bg-slate-50 dark:bg-slate-900 justify-around text-xs font-bold">
       <button data-nav-view="pansuh" class="text-amber-600">판서 강의</button>
       <button data-nav-view="movie" class="text-slate-500">대하 MOVIE</button>
       <button data-nav-view="bible" class="text-slate-500">66권 강좌</button>
