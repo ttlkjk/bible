@@ -1,0 +1,9 @@
+{
+ "${M.length} / ${total}편 완성": "${M.length} / ${total} films ready",
+ "${esc(m.subtitle)} · ${m.minutes}분": "${esc(m.subtitle)} · ${m.minutes} min",
+ "🖍️ 판서 강의로": "🖍️ To the whiteboard lecture",
+ "${m.minutes}분": "${m.minutes} min",
+ "판서 강의 보기": "Watch the whiteboard lecture",
+ "🎬 준비 중": "🎬 Coming soon",
+ "판서 강의 보기 →": "Watch the whiteboard lecture →"
+}

@@ -58,6 +58,9 @@
         <button data-nav-view="pansuh" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all text-amber-600 bg-white dark:bg-slate-900 shadow-sm active">
           🖍️ 판서 강의
         </button>
+        <button data-nav-view="movie" class="px-4 py-1.5 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
+          🎬 대하 MOVIE
+        </button>
         <button data-nav-view="bible" class="px-4 py-1.5 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
           📖 66권 강좌 탐색
         </button>
@@ -107,6 +110,7 @@
     <!-- 모바일 전용 뷰 탭 -->
     <div class="flex md:hidden border-t border-slate-200 dark:border-slate-800 px-4 py-2 bg-slate-50 dark:bg-slate-900 justify-around text-xs font-bold">
       <button data-nav-view="pansuh" class="text-amber-600">판서 강의</button>
+      <button data-nav-view="movie" class="text-slate-500">대하 MOVIE</button>
       <button data-nav-view="bible" class="text-slate-500">66권 강좌</button>
       <button data-nav-view="timeline" class="text-slate-500">연대기 타임라인</button>
       <button data-nav-view="files" class="text-slate-500">슬라이드 &amp; 미디어</button>
@@ -426,6 +430,27 @@
       <div id="pansuh-shelf" class="space-y-8"></div>
     </section>
 
+    <!-- ================================================================== -->
+    <!-- VIEW 5: 대하 MOVIE (판서 강의를 명화와 해설로 옮긴 영화) — js/movies.js가 채운다 -->
+    <!-- ================================================================== -->
+    <section id="view-movie" class="hidden space-y-6 animate-fade-in">
+      <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="max-w-4xl">
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 inline-block">🎬 명화 + 해설 영화</span>
+            <span id="movie-count" class="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"></span>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-slate-100">대하 MOVIE — 판서 강의를 명화와 해설로 옮긴 영화</h3>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+            판서 강의의 내용을 저작권이 끝난 성경 명화와 해설 그래픽, AI 해설 음성으로 옮긴 영화입니다. 강의 순서대로 한 편씩 늘어나며, 아직 만들지 않은 강의는 '준비 중'으로 표시됩니다.
+            각 영화의 그림 출처는 유튜브 설명란에 있습니다.
+          </p>
+        </div>
+      </div>
+      <div id="movie-stage" class="max-w-4xl mx-auto"></div>
+      <div id="movie-shelf" class="space-y-8"></div>
+    </section>
+
   </main>
 
   <!-- ==================================================================== -->
@@ -502,5 +527,7 @@
   <script src="js/app.js"></script>
   <script src="js/pansuh_index.js?v=20261017c"></script>
   <script src="js/pansuh.js?v=20261017c"></script>
+  <script src="js/movies_index.js?v=20261019a"></script>
+  <script src="js/movies.js?v=20261019a"></script>
 </body>
 </html>
