@@ -4,4 +4,5 @@
 //   youtube: 영상 ID (https://youtu.be/<ID>) · pansuh: 칠판 강의 페이지
 window.MOVIES = [
   { id: "genesis", title: "Genesis", subtitle: "Four events and four people", minutes: 37, youtube: "3DR_ye9KbhE", pansuh: "pansuh/genesis.html" },
+  { id: "exodus", title: "Exodus", subtitle: "The Exodus from Egypt and the covenant at Sinai", minutes: 10, youtube: "mRfrwso4N-g", pansuh: "pansuh/exodus.html" },
 ];
