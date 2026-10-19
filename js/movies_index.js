@@ -11,4 +11,5 @@ window.MOVIES = [
   { id: "joshua", title: "여호수아", subtitle: "가나안 정복, 기생 라합, 나와 내 집은", minutes: 6, youtube: "1aDzUavtdHw", pansuh: "pansuh/joshua.html" },
   { id: "judges", title: "사사기", subtitle: "왕이 없으므로, 각각 소견에 옳은 대로", minutes: 12, youtube: "Zh5iDNu3wbI", pansuh: "pansuh/judges.html" },
   { id: "ruth", title: "룻기", subtitle: "비어 돌아온 나오미, 보리밭의 러브 스토리", minutes: 9, youtube: "fKiXPLqHt2I", pansuh: "pansuh/ruth.html" },
+  { id: "samuel1", title: "사무엘상", subtitle: "나실인 사무엘, 무너지는 사울, 도망자 다윗", minutes: 16, youtube: "_UXZXKzLh58", pansuh: "pansuh/samuel1.html" },
 ];

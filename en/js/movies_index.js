@@ -11,4 +11,5 @@ window.MOVIES = [
   { id: "joshua", title: "Joshua", subtitle: "The conquest of Canaan, Rahab, and \"as for me and my house\"", minutes: 6, youtube: "1aDzUavtdHw", pansuh: "pansuh/joshua.html" },
   { id: "judges", title: "Judges", subtitle: "No king: everyone did what was right in their own eyes", minutes: 12, youtube: "Zh5iDNu3wbI", pansuh: "pansuh/judges.html" },
   { id: "ruth", title: "Ruth", subtitle: "Naomi comes home empty; a love story in the barley field", minutes: 9, youtube: "fKiXPLqHt2I", pansuh: "pansuh/ruth.html" },
+  { id: "samuel1", title: "1 Samuel", subtitle: "Samuel the Nazirite, Saul's fall, David on the run", minutes: 16, youtube: "_UXZXKzLh58", pansuh: "pansuh/samuel1.html" },
 ];
