@@ -5,12 +5,12 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
 :root {
-  --primary: #16a34a; /* green-600 */
-  --primary-light: #dcfce7; /* green-100 */
-  --primary-dark: #15803d; /* green-700 */
-  --accent: #2563eb; /* blue-600 */
-  
-  --bg-main: #f8fafc;
+  --primary: #2471A3; /* Easy Machine 고른 탭 */
+  --primary-light: #D6EAF8; /* Easy Machine 연한 막대 */
+  --primary-dark: #1A5276; /* Easy Machine 진한 막대 */
+  --accent: #2471A3;
+
+  --bg-main: #EBF5FB; /* Easy Machine 바탕 */
   --bg-card: #ffffff;
   --bg-sidebar: #0f172a;
   --border-color: #e2e8f0;
@@ -87,13 +87,13 @@ body {
 }
 .book-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px -5px rgba(22, 163, 74, 0.15);
+  box-shadow: 0 10px 20px -5px rgba(36, 113, 163, 0.15);
   border-color: var(--primary);
 }
 .book-card.active {
   border-color: var(--primary);
   box-shadow: 0 0 0 2px var(--primary);
-  background: linear-gradient(135deg, rgba(22, 163, 74, 0.08), transparent);
+  background: linear-gradient(135deg, rgba(36, 113, 163, 0.08), transparent);
 }
 
 /* 탭 버튼 */
@@ -144,9 +144,9 @@ body {
 }
 .quiz-option-btn:hover:not(:disabled) {
   border-color: var(--primary);
-  background-color: rgba(22, 163, 74, 0.07);
+  background-color: rgba(36, 113, 163, 0.07);
   transform: translateX(6px);
-  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.1);
+  box-shadow: 0 4px 12px rgba(36, 113, 163, 0.1);
 }
 .quiz-option-btn.correct {
   background-color: rgba(34, 197, 94, 0.15) !important;
@@ -211,7 +211,7 @@ body {
   bottom: 0;
   left: 20px;
   width: 3px;
-  background: linear-gradient(to bottom, #16a34a, #3b82f6, #ec4899);
+  background: linear-gradient(to bottom, #2471A3, #2980B9, #ec4899);
 }
 
 /* 토스트 알림 */
@@ -260,11 +260,11 @@ body {
 }
 
 /* 메타 정보 배경 (Tailwind /8, /15 opacity - CDN에서 누락될 수 있어 직접 정의) */
-.bg-amber-500\/8   { background-color: rgb(34 197 94 / 0.08); }
+.bg-amber-500\/8   { background-color: rgb(41 128 185 / 0.08); }
 .bg-blue-500\/8    { background-color: rgb(59 130 246 / 0.08); }
 .bg-emerald-500\/8 { background-color: rgb(16 185 129 / 0.08); }
 .bg-indigo-500\/8  { background-color: rgb(99 102 241 / 0.08); }
-.bg-amber-500\/15  { background-color: rgb(34 197 94 / 0.15); }
+.bg-amber-500\/15  { background-color: rgb(41 128 185 / 0.15); }
 .bg-blue-500\/15   { background-color: rgb(59 130 246 / 0.15); }
 .bg-emerald-500\/15{ background-color: rgb(16 185 129 / 0.15); }
 .bg-indigo-500\/15 { background-color: rgb(99 102 241 / 0.15); }
@@ -275,7 +275,16 @@ body {
   outline: none;
 }
 #detail-meta-badges button:focus-visible {
-  outline: 2px solid rgb(34 197 94 / 0.6);
+  outline: 2px solid rgb(41 128 185 / 0.6);
   outline-offset: 2px;
   border-radius: 6px;
 }
+
+/* 머리 막대: Easy Machine V2처럼 진한 남색 바탕, 고른 탭은 한 단계 밝은 파랑.
+   app.js가 탭을 고를 때 bg-white·text-amber-600을 붙이므로 여기서 덮는다. */
+header nav button.active {
+  background-color: #2471A3 !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+#btn-theme-toggle svg.text-slate-700 { color: #D6EAF8; }

@@ -996,14 +996,14 @@
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Malgun Gothic", sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 20px; }
     .slide-card { max-width: 960px; margin: 0 auto 30px auto; background: #1e293b; border-radius: 16px; padding: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); border: 1px solid #334155; page-break-after: always; }
     .slide-num { font-size: 12px; font-weight: bold; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-    .badge { display: inline-block; padding: 4px 12px; background: rgba(34, 197, 94, 0.2); color: #4ade80; border-radius: 9999px; font-size: 13px; font-weight: bold; margin-bottom: 12px; }
+    .badge { display: inline-block; padding: 4px 12px; background: rgba(41, 128, 185, 0.2); color: #5DADE2; border-radius: 9999px; font-size: 13px; font-weight: bold; margin-bottom: 12px; }
     .title { font-size: 28px; font-weight: 900; margin: 0 0 8px 0; color: #ffffff; }
     .subtitle { font-size: 16px; color: #cbd5e1; margin-bottom: 8px; }
     .scripture { font-size: 14px; font-weight: 600; color: #38bdf8; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid #334155; }
     .bullets { list-style: none; padding: 0; margin: 0 0 24px 0; }
     .bullets li { font-size: 16px; line-height: 1.8; margin-bottom: 10px; padding-left: 20px; position: relative; color: #e2e8f0; }
-    .bullets li::before { content: "•"; color: #22c55e; font-size: 24px; position: absolute; left: 0; top: -3px; }
-    .note { background: rgba(34, 197, 94, 0.1); border-left: 4px solid #22c55e; padding: 16px; border-radius: 8px; font-size: 14px; line-height: 1.6; color: #bbf7d0; }
+    .bullets li::before { content: "•"; color: #2980B9; font-size: 24px; position: absolute; left: 0; top: -3px; }
+    .note { background: rgba(41, 128, 185, 0.1); border-left: 4px solid #2980B9; padding: 16px; border-radius: 8px; font-size: 14px; line-height: 1.6; color: #AED6F1; }
     @media print { body { background: white; color: black; } .slide-card { background: white; border: 1px solid #ccc; color: black; box-shadow: none; } .title { color: black; } .subtitle, .bullets li { color: #333; } }
   </style>
 </head>
@@ -1152,7 +1152,7 @@
 
       const bulletsList = (cur.bulletPoints || []).map(b => `
         <li class="flex items-start gap-3.5 leading-relaxed">
-          <span class="w-3 h-3 rounded-full ${isDark ? 'bg-amber-400 shadow-[0_0_10px_rgba(74,222,128,0.8)]' : 'bg-amber-500 shadow-sm'} mt-2 shrink-0"></span>
+          <span class="w-3 h-3 rounded-full ${isDark ? 'bg-amber-400 shadow-[0_0_10px_rgba(93,173,226,0.8)]' : 'bg-amber-500 shadow-sm'} mt-2 shrink-0"></span>
           <span class="${isDark ? 'text-white' : 'text-slate-950'} font-bold tracking-wide" style="font-size: ${fontSize}px; line-height: 1.65;">${b}</span>
         </li>
       `).join("");
