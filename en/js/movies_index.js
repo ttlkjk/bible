@@ -7,4 +7,5 @@ window.MOVIES = [
   { id: "exodus", title: "Exodus", subtitle: "The Exodus from Egypt and the covenant at Sinai", minutes: 10, youtube: "mRfrwso4N-g", pansuh: "pansuh/exodus.html" },
   { id: "leviticus", title: "Leviticus", subtitle: "The covenant of life and peace, the law of a holy people", minutes: 14, youtube: "3Yzi_jtZ-GA", pansuh: "pansuh/leviticus.html" },
   { id: "numbers", title: "Numbers", subtitle: "Training in the wilderness: how many complaints?", minutes: 14, youtube: "DWSoUZ7lZQA", pansuh: "pansuh/numbers.html" },
+  { id: "deuteronomy", title: "Deuteronomy", subtitle: "Moses' farewell sermons, Shema Israel", minutes: 10, youtube: "0_grTZ-3RZY", pansuh: "pansuh/deuteronomy.html" },
 ];

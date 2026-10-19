@@ -7,4 +7,5 @@ window.MOVIES = [
   { id: "exodus", title: "출애굽기", subtitle: "이집트 탈출과 시내산 언약", minutes: 10, youtube: "mRfrwso4N-g", pansuh: "pansuh/exodus.html" },
   { id: "leviticus", title: "레위기", subtitle: "생명과 평강의 언약, 거룩한 백성의 법", minutes: 14, youtube: "3Yzi_jtZ-GA", pansuh: "pansuh/leviticus.html" },
   { id: "numbers", title: "민수기", subtitle: "광야 훈련기, 불평은 몇 번?", minutes: 14, youtube: "DWSoUZ7lZQA", pansuh: "pansuh/numbers.html" },
+  { id: "deuteronomy", title: "신명기", subtitle: "모세의 고별 설교, 쉐마 이스라엘", minutes: 10, youtube: "0_grTZ-3RZY", pansuh: "pansuh/deuteronomy.html" },
 ];
