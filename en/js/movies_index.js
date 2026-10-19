@@ -10,4 +10,5 @@ window.MOVIES = [
   { id: "deuteronomy", title: "Deuteronomy", subtitle: "Moses' farewell sermons, Shema Israel", minutes: 10, youtube: "0_grTZ-3RZY", pansuh: "pansuh/deuteronomy.html" },
   { id: "joshua", title: "Joshua", subtitle: "The conquest of Canaan, Rahab, and \"as for me and my house\"", minutes: 6, youtube: "1aDzUavtdHw", pansuh: "pansuh/joshua.html" },
   { id: "judges", title: "Judges", subtitle: "No king: everyone did what was right in their own eyes", minutes: 12, youtube: "Zh5iDNu3wbI", pansuh: "pansuh/judges.html" },
+  { id: "ruth", title: "Ruth", subtitle: "Naomi comes home empty; a love story in the barley field", minutes: 9, youtube: "fKiXPLqHt2I", pansuh: "pansuh/ruth.html" },
 ];

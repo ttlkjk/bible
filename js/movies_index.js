@@ -10,4 +10,5 @@ window.MOVIES = [
   { id: "deuteronomy", title: "신명기", subtitle: "모세의 고별 설교, 쉐마 이스라엘", minutes: 10, youtube: "0_grTZ-3RZY", pansuh: "pansuh/deuteronomy.html" },
   { id: "joshua", title: "여호수아", subtitle: "가나안 정복, 기생 라합, 나와 내 집은", minutes: 6, youtube: "1aDzUavtdHw", pansuh: "pansuh/joshua.html" },
   { id: "judges", title: "사사기", subtitle: "왕이 없으므로, 각각 소견에 옳은 대로", minutes: 12, youtube: "Zh5iDNu3wbI", pansuh: "pansuh/judges.html" },
+  { id: "ruth", title: "룻기", subtitle: "비어 돌아온 나오미, 보리밭의 러브 스토리", minutes: 9, youtube: "fKiXPLqHt2I", pansuh: "pansuh/ruth.html" },
 ];
