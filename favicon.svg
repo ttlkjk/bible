@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- 에스라 성경강좌 아이콘: 헤더 로고 칸과 같은 파란 둥근 네모 위에 펼친 성경 -->
+  <defs>
+    <linearGradient id="tile" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#1A5276"/>
+      <stop offset="1" stop-color="#2E86C1"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#tile)"/>
+  <!-- 표지 (책 아래로 살짝 보이는 두께) -->
+  <path d="M9 20 V48.5 C18.5 47.5 26.5 48.5 32 52 C37.5 48.5 45.5 47.5 55 48.5 V20 Z" fill="#AED6F1"/>
+  <!-- 왼쪽·오른쪽 쪽 -->
+  <path d="M32 21 C26.5 17 19 16 11.5 17.2 V45.6 C19 44.6 26.5 45.6 32 49.4 Z" fill="#FFFFFF"/>
+  <path d="M32 21 C37.5 17 45 16 52.5 17.2 V45.6 C45 44.6 37.5 45.6 32 49.4 Z" fill="#EBF5FB"/>
+  <!-- 가운데 접힌 곳 -->
+  <path d="M32 21 V49.4" stroke="#5DADE2" stroke-width="1.4"/>
+  <!-- 글줄 -->
+  <g stroke="#85C1E9" stroke-width="2.2" stroke-linecap="round">
+    <path d="M16 25 H27.5 M16 30.5 H27.5 M16 36 H24"/>
+    <path d="M36.5 25 H48 M36.5 30.5 H48"/>
+  </g>
+  <!-- 판서 형광펜 줄 -->
+  <path d="M36.5 36.5 H48" stroke="#2980B9" stroke-width="3.6" stroke-linecap="round"/>
+</svg>

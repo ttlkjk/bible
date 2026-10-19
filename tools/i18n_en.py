@@ -616,6 +616,8 @@ def fix_paths(rel, text):
         text = re.sub(r"(?<=[\"'(])img/", "../../pansuh/img/", text)
     if rel.endswith(".html"):
         text = re.sub(r'<html lang="ko"', '<html lang="en"', text, count=1)
+        # 사이트 아이콘은 한국어 쪽 맨 위 폴더에 하나만 둔다
+        text = re.sub(r'(<link rel="(?:icon|apple-touch-icon)" href=")', r"\1../", text)
         depth = rel.count("/")
         back = "../" * (depth + 1) + rel
 
