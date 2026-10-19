@@ -59,7 +59,22 @@
         ? '<span class="next soon"><small>Next · Coming soon</small><b>' + esc(L.next.label) + "</b></span>"
         : '<a class="next" href="' + L.next.href + '"><small>Next →</small><b>' + esc(L.next.label) + "</b></a>";
     }
-    body.innerHTML = b + pager + "</nav>";
+    pager += "</nav>";
+    body.innerHTML = b + pager;
+    // 칠판 오른쪽 위에도 작은 이전·다음: 강의를 다 듣고 곧장 다음 강의로 갈 수 있게
+    var player = document.getElementById("player");
+    var heading = player && player.querySelector("h2");
+    if (heading) {
+      var small = '<nav class="pager-top" aria-label="Previous and next lectures">' +
+        (L.prev ? '<a href="' + L.prev.href + '" title="Previous lecture: ' + esc(L.prev.label) + '">← ' + esc(L.prev.label) + "</a>" : "") +
+        (L.next && !L.next.soon ? '<a class="next" href="' + L.next.href + '" title="Next lecture: ' + esc(L.next.label) + '">' + esc(L.next.label) + " →</a>" : "") +
+        "</nav>";
+      var row = document.createElement("div");
+      row.className = "player-head";
+      heading.parentNode.insertBefore(row, heading);
+      row.appendChild(heading);
+      row.insertAdjacentHTML("beforeend", small);
+    }
 
     spy(toc);
     lightbox(body);

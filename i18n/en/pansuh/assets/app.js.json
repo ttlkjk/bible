@@ -7,5 +7,8 @@
  "이전·다음": "Previous and next",
  "\"><small>← 이전": "\"><small>← Previous",
  "다음 · 준비 중": "Next · Coming soon",
- "\"><small>다음 →": "\"><small>Next →"
+ "\"><small>다음 →": "\"><small>Next →",
+ "이전·다음 강의": "Previous and next lectures",
+ "\" title=\"이전 강의:": "\" title=\"Previous lecture:",
+ "\" title=\"다음 강의:": "\" title=\"Next lecture:"
 }

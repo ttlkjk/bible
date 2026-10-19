@@ -337,6 +337,10 @@ dialog.lb img { max-width: 96vw; max-height: 94vh; width: auto; height: auto; bo
 /* ---------- 판서 player ---------- */
 .player { padding-top: 8px; padding-bottom: clamp(48px, 7vw, 80px); }
 .player h2 { font-size: 15px; font-weight: 600; letter-spacing: 0.04em; color: var(--ink-3); margin: 0 0 12px; }
+.movie { padding-top: 8px; padding-bottom: 8px; }
+.movie h2 { font-size: 15px; font-weight: 600; letter-spacing: 0.04em; color: var(--ink-3); margin: 0 0 12px; }
+.movie-frame { aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000; }
+.movie-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
 .board { --frame: #c9cdd5; outline: none; }
 .bd-stage {
   position: relative; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden;
@@ -433,5 +437,6 @@ dialog.lb img { max-width: 96vw; max-height: 94vh; width: auto; height: auto; bo
 /* ---------- 아카이브 안에 끼워 넣을 때 (?embed=1): 칠판만 ---------- */
 html.embed body { background: transparent; }
 html.embed .top, html.embed .l-head, html.embed .l-body, html.embed footer, html.embed .player h2 { display: none; }
+html.embed .movie { display: none; }
 html.embed .player { padding: 0; max-width: none; }
 html.embed main > .wrap.player { padding: 2px; }
