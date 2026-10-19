@@ -5,4 +5,5 @@
 window.MOVIES = [
   { id: "genesis", title: "Genesis", subtitle: "Four events and four people", minutes: 37, youtube: "QJWlFiJbIiY", pansuh: "pansuh/genesis.html" },
   { id: "exodus", title: "Exodus", subtitle: "The Exodus from Egypt and the covenant at Sinai", minutes: 10, youtube: "mRfrwso4N-g", pansuh: "pansuh/exodus.html" },
+  { id: "leviticus", title: "Leviticus", subtitle: "The covenant of life and peace, the law of a holy people", minutes: 14, youtube: "3Yzi_jtZ-GA", pansuh: "pansuh/leviticus.html" },
 ];
