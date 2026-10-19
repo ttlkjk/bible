@@ -9,4 +9,5 @@ window.MOVIES = [
   { id: "numbers", title: "Numbers", subtitle: "Training in the wilderness: how many complaints?", minutes: 14, youtube: "DWSoUZ7lZQA", pansuh: "pansuh/numbers.html" },
   { id: "deuteronomy", title: "Deuteronomy", subtitle: "Moses' farewell sermons, Shema Israel", minutes: 10, youtube: "0_grTZ-3RZY", pansuh: "pansuh/deuteronomy.html" },
   { id: "joshua", title: "Joshua", subtitle: "The conquest of Canaan, Rahab, and \"as for me and my house\"", minutes: 6, youtube: "1aDzUavtdHw", pansuh: "pansuh/joshua.html" },
+  { id: "judges", title: "Judges", subtitle: "No king: everyone did what was right in their own eyes", minutes: 12, youtube: "Zh5iDNu3wbI", pansuh: "pansuh/judges.html" },
 ];

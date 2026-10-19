@@ -9,4 +9,5 @@ window.MOVIES = [
   { id: "numbers", title: "민수기", subtitle: "광야 훈련기, 불평은 몇 번?", minutes: 14, youtube: "DWSoUZ7lZQA", pansuh: "pansuh/numbers.html" },
   { id: "deuteronomy", title: "신명기", subtitle: "모세의 고별 설교, 쉐마 이스라엘", minutes: 10, youtube: "0_grTZ-3RZY", pansuh: "pansuh/deuteronomy.html" },
   { id: "joshua", title: "여호수아", subtitle: "가나안 정복, 기생 라합, 나와 내 집은", minutes: 6, youtube: "1aDzUavtdHw", pansuh: "pansuh/joshua.html" },
+  { id: "judges", title: "사사기", subtitle: "왕이 없으므로, 각각 소견에 옳은 대로", minutes: 12, youtube: "Zh5iDNu3wbI", pansuh: "pansuh/judges.html" },
 ];
