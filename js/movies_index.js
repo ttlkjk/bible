@@ -6,4 +6,5 @@ window.MOVIES = [
   { id: "genesis", title: "창세기", subtitle: "네 사건과 네 사람", minutes: 37, youtube: "QJWlFiJbIiY", pansuh: "pansuh/genesis.html" },
   { id: "exodus", title: "출애굽기", subtitle: "이집트 탈출과 시내산 언약", minutes: 10, youtube: "mRfrwso4N-g", pansuh: "pansuh/exodus.html" },
   { id: "leviticus", title: "레위기", subtitle: "생명과 평강의 언약, 거룩한 백성의 법", minutes: 14, youtube: "3Yzi_jtZ-GA", pansuh: "pansuh/leviticus.html" },
+  { id: "numbers", title: "민수기", subtitle: "광야 훈련기, 불평은 몇 번?", minutes: 14, youtube: "DWSoUZ7lZQA", pansuh: "pansuh/numbers.html" },
 ];
