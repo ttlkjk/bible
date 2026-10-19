@@ -3,6 +3,6 @@
 //   id: 판서 강의 id · title: 화면 제목 · subtitle: 한 줄 소개 · minutes: 길이(분)
 //   youtube: 영상 ID (https://youtu.be/<ID>) · pansuh: 칠판 강의 페이지
 window.MOVIES = [
-  { id: "genesis", title: "창세기", subtitle: "네 사건과 네 사람", minutes: 37, youtube: "3DR_ye9KbhE", pansuh: "pansuh/genesis.html" },
+  { id: "genesis", title: "창세기", subtitle: "네 사건과 네 사람", minutes: 37, youtube: "QJWlFiJbIiY", pansuh: "pansuh/genesis.html" },
   { id: "exodus", title: "출애굽기", subtitle: "이집트 탈출과 시내산 언약", minutes: 10, youtube: "mRfrwso4N-g", pansuh: "pansuh/exodus.html" },
 ];
