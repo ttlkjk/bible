@@ -63,10 +63,10 @@
 
       <!-- 메인 뷰 전환 탭 -->
       <nav class="hidden min-[1440px]:flex shrink-0 items-center gap-1 bg-[#154360]/60 p-1 rounded-xl border border-white/10">
-        <button data-nav-view="movie" class="px-3 min-[1920px]:px-4 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap text-[#AED6F1] hover:bg-[#2980B9] hover:text-white transition-all">
+        <button data-nav-view="movie" class="px-3 min-[1920px]:px-4 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all text-[#AED6F1] hover:bg-[#2980B9] hover:text-white active">
           🎬 Saga MOVIE
         </button>
-        <button data-nav-view="pansuh" class="px-3 min-[1920px]:px-4 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all text-[#AED6F1] hover:bg-[#2980B9] hover:text-white active">
+        <button data-nav-view="pansuh" class="px-3 min-[1920px]:px-4 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap text-[#AED6F1] hover:bg-[#2980B9] hover:text-white transition-all">
           🖍️ Whiteboard Lectures
         </button>
         <button data-nav-view="bible" class="px-3 min-[1920px]:px-4 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap text-[#AED6F1] hover:bg-[#2980B9] hover:text-white transition-all">
@@ -110,8 +110,8 @@
 
     <!-- 모바일 전용 뷰 탭 -->
     <div class="flex min-[1440px]:hidden border-t border-[#154360] px-4 py-2 bg-[#D6EAF8] dark:bg-slate-900 justify-around text-xs font-bold">
-      <button data-nav-view="movie" class="text-slate-500">Saga MOVIE</button>
-      <button data-nav-view="pansuh" class="text-amber-600">Whiteboard Lectures</button>
+      <button data-nav-view="movie" class="text-amber-600">Saga MOVIE</button>
+      <button data-nav-view="pansuh" class="text-slate-500">Whiteboard Lectures</button>
       <button data-nav-view="bible" class="text-slate-500">66 Books</button>
       <button data-nav-view="timeline" class="text-slate-500">Timeline</button>
       <button data-nav-view="files" class="text-slate-500">Slides &amp; Media</button>
@@ -410,7 +410,7 @@
     <!-- ================================================================== -->
     <!-- VIEW 4: 판서 강의 (pansuh/ 칠판 강의 76강) — js/pansuh.js가 채운다 -->
     <!-- ================================================================== -->
-    <section id="view-pansuh" class="space-y-6 animate-fade-in">
+    <section id="view-pansuh" class="hidden space-y-6 animate-fade-in">
       <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
         <div class="max-w-4xl">
           <div class="flex flex-wrap items-center gap-2 mb-2">
@@ -434,21 +434,28 @@
     <!-- ================================================================== -->
     <!-- VIEW 5: 대하 MOVIE (판서 강의를 명화와 해설로 옮긴 영화) — js/movies.js가 채운다 -->
     <!-- ================================================================== -->
-    <section id="view-movie" class="hidden space-y-6 animate-fade-in">
-      <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-        <div class="max-w-4xl">
-          <div class="flex flex-wrap items-center gap-2 mb-2">
-            <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-600 dark:text-amber-400 inline-block">🎬 Paintings + narration</span>
-            <span id="movie-count" class="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"></span>
+    <section id="view-movie" class="space-y-6 animate-fade-in">
+      <!-- 첫 화면 간판: 영화에 쓴 명화 여덟 점, 창세기→요한계시록 (img/movie-hero.jpg는 판서강좌/movie/tools/movie_hero.py가 만든다).
+           영화 카드나 '첫 편부터 보기'를 누르면 js/movies.js가 이 자리를 플레이어로 바꾼다 -->
+      <div id="movie-stage" class="max-w-4xl mx-auto">
+        <div class="relative flex flex-col justify-end min-h-[26rem] sm:min-h-0 sm:aspect-video rounded-2xl overflow-hidden bg-slate-950 shadow-sm">
+          <img src="../img/movie-hero.jpg" alt="Eight paintings from the Saga MOVIE films, from the Garden of Eden to the Last Day" class="absolute inset-0 w-full h-full object-cover">
+          <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.7) 32%, rgba(0,0,0,0) 62%);"></div>
+          <div class="relative p-5 sm:p-8 max-w-3xl text-white">
+            <h3 class="text-3xl sm:text-5xl font-black tracking-tight">Saga MOVIE</h3>
+            <p class="mt-1 text-sm sm:text-lg font-bold text-amber-200">The Whiteboard Lectures retold in classic paintings and narration</p>
+            <p class="mt-3 text-xs sm:text-sm text-white/85 leading-relaxed">Films that retell the Whiteboard Lectures with public-domain Bible paintings, explanatory graphics and an AI narrator's voice (in Korean).</p>
+            <button type="button" data-movie-start class="mt-4 px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-900 text-sm font-black shadow transition">▶ Watch from the first film</button>
           </div>
-          <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-slate-100">Saga MOVIE — the Whiteboard Lectures retold in classic paintings and narration</h3>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
-            Films that retell the Whiteboard Lectures with public-domain Bible paintings, explanatory graphics and an AI narrator's voice (in Korean). One film is added at a time, in lecture order; lectures not made yet are marked 'Coming soon'.
-            The picture credits for each film are in its YouTube description.
-          </p>
+          <!-- 유튜브 플레이어의 '다음에서 보기' 단추처럼: 유튜브 재생목록 '명화로 보는 판서 강의 | 성경 한눈에 보기' -->
+          <a href="https://www.youtube.com/playlist?list=PLBw5SuDvgDkI" target="_blank" rel="noopener"
+             class="absolute top-3 right-3 sm:top-auto sm:bottom-6 sm:right-6 flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-black/65 hover:bg-black/80 text-white text-sm transition">
+            <span>Watch on</span>
+            <svg aria-hidden="true" viewBox="0 0 28 20" class="h-4 w-auto"><rect width="28" height="20" rx="5" fill="#fff"/><path d="M11 5.5v9l8-4.5z" fill="#0f0f0f"/></svg>
+            <span class="font-bold tracking-tighter">YouTube</span>
+          </a>
         </div>
       </div>
-      <div id="movie-stage" class="max-w-4xl mx-auto"></div>
       <div id="movie-shelf" class="space-y-8"></div>
     </section>
 
@@ -529,6 +536,6 @@
   <script src="js/pansuh_index.js?v=20261017c"></script>
   <script src="js/pansuh.js?v=20261017c"></script>
   <script src="js/movies_index.js?v=3021e11c"></script>
-  <script src="js/movies.js?v=20261019a"></script>
+  <script src="js/movies.js?v=20261020a"></script>
 </body>
 </html>

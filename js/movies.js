@@ -1,7 +1,7 @@
 // ============================================================================
 // 대하 MOVIE — 판서 강의를 명화와 해설로 옮긴 영화 (목록: js/movies_index.js)
 // 맨 위 '🎬 대하 MOVIE' 탭 화면. 판서 강의 76강을 강의 순서대로 놓고(js/pansuh_index.js),
-// 영화가 있는 강의는 카드를 누르면 위 플레이어에서 바로 재생, 없는 강의는 '준비 중'으로 흐리게 둔다.
+// 맨 위는 간판 그림이고, 영화가 있는 강의는 카드를 누르면 그 자리에서 바로 재생, 없는 강의는 '준비 중'으로 흐리게 둔다.
 // app.js는 건드리지 않고, js/pansuh.js처럼 화면의 단추를 보고 따라 움직인다.
 // ============================================================================
 (function () {
@@ -81,12 +81,15 @@
     stage.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
-  // 탭을 처음 열 때 첫 영화를 플레이어에 올린다 (첫 화면에서 유튜브를 미리 불러오지 않게)
-  let shown = false;
+  // 첫 화면은 index.html의 간판 그림. '첫 편부터 보기'를 누르면 그 자리에 첫 영화를 튼다
+  const start = stage.querySelector("[data-movie-start]");
+  if (start) {
+    if (!M.length) start.remove();
+    else start.addEventListener("click", () => play(M[0], true));
+  }
+
   document.querySelectorAll("[data-nav-view]").forEach((btn) =>
     btn.addEventListener("click", () => {
-      const on = btn.getAttribute("data-nav-view") === "movie";
-      view.classList.toggle("hidden", !on);
-      if (on && !shown && M.length) { shown = true; play(M[0], false); }
+      view.classList.toggle("hidden", btn.getAttribute("data-nav-view") !== "movie");
     }));
 })();

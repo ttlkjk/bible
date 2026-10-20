@@ -553,6 +553,10 @@ def patches(rel):
             ("/^ko/i", "/^en/i"),
             ('u.lang = "ko-KR"', 'u.lang = "en-US"'),
         ],
+        "index.html": [
+            # 대하 MOVIE 간판 그림은 한국어 쪽 img/ 에 하나만 둔다
+            ('src="img/movie-hero.jpg"', 'src="../img/movie-hero.jpg"'),
+        ],
         "js/app.js": [
             # 연대기 화면의 책 단추: 한국어는 첫 낱말로 찾지만 영어 책 이름은 '1 Samuel'처럼 띄어 쓴다
             ("b.split('(')[0].split('·')[0].split(' ')[0].trim()", "b.split('(')[0].split('·')[0].trim()"),
