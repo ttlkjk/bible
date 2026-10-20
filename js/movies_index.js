@@ -56,4 +56,6 @@ window.MOVIES = [
   { id: "thess2", title: "데살로니가후서", subtitle: "배도와 불법의 사람, 일하기 싫으면 먹지도 말라", minutes: 8, youtube: "xJjT9XEnjGE", pansuh: "pansuh/thess2.html" },
   { id: "galatians", title: "갈라디아서", subtitle: "다른 복음은 없다, 그리스도 안의 자유", minutes: 10, youtube: "HyuKFz1cs98", pansuh: "pansuh/galatians.html" },
   { id: "acts-18", title: "사도행전 18:12~19:20", subtitle: "갈리오 총독, 아볼로, 두란노 서원, 스게와의 일곱 아들", minutes: 8, youtube: "HtmPenHCNvo", pansuh: "pansuh/acts-18.html" },
+  { id: "cor1", title: "고린도전서", subtitle: "파벌, 송사, 결혼, 우상의 제물, 은사, 사랑장, 부활", minutes: 17, youtube: "TnzIav0s4GM", pansuh: "pansuh/cor1.html" },
+  { id: "cor2", title: "고린도후서", subtitle: "거꾸로 읽는 편지, 열 가지 반응, 디도, 질그릇, 새로운 피조물, 연보", minutes: 13, youtube: "PH3slLvSLKI", pansuh: "pansuh/cor2.html" },
 ];
