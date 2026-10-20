@@ -58,4 +58,5 @@ window.MOVIES = [
   { id: "acts-18", title: "사도행전 18:12~19:20", subtitle: "갈리오 총독, 아볼로, 두란노 서원, 스게와의 일곱 아들", minutes: 8, youtube: "HtmPenHCNvo", pansuh: "pansuh/acts-18.html" },
   { id: "cor1", title: "고린도전서", subtitle: "파벌, 송사, 결혼, 우상의 제물, 은사, 사랑장, 부활", minutes: 17, youtube: "TnzIav0s4GM", pansuh: "pansuh/cor1.html" },
   { id: "cor2", title: "고린도후서", subtitle: "거꾸로 읽는 편지, 열 가지 반응, 디도, 질그릇, 새로운 피조물, 연보", minutes: 13, youtube: "PH3slLvSLKI", pansuh: "pansuh/cor2.html" },
+  { id: "acts-19", title: "사도행전 19:21~20:3", subtitle: "바울의 계획, 은세공업자 데메드리오, 크다 아데미여, 헬라에서 석 달", minutes: 5, youtube: "xMoJv08pCt0", pansuh: "pansuh/acts-19.html" },
 ];
