@@ -75,4 +75,6 @@ window.MOVIES = [
   { id: "peter2", title: "베드로후서", subtitle: "믿으면 끝일까, 믿음에서 사랑까지 성장의 여덟 계단, 거짓 선지자와 심판의 날, 그리스도를 아는 지식에서 자라가라", minutes: 3, youtube: "LVPqDI6PfaY", pansuh: "pansuh/peter2.html" },
   { id: "john1", title: "요한일서", subtitle: "깨진 관계의 회복, 하나님은 빛이시니 빛의 반사체로, 요한이 말하는 참 사랑 일곱 가지", minutes: 3, youtube: "9_CeDkDpsDQ", pansuh: "pansuh/john1.html" },
   { id: "john2", title: "요한이서", subtitle: "적그리스도 영지주의 이단 경계, 진리 안에 거하라, 이단에게는 문도 열어 주지 말라", minutes: 2, youtube: "vEzUCjMU5VU", pansuh: "pansuh/john2.html" },
+  { id: "john3", title: "요한삼서", subtitle: "진리 안에서 행하자, 나그네 영접, 디오드레베와 가이오", minutes: 2, youtube: "HWJH8jdakR0", pansuh: "pansuh/john3.html" },
+  { id: "jude", title: "유다서", subtitle: "이단의 분별, 애찬의 암초와 물 없는 구름, 믿음 위에 자신을 세우라", minutes: 2, youtube: "SCU4uTcv-wY", pansuh: "pansuh/jude.html" },
 ];

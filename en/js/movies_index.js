@@ -75,4 +75,6 @@ window.MOVIES = [
   { id: "peter2", title: "2 Peter", subtitle: "Is believing the end?, eight steps of growth from faith to love, false prophets and the day of judgment, grow in the knowledge of Christ", minutes: 3, youtube: "LVPqDI6PfaY", pansuh: "pansuh/peter2.html" },
   { id: "john1", title: "1 John", subtitle: "Restoring broken relationships, God is light so we reflect his light, seven kinds of true love in John", minutes: 3, youtube: "9_CeDkDpsDQ", pansuh: "pansuh/john1.html" },
   { id: "john2", title: "2 John", subtitle: "Beware the antichrist heresy of Gnosticism, abide in the truth, do not even open the door to heretics", minutes: 2, youtube: "vEzUCjMU5VU", pansuh: "pansuh/john2.html" },
+  { id: "john3", title: "3 John", subtitle: "Walk in the truth, welcome traveling preachers, Diotrephes and Gaius", minutes: 2, youtube: "HWJH8jdakR0", pansuh: "pansuh/john3.html" },
+  { id: "jude", title: "Jude", subtitle: "Discerning heresy, hidden reefs at the love feasts and clouds without water, build yourselves up in faith", minutes: 2, youtube: "SCU4uTcv-wY", pansuh: "pansuh/jude.html" },
 ];
