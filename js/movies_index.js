@@ -61,4 +61,5 @@ window.MOVIES = [
   { id: "acts-19", title: "사도행전 19:21~20:3", subtitle: "바울의 계획, 은세공업자 데메드리오, 크다 아데미여, 헬라에서 석 달", minutes: 5, youtube: "xMoJv08pCt0", pansuh: "pansuh/acts-19.html" },
   { id: "romans", title: "로마서", subtitle: "뵈뵈 손에 들린 편지, 믿음으로 의롭다 하심, 질투 나게 하시려고", minutes: 16, youtube: "eHw4rwE7_vQ", pansuh: "pansuh/romans.html" },
   { id: "acts-20", title: "사도행전 20:4~28:32", subtitle: "드로아의 유두고, 밀레도의 고별 설교, 죽을 것도 각오했다, 복음에 미친 사람, 드디어 로마", minutes: 17, youtube: "DMNonQD3EWg", pansuh: "pansuh/acts-20.html" },
+  { id: "ephesians", title: "에베소서", subtitle: "신학의 완숙기, 넓어진 세상, 교회론, 하늘에 속한 신령한 복, 하나님의 전신갑주", minutes: 9, youtube: "aCVO8UDexEo", pansuh: "pansuh/ephesians.html" },
 ];
