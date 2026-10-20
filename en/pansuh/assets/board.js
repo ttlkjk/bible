@@ -2,6 +2,8 @@
  * 판서 플레이어: 문장(beat)을 하나씩 읽으면서 그 문장의 판서를 칠판에 그린다.
  *
  * window.BOARD = { scenes: [ { id, title, slides: [n...], beats: [ { say, draw: [op...] } ] } ] }
+ * window.BOARD_ART (있으면) = { before: { 문장 번호: [op...] }, beats: { 문장 번호: [op...] }, credits: [ { name, credit, license, page } ] }
+ *   대하 MOVIE의 명화. before는 그 문장 판서 앞에, beats는 뒤에 더한다. 판서강좌/movie/tools/board_art.js가 data/<강의>-art.js로 만든다.
  *
  * op (첫 칸이 종류):
  *   ["title", id, text]                      제목 (왼쪽 위)
@@ -14,6 +16,7 @@
  *   ["line", [x1, y1], [x2, y2], color?]     선
  *   ["cross", [x, y], color?]                X 표시
  *   ["photo", id, src, [x, y, w, h], opt?]   사진을 테이프로 붙인다. opt: { tilt (도), caption }
+ *   ["move", id, [x, y, w, h] | null]        붙인 사진을 옮기며 크기를 바꾼다 (가로세로 비율은 그대로). null이면 떼어 낸다
  *   ["clear"]                                칠판 지우기
  * pos: [x, y] | { after: id, gap? } | { below: id, gap? } | { at: [x, y], anchor: "middle" }
  * style: { size, color, anchor }
@@ -30,18 +33,29 @@
   var COLORS = { ink: "#1f2638", red: "#c8372d", blue: "#2b5fa8", green: "#2e7d5b", gray: "#6b7285" };
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // 대하 MOVIE의 명화 (data/<강의>-art.js): 문장 번호 → 그 문장 판서 앞(before)·뒤(beats)에 더할 판서 동작
+  var ART = window.BOARD_ART || {};
+  var artBefore = ART.before || {}, artAfter = ART.beats || {};
+
   // ---------- flatten scenes into one beat list ----------
   var beats = [];
   B.scenes.forEach(function (sc, si) {
     sc.beats.forEach(function (b, bi) {
-      beats.push({ scene: si, first: bi === 0, say: b.say, draw: b.draw || [] });
+      var n = beats.length;
+      beats.push({ scene: si, first: bi === 0, say: b.say, draw: (artBefore[n] || []).concat(b.draw || [], artAfter[n] || []) });
     });
   });
 
-  // 사진은 붙는 순간 빈 테두리로 보이지 않게 미리 불러 둔다
-  beats.forEach(function (b) {
-    b.draw.forEach(function (op) { if (op[0] === "photo") new Image().src = op[2]; });
-  });
+  // 사진은 붙는 순간 빈 테두리로 보이지 않게 몇 문장 앞서 불러 둔다 (한꺼번에 받으면 휴대폰에 무겁다)
+  var warmed = {};
+  function warm(from) {
+    for (var i = Math.max(0, from); i < Math.min(beats.length, from + 8); i++) {
+      beats[i].draw.forEach(function (op) {
+        if (op[0] === "photo" && !warmed[op[2]]) { warmed[op[2]] = true; new Image().src = op[2]; }
+      });
+    }
+  }
+  warm(0);
 
   // ---------- DOM ----------
   root.innerHTML =
@@ -94,6 +108,28 @@
     return '<button type="button" data-scene="' + i + '">' + sc.title + "</button>";
   }).join("");
 
+  // 칠판에 붙인 명화의 출처
+  if (ART.credits && ART.credits.length) {
+    var credits = document.createElement("details");
+    credits.className = "bd-credits";
+    var sum = document.createElement("summary");
+    sum.textContent = "Paintings on this board: " + ART.credits.length + " · sources";
+    var list = document.createElement("ol");
+    ART.credits.forEach(function (c) {
+      var li = document.createElement("li");
+      li.appendChild(document.createTextNode(c.name + " — " + c.credit + (c.license ? " · " + c.license : "") + " "));
+      if (c.page) {
+        var a = document.createElement("a");
+        a.href = c.page; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Wikimedia Commons";
+        li.appendChild(a);
+      }
+      list.appendChild(li);
+    });
+    credits.appendChild(sum);
+    credits.appendChild(list);
+    root.insertBefore(credits, sceneNav.nextSibling);
+  }
+
   // ---------- rough drawing helpers ----------
   function rng(seed) { // mulberry32: same shape every time for the same op
     return function () {
@@ -118,6 +154,7 @@
 
   // ---------- state ----------
   var boxes = {}; // id -> {x, y, w, h, base}
+  var photos = {}; // id -> 붙인 사진과 지금 옮겨 간 정도 (move가 쓴다)
   var seq = 0;
 
   function bbox(id) {
@@ -232,19 +269,23 @@
       var fw = w + pad * 2, fh = h + pad * 2 + capH;
       var tilt = opt.tilt == null ? (r() - 0.5) * 5 : opt.tilt;
       var cx = x + fw / 2, cy = y + fh / 2;
-      var g = el("g", { "class": "bd-photo", opacity: 0 });
+      var m = el("g", { "class": "bd-photo-move" });
+      var g = el("g", { "class": "bd-photo", opacity: 0 }, m);
       var inner = el("g", { transform: "rotate(" + tilt.toFixed(2) + " " + cx + " " + cy + ")" }, g);
       el("rect", { x: x, y: y, width: fw, height: fh, rx: 3, fill: "#fffdf8", filter: "url(#bd-shadow)" }, inner);
       el("image", { href: src, x: x + pad, y: y + pad, width: w, height: h, preserveAspectRatio: "xMidYMid slice" }, inner);
       if (opt.caption) {
         var t = el("text", { x: cx, y: y + pad + h + 36, "font-size": 34, fill: COLORS.ink, "text-anchor": "middle", "class": "bd-t" }, inner);
         t.textContent = opt.caption;
+        var tw = t.getBBox().width; // 이름이 사진 폭보다 길면 글씨를 줄인다
+        if (tw > fw - 20) t.setAttribute("font-size", (34 * (fw - 20) / tw).toFixed(1));
       }
       [[x + fw * 0.12, -8], [x + fw * 0.88, 8]].forEach(function (tp) {
         el("rect", { x: tp[0] - 46, y: y - 14, width: 92, height: 30, fill: "rgba(232, 200, 120, 0.72)",
           transform: "rotate(" + tp[1] + " " + tp[0] + " " + y + ")" }, inner);
       });
       boxes[id] = { x: x, y: y, w: fw, h: fh, base: y + fh };
+      photos[id] = { m: m, x: x, y: y, w: w, fw: fw, fh: fh, s: 1, tx: 0, ty: 0 };
       return {
         dur: 600,
         step: function (k) {
@@ -254,10 +295,31 @@
         }
       };
     },
+    // 붙인 사진 옮기기: 사진 왼쪽 위 모서리를 새 자리로, 크기는 가로 기준으로 같은 비율로 늘이고 줄인다
+    move: function (r, id, to) {
+      var p = photos[id];
+      if (!p) throw new Error("No photo to move: " + id);
+      var s0 = p.s, tx0 = p.tx, ty0 = p.ty;
+      var s1 = to ? to[2] / p.w : s0;
+      var tx1 = to ? to[0] - p.x * s1 : tx0, ty1 = to ? to[1] - p.y * s1 : ty0;
+      p.s = s1; p.tx = tx1; p.ty = ty1;
+      if (to) boxes[id] = { x: to[0], y: to[1], w: p.fw * s1, h: p.fh * s1, base: to[1] + p.fh * s1 };
+      else delete boxes[id];
+      return {
+        dur: 800,
+        step: function (k) {
+          var e = k < 0.5 ? 2 * k * k : 1 - Math.pow(2 - 2 * k, 2) / 2;
+          p.m.setAttribute("transform", "translate(" + (tx0 + (tx1 - tx0) * e).toFixed(1) + " " + (ty0 + (ty1 - ty0) * e).toFixed(1) +
+            ") scale(" + (s0 + (s1 - s0) * e).toFixed(4) + ")");
+          if (!to) p.m.setAttribute("opacity", (1 - e).toFixed(3));
+        }
+      };
+    },
     clear: function () {
       // only what is on the board now; ops after this one in the same beat are already built
       var nodes = Array.prototype.slice.call(ink.childNodes);
       boxes = {};
+      photos = {};
       return {
         dur: 450,
         step: function (k) {
@@ -298,6 +360,7 @@
     while (ink.firstChild) ink.removeChild(ink.firstChild);
     while (defs.firstChild) defs.removeChild(defs.firstChild);
     boxes = {};
+    photos = {};
   }
 
   function build(op, seed) {
@@ -308,6 +371,7 @@
 
   // draw beats [from, to) instantly (used to rebuild the board when jumping)
   function drawInstant(upto) {
+    warm(upto);
     wipe();
     var start = 0;
     for (var i = upto - 1; i >= 0; i--) {

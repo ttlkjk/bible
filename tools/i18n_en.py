@@ -14,6 +14,8 @@
   같은 한국어는 사이트 어디서나 같은 영어가 된다 (책 이름 '창세기'를 비교에 쓰는 코드가 있어서).
 - 판서 대본(pansuh/data/*-board.js)은 칠판 글씨 자리까지 손봐야 해서 통째로 번역한 파일을
   i18n/en/boards/ 에 두고 그대로 복사한다.
+- 칠판 명화(pansuh/data/*-art.js)도 영어 칠판 글씨를 피해 자리를 다시 잡아야 해서, 판서강좌의
+  movie/tools/board_art.js <강의> --en 이 만든 i18n/en/art/ 파일을 그대로 복사한다.
 - 한국어 원본을 고친 뒤에는 extract → (번역) → merge → build 순서로 돌리면 바뀐 문장만 새로 번역하면 된다.
 
 문장 단위: 자바스크립트 문자열 하나, 템플릿 문자열·HTML에서는 태그 사이의 글 덩어리
@@ -31,6 +33,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 I18N = os.path.join(ROOT, "i18n")
 STORE = os.path.join(I18N, "en")
 BOARDS = os.path.join(STORE, "boards")
+ART = os.path.join(STORE, "art")
 WORK = os.path.join(I18N, "work")
 OUT = os.path.join(ROOT, "en")
 
@@ -45,7 +48,7 @@ def rel_sources():
     files += sorted(glob.glob("pansuh/assets/*.js", root_dir=ROOT))
     files += sorted(glob.glob("js/*.js", root_dir=ROOT))
     files += sorted(glob.glob("pansuh/*.html", root_dir=ROOT))
-    files += sorted(f for f in glob.glob("pansuh/data/*.js", root_dir=ROOT) if not f.endswith(("-board.js", "-audio.js")))
+    files += sorted(f for f in glob.glob("pansuh/data/*.js", root_dir=ROOT) if not f.endswith(("-board.js", "-audio.js", "-art.js")))
     out = []
     for f in files:
         f = f.replace("\\", "/")
@@ -661,7 +664,7 @@ def link_scripts(ids):
         if audio and (pid + "-audio.js") not in html:
             html = re.sub(r'(<script src="data/%s-board\.js[^"]*"></script>\n)' % re.escape(pid),
                           lambda m: m.group(1) + '<script src="data/%s-audio.js"></script>\n' % pid, html, count=1)
-        for name in (pid + ".js", pid + "-board.js", pid + "-audio.js"):
+        for name in (pid + ".js", pid + "-board.js", pid + "-audio.js", pid + "-art.js"):
             if os.path.exists(os.path.join(OUT, "pansuh", "data", name)):
                 html = re.sub(r'data/%s(\?v=[^"]*)?"' % re.escape(name), 'data/%s?v=%s"' % (name, ver(name)), html)
         write_text(page, html)
@@ -701,14 +704,25 @@ def cmd_build():
         with open(en if os.path.exists(en) else src, encoding="utf-8") as f:
             text = f.read()
         write_text(os.path.join(OUT, "pansuh", "data", name), fix_paths("pansuh/data/" + name, text))
+    # 칠판 명화: 영어 칠판에 맞춰 자리를 다시 잡은 것. 없으면 영어 칠판에는 명화를 붙이지 않는다
+    # (한국어 자리를 그대로 쓰면 영어 글씨를 가린다).
+    art_missing = []
+    for src in sorted(glob.glob(os.path.join(ROOT, "pansuh", "data", "*-art.js"))):
+        name = os.path.basename(src)
+        en = os.path.join(ART, name)
+        if not os.path.exists(en):
+            art_missing.append(name)
+            continue
+        with open(en, encoding="utf-8") as f:
+            write_text(os.path.join(OUT, "pansuh", "data", name), fix_paths("pansuh/data/" + name, f.read()))
     link_scripts(ids)
     total = sum(s["done"] + s["missing"] for _, s in report)
     miss = sum(s["missing"] for _, s in report)
     for rel, s in report:
         if s["missing"]:
             print("%-36s 번역 안 됨 %4d / %d" % (rel, s["missing"], s["done"] + s["missing"]))
-    print("en/ 만듦 · 문장 %d 중 번역 안 된 것 %d · 판서 대본 영어판 없음 %d개 · 영어 녹음 없음 %d개"
-          % (total, miss, len(boards_missing), len(audio_missing)))
+    print("en/ 만듦 · 문장 %d 중 번역 안 된 것 %d · 판서 대본 영어판 없음 %d개 · 영어 녹음 없음 %d개 · 칠판 명화 영어판 없음 %d개"
+          % (total, miss, len(boards_missing), len(audio_missing), len(art_missing)))
 
 
 def cmd_status():
