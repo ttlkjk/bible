@@ -59,4 +59,6 @@ window.MOVIES = [
   { id: "cor1", title: "고린도전서", subtitle: "파벌, 송사, 결혼, 우상의 제물, 은사, 사랑장, 부활", minutes: 17, youtube: "TnzIav0s4GM", pansuh: "pansuh/cor1.html" },
   { id: "cor2", title: "고린도후서", subtitle: "거꾸로 읽는 편지, 열 가지 반응, 디도, 질그릇, 새로운 피조물, 연보", minutes: 13, youtube: "PH3slLvSLKI", pansuh: "pansuh/cor2.html" },
   { id: "acts-19", title: "사도행전 19:21~20:3", subtitle: "바울의 계획, 은세공업자 데메드리오, 크다 아데미여, 헬라에서 석 달", minutes: 5, youtube: "xMoJv08pCt0", pansuh: "pansuh/acts-19.html" },
+  { id: "romans", title: "로마서", subtitle: "뵈뵈 손에 들린 편지, 믿음으로 의롭다 하심, 질투 나게 하시려고", minutes: 16, youtube: "eHw4rwE7_vQ", pansuh: "pansuh/romans.html" },
+  { id: "acts-20", title: "사도행전 20:4~28:32", subtitle: "드로아의 유두고, 밀레도의 고별 설교, 죽을 것도 각오했다, 복음에 미친 사람, 드디어 로마", minutes: 17, youtube: "DMNonQD3EWg", pansuh: "pansuh/acts-20.html" },
 ];
