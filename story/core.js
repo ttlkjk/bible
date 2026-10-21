@@ -42,5 +42,21 @@
     return i < 0 ? 0 : i;
   }
 
-  return { frames, readMs, sentenceAt, resumeIndex, actStart };
+  // 그림이 화면을 꽉 채울 때(cover) 잘리는 쪽: 그림이 화면보다 세로로 길면 "y"(위아래가 잘림), 가로로 길면 "x"(좌우가 잘림), 거의 같거나 값이 이상하면 "none"
+  function panAxis(imgRatio, screenRatio) {
+    if (!(imgRatio > 0) || !(screenRatio > 0) || !isFinite(imgRatio) || !isFinite(screenRatio)) return "none";
+    const r = imgRatio / screenRatio;
+    if (Math.abs(r - 1) < 0.01) return "none";
+    return r < 1 ? "y" : "x";
+  }
+
+  // 목소리를 끄고 볼 때 문장마다 보여 줄 시작 시각(ms): 글자 수 비율대로 totalMs를 나눈다. 첫 문장은 0
+  function textTimes(text, totalMs) {
+    const lens = text.map((t) => t.replace(/\s/g, "").length);
+    const all = lens.reduce((a, b) => a + b, 0);
+    let acc = 0;
+    return lens.map((n) => { const at = all ? Math.round((totalMs * acc) / all) : 0; acc += n; return at; });
+  }
+
+  return { frames, readMs, sentenceAt, resumeIndex, actStart, panAxis, textTimes };
 });

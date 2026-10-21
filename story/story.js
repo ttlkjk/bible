@@ -19,16 +19,29 @@
 
   let at = 0, front = 0, seq = 0, runSeq = 0, playing = false, timer = null, wait = null;
   let voiceOn = store.get("story.voice") !== "off";
+  let infoOn = false, idleT = null, capK = -2, fadeSeq = 0, capTimers = [];
 
-  // 그림을 뒤 레이어에 불러 겹쳐 바꾼다. dim: 막 표지 뒤에 흐리게. dur: 느린 확대 시간(초)
-  function picture(src, dim, dur) {
+  // 그림은 화면을 꽉 채운다(cover). 잘리는 쪽(위아래 또는 좌우)으로 천천히 훑어 가며 보여 준다. 창 크기가 바뀌면 다시 고른다
+  function applyAxis(layer) {
+    const img = layer.querySelector("img.main"), sz = layer._size;
+    const w = sz ? sz[0] : img.naturalWidth, h = sz ? sz[1] : img.naturalHeight;
+    const axis = C.panAxis(w / h, innerWidth / innerHeight);
+    img.classList.toggle("pan-x", axis === "x");
+    img.classList.toggle("pan-y", axis === "y");
+  }
+
+  // 그림을 뒤 레이어에 불러 겹쳐 바꾼다.
+  // dim: 막 표지 뒤에 흐리게. dur: 훑어 가는 시간(초). size: [너비, 높이]
+  function picture(src, dim, dur, size) {
     const token = ++seq;
     if (!src) { layers.forEach((l) => l.classList.remove("on")); return; }
-    const back = layers[1 - front], img = back.querySelector("img");
+    const back = layers[1 - front], img = back.querySelector("img.main");
     const swap = () => {
       if (token !== seq) return; // 그새 다른 장으로 넘어갔다
       img.classList.remove("kb");
-      void img.offsetWidth; // 확대를 처음부터
+      back._size = size || null;
+      applyAxis(back);
+      void img.offsetWidth; // 훑기를 처음부터
       back.style.setProperty("--dur", (dur || 20) + "s");
       back.classList.toggle("dim", !!dim);
       if (!dim) img.classList.add("kb");
@@ -51,8 +64,68 @@
     runSeq++; // 멈춘 장의 늦게 오는 재생 실패가 다음 장을 넘기지 않게
     clearTimeout(timer); clearTimeout(wait);
     timer = wait = null;
+    capTimers.forEach(clearTimeout); capTimers = []; // 시간으로 바뀌던 자막도 멈춘다
     audio.pause();
   }
+
+  // 자막: 지금 읽는 한 문장만. 바뀔 때 부드럽게 (fadeSeq: 그새 다른 문장·다른 장으로 넘어가면 늦은 교체를 버린다)
+  // 설명 패널의 밝은 문장도 같이 맞춘다
+  function setCap(k, instant) {
+    const f = F[at];
+    if (f.type !== "slide") return;
+    const s = S.slides[f.i];
+    const kk = Math.max(0, Math.min(s.text.length - 1, k));
+    const box = $("p-text");
+    box.classList.add("reading");
+    box.querySelectorAll("span").forEach((sp) => sp.classList.toggle("now", Number(sp.dataset.k) === kk));
+    if (kk === capK) return;
+    capK = kk;
+    const my = ++fadeSeq, line = $("cap-line");
+    if (instant) { line.textContent = s.text[kk] || ""; line.classList.remove("out"); return; }
+    line.classList.add("out");
+    setTimeout(() => {
+      if (my !== fadeSeq) return;
+      line.textContent = s.text[kk] || "";
+      line.classList.remove("out");
+    }, 250);
+  }
+
+  // 목소리가 없을 때: 머무는 시간을 글자 수대로 나눠 문장을 차례로 바꿔 보여 준다
+  function capClock(f, ms) {
+    capTimers.forEach(clearTimeout); capTimers = [];
+    if (f.type !== "slide") return;
+    C.textTimes(S.slides[f.i].text, ms).forEach((t, k) => { if (k > 0) capTimers.push(setTimeout(() => setCap(k), t)); });
+    setCap(0);
+  }
+
+  // 위 막대·단추 줄: 재생 중 3초 가만히 있으면 사라지고, 움직이면 다시 뜬다. 멈춤·패널·막 목록·시작/끝 화면에서는 늘 보인다
+  const pinned = () => !playing || !$("gate").hidden || $("menu").open || F[at].type === "end" || (infoOn && F[at].type === "slide");
+  function armIdle() {
+    clearTimeout(idleT); idleT = null;
+    if (pinned()) return;
+    idleT = setTimeout(() => { idleT = null; if (!pinned()) document.body.classList.add("idle"); }, 3000);
+  }
+  function wake() { document.body.classList.remove("idle"); armIdle(); }
+  function refreshUi() {
+    if (pinned()) { document.body.classList.remove("idle"); clearTimeout(idleT); idleT = null; }
+    else if (!idleT && !document.body.classList.contains("idle")) armIdle();
+  }
+  // 막대 높이를 알려 줘서 자막과 설명 패널이 막대에 가리지 않게 한다
+  function measure() {
+    const root = document.documentElement.style;
+    root.setProperty("--bar-h", document.querySelector(".bar").offsetHeight + "px");
+    root.setProperty("--top-h", document.querySelector(".top").offsetHeight + "px");
+  }
+
+  // 설명 패널: ⓘ 단추로 열고 닫는다. 막 표지·끝 화면에서는 열려 있어도 보이지 않는다
+  function syncInfo() {
+    const slide = F[at].type === "slide", open = infoOn && slide;
+    $("info-btn").hidden = !slide;
+    $("info-btn").setAttribute("aria-pressed", String(open));
+    $("plate").hidden = !open;
+    document.body.classList.toggle("info-open", open);
+  }
+  function setInfo(on) { infoOn = on; syncInfo(); refreshUi(); }
 
   function showAct(a) {
     picture(a.cover, true, 0);
@@ -65,7 +138,8 @@
 
   function showSlide(s) {
     const secs = voiceOn && s.audio ? s.dur + 2 : C.readMs(s.text) / 1000;
-    picture(s.img, false, secs + 1.2);
+    picture(s.img, false, secs + 1.2, s.size);
+    $("cap-tag").textContent = `〈${s.title}〉 ${[s.artist, s.year].filter(Boolean).join(" · ")}`;
     $("p-title").textContent = `〈${s.title}〉`;
     $("p-meta").textContent = [s.artist, s.year, s.museum].filter(Boolean).join(" · ");
     const text = $("p-text");
@@ -76,6 +150,8 @@
     $("p-links").innerHTML = links.join(" · ");
     $("p-credit").innerHTML = `${esc(s.credit)} · ${esc(s.license)} · <a href="${esc(s.page)}" target="_blank" rel="noopener">위키미디어 공용</a>`;
     $("plate").scrollTop = 0;
+    text.classList.remove("reading");
+    capK = -2; setCap(0, true); // 새 장의 첫 문장부터
   }
 
   function showEnd() {
@@ -94,7 +170,9 @@
     const f = F[at], act = actOf(f.act);
     $("card").hidden = f.type !== "act";
     $("end").hidden = f.type !== "end";
-    $("plate").hidden = f.type !== "slide";
+    $("cap").hidden = f.type !== "slide";
+    fadeSeq++; // 앞 장의 늦은 자막 교체를 버린다
+    syncInfo();
     $("where").textContent = f.type === "end" ? "그림 출처" : act ? `${act.n}막 · ${act.title}` : "";
     $("count").textContent = f.type === "slide" ? `${f.i + 1} / ${total}` : "";
     if (f.type === "act") showAct(act);
@@ -102,6 +180,7 @@
     else showEnd();
     preload(at + 1);
     markMenu();
+    refreshUi();
     if (playing) run(f);
   }
 
@@ -112,9 +191,14 @@
     if (voiceOn && item.audio) {
       const my = runSeq;
       if (audio.getAttribute("src") !== item.audio) audio.src = item.audio; // 같으면 멈춘 자리에서 이어 읽는다
-      audio.play().catch(() => { if (my === runSeq) timer = setTimeout(next, holdMs(f, item)); }); // 자동 재생이 막히면 시간으로
+      audio.play().catch(() => { // 자동 재생이 막히면 시간으로
+        if (my !== runSeq) return;
+        timer = setTimeout(next, holdMs(f, item));
+        capClock(f, holdMs(f, item));
+      });
     } else {
       timer = setTimeout(next, holdMs(f, item));
+      capClock(f, holdMs(f, item));
     }
   }
 
@@ -122,6 +206,7 @@
     playing = on;
     $("play").textContent = on ? "⏸" : "▶︎";
     $("play").setAttribute("aria-label", on ? "멈춤" : "재생");
+    refreshUi();
     if (!on) { stopClock(); return; }
     if (F[at].type === "end") { show(0); return; }
     run(F[at]);
@@ -132,7 +217,6 @@
     store.set("story.voice", on ? "on" : "off");
     $("voice").setAttribute("aria-pressed", String(on));
     $("voice").querySelector(".ico").textContent = on ? "🔊" : "🔇";
-    if (!on) $("p-text").classList.remove("reading");
     if (playing) { stopClock(); audio.currentTime = 0; run(F[at]); }
   }
 
@@ -155,14 +239,12 @@
     if (!playing || !item || !audio.getAttribute("src")) return;
     clearTimeout(timer); // play() 실패 쪽 타이머와 겹쳐 두 번 넘어가지 않게
     timer = setTimeout(next, holdMs(F[at], item));
+    capClock(F[at], holdMs(F[at], item));
   });
   audio.addEventListener("timeupdate", () => {
     const f = F[at];
     if (f.type !== "slide" || !voiceOn) return;
-    const k = C.sentenceAt(S.slides[f.i].times, audio.currentTime);
-    const box = $("p-text");
-    box.classList.add("reading");
-    box.querySelectorAll("span").forEach((sp) => sp.classList.toggle("now", Number(sp.dataset.k) === k));
+    setCap(C.sentenceAt(S.slides[f.i].times, audio.currentTime)); // 첫 문장 전에는 첫 문장을 보여 준다
   });
 
   $("prev").onclick = () => { enter(); prev(); };
@@ -184,20 +266,32 @@
     enter();
     show(C.actStart(F, Number(b.dataset.act)));
   };
-  $("menu-btn").onclick = () => $("menu").showModal();
+  $("menu-btn").onclick = () => { $("menu").showModal(); refreshUi(); };
   $("menu-close").onclick = () => $("menu").close();
+  $("menu").addEventListener("close", () => { refreshUi(); wake(); });
+  $("info-btn").onclick = () => setInfo(!infoOn);
+  $("p-close").onclick = () => setInfo(false);
   function markMenu() {
     const n = F[at].act;
     $("acts").querySelectorAll("[data-act]").forEach((b) => b.classList.toggle("here", Number(b.dataset.act) === n));
   }
 
-  // 키보드: ← → 스페이스 (단추에 초점이 있을 때 스페이스는 그 단추가 받는다)
+  // 키보드: ← → 스페이스 (단추에 초점이 있을 때 스페이스는 그 단추가 받는다), Esc 는 설명 패널 닫기
   document.addEventListener("keydown", (e) => {
     if ($("menu").open || e.altKey || e.ctrlKey || e.metaKey) return;
-    if (e.key === "ArrowRight") { if (enter()) show(at); else next(); }
+    if (e.key === "Escape") { if (infoOn) { e.preventDefault(); setInfo(false); } }
+    else if (e.key === "ArrowRight") { if (enter()) show(at); else next(); }
     else if (e.key === "ArrowLeft") { enter(); prev(); }
     else if (e.key === " " && !e.target.closest("button, a")) { e.preventDefault(); if (enter()) show(at); else setPlaying(!playing); }
   });
+
+  // 움직임이 있으면 막대를 다시 띄운다
+  let mx = -1, my = -1;
+  document.addEventListener("mousemove", (e) => { if (e.screenX !== mx || e.screenY !== my) { mx = e.screenX; my = e.screenY; wake(); } }, { passive: true });
+  ["pointerdown", "touchstart", "keydown", "wheel", "focusin"].forEach((n) => document.addEventListener(n, wake, { passive: true }));
+  window.addEventListener("resize", () => { layers.forEach(applyAxis); measure(); });
+  if (window.ResizeObserver) { const ro = new ResizeObserver(measure); ro.observe(document.querySelector(".bar")); ro.observe(document.querySelector(".top")); }
+  measure();
 
   // 휴대폰: 좌우로 밀기
   let x0 = null, y0 = null;
