@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>명화로 읽는 성경</title>
+<meta name="description" content="창세기에서 요한계시록까지, 대하 MOVIE에 쓴 명화로 걷는 성경 이야기. 판서 강의 내용을 바탕으로 한 해설과 AI 음성.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;900&display=swap">
+<link rel="stylesheet" href="story.css?v=0ffac046">
+</head>
+<body>
+<header class="top">
+  <a class="home" href="../index.html">← 성경 사이트</a>
+  <span id="where" class="where"></span>
+  <span id="count" class="count"></span>
+</header>
+
+<main id="stage" class="stage">
+  <div class="layer"><img alt=""></div>
+  <div class="layer"><img alt=""></div>
+  <section id="card" class="card" hidden aria-live="polite">
+    <p class="card-n"></p>
+    <h1 class="card-title"></h1>
+    <p class="card-summary"></p>
+    <p class="card-range"></p>
+  </section>
+  <section id="end" class="end" hidden>
+    <h1>그림 출처</h1>
+    <p>그림은 모두 저작권이 끝났거나(퍼블릭 도메인) 자유 이용 허락(CC0, CC BY, CC BY-SA)된 작품이며, 위키미디어 공용에서 가져왔습니다. 해설은 에스라 성경강좌 판서 강의를 바탕으로 썼고, 목소리는 Microsoft 선희 AI 음성입니다.</p>
+    <ol id="credits"></ol>
+  </section>
+  <div id="gate" class="gate">
+    <h1>명화로 읽는 성경</h1>
+    <p id="gate-sub"></p>
+    <div class="gate-buttons">
+      <button id="go" type="button">▶ 처음부터</button>
+      <button id="resume" type="button" hidden></button>
+    </div>
+    <p class="gate-note">해설 목소리는 Microsoft 선희 AI 음성입니다. 🔊 단추로 끄고 켤 수 있습니다.</p>
+  </div>
+</main>
+
+<section id="plate" class="plate" hidden>
+  <div class="head"><h2 id="p-title"></h2><span id="p-meta" class="meta"></span></div>
+  <p id="p-text" class="text"></p>
+  <p id="p-links" class="links"></p>
+  <p id="p-credit" class="credit"></p>
+</section>
+
+<nav class="bar" aria-label="슬라이드 조작">
+  <button id="prev" type="button" title="앞으로 (←)" aria-label="앞 그림">◀</button>
+  <button id="play" type="button" title="멈춤 / 재생 (스페이스)" aria-label="멈춤">⏸</button>
+  <button id="next" type="button" title="다음 (→)" aria-label="다음 그림">▶</button>
+  <button id="voice" type="button" title="목소리 켜기 / 끄기" aria-pressed="true"><span class="ico">🔊</span><span class="label"> 목소리</span></button>
+  <button id="full" type="button" title="전체화면" aria-label="전체화면">⛶</button>
+  <button id="menu-btn" type="button" title="막 목록"><span class="ico">☰</span><span class="label"> 막 목록</span></button>
+</nav>
+
+<dialog id="menu" class="menu">
+  <h2>막 목록</h2>
+  <ol id="acts"></ol>
+  <button id="menu-close" type="button">닫기</button>
+</dialog>
+
+<audio id="audio" preload="auto"></audio>
+<script src="data.js?v=0ffac046"></script>
+<script src="core.js?v=0ffac046"></script>
+<script src="story.js?v=0ffac046"></script>
+</body>
+</html>

@@ -66,6 +66,9 @@
         <button data-nav-view="movie" class="px-3 min-[1920px]:px-4 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap transition-all text-[#AED6F1] hover:bg-[#2980B9] hover:text-white active">
           🎬 대하 MOVIE
         </button>
+        <button data-nav-view="story" class="px-3 min-[1920px]:px-4 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap text-[#AED6F1] hover:bg-[#2980B9] hover:text-white transition-all">
+          🖼️ 명화로 읽는 성경
+        </button>
         <button data-nav-view="pansuh" class="px-3 min-[1920px]:px-4 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap text-[#AED6F1] hover:bg-[#2980B9] hover:text-white transition-all">
           🖍️ 판서 강의
         </button>
@@ -111,6 +114,7 @@
     <!-- 모바일 전용 뷰 탭 -->
     <div class="flex min-[1440px]:hidden border-t border-[#154360] px-4 py-2 bg-[#D6EAF8] dark:bg-slate-900 justify-around text-xs font-bold">
       <button data-nav-view="movie" class="text-amber-600">대하 MOVIE</button>
+      <button data-nav-view="story" class="text-slate-500">명화 성경</button>
       <button data-nav-view="pansuh" class="text-slate-500">판서 강의</button>
       <button data-nav-view="bible" class="text-slate-500">66권 강좌</button>
       <button data-nav-view="timeline" class="text-slate-500">연대기 타임라인</button>
@@ -459,6 +463,25 @@
       <div id="movie-shelf" class="space-y-8"></div>
     </section>
 
+    <!-- ================================================================== -->
+    <!-- VIEW 6: 명화로 읽는 성경 (대하 MOVIE의 명화로 걷는 슬라이드쇼) — 페이지는 story/ (판서강좌/movie/tools/story_build.js가 만든다).
+         js/story_tab.js가 맨 위 탭을 따라 보이고 숨긴다 -->
+    <!-- ================================================================== -->
+    <section id="view-story" class="hidden space-y-6 animate-fade-in">
+      <div class="max-w-4xl mx-auto">
+        <div class="relative flex flex-col justify-end min-h-[26rem] sm:min-h-0 sm:aspect-video rounded-2xl overflow-hidden bg-slate-950 shadow-sm">
+          <img src="story/img/genesis-cole.webp" alt="명화로 읽는 성경 첫 그림" loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+          <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.7) 32%, rgba(0,0,0,0) 62%);"></div>
+          <div class="relative p-5 sm:p-8 max-w-3xl text-white">
+            <h3 class="text-3xl sm:text-5xl font-black tracking-tight">명화로 읽는 성경</h3>
+            <p class="mt-1 text-sm sm:text-lg font-bold text-amber-200">창세기에서 요한계시록까지, 명화 <span data-story-count>187</span>점으로 걷는 13막 이야기</p>
+            <p class="mt-3 text-xs sm:text-sm text-white/85 leading-relaxed">대하 MOVIE에 쓴 명화를 골라 판서 강의 내용으로 한 줄기 이야기를 엮었습니다. 그림마다 작가·작품·소장처와 해설이 나오고, AI 음성으로 들을 수 있습니다.</p>
+            <a href="story/index.html" class="inline-block mt-4 px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-900 text-sm font-black shadow transition">▶ 감상 시작</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ==================================================================== -->
@@ -537,5 +560,6 @@
   <script src="js/pansuh.js?v=20261017c"></script>
   <script src="js/movies_index.js?v=1c61ee1b"></script>
   <script src="js/movies.js?v=20261020a"></script>
+  <script src="js/story_tab.js?v=20261021a"></script>
 </body>
 </html>
