@@ -559,6 +559,9 @@ def patches(rel):
         "index.html": [
             # 대하 MOVIE 간판 그림은 한국어 쪽 img/ 에 하나만 둔다
             ('src="img/movie-hero.jpg"', 'src="../img/movie-hero.jpg"'),
+            # 명화로 읽는 성경 슬라이드쇼는 한국어 쪽 story/ 하나뿐이다 (해설·목소리가 한국어)
+            ('href="story/index.html"', 'href="../story/index.html"'),
+            ('src="story/img/', 'src="../story/img/'),
         ],
         "js/app.js": [
             # 연대기 화면의 책 단추: 한국어는 첫 낱말로 찾지만 영어 책 이름은 '1 Samuel'처럼 띄어 쓴다

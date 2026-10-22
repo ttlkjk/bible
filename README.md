@@ -70,7 +70,7 @@
 - **맨 위 탭 `🖼️ 명화로 읽는 성경`:** 대표 그림과 '감상 시작' 단추. 슬라이드쇼는 마지막으로 본 장을 기억합니다.
 - **만드는 곳:** 원고는 `판서강좌/movie/story/acts/NN.json`, 도구는 `판서강좌/movie/tools/story_*.{js,py}`. `story/`는 손으로 고치지 않습니다. 순서: `story_meta.js` → `story_build.js` → `story_images.py` → `story_tts.py` → `story_build.js`.
 - **요한계시록(13막):** 계시록 영화의 명화와 해설로 씁니다(영화가 나온 뒤 더함).
-- **아직 없는 것:** 영어판. 영어판을 다시 만들기 전에 tools/i18n_en.py가 이 탭의 story/ 경로를 ../story/로 바꾸게 하거나 en에서는 탭을 숨겨야 한다(지금은 en/에 story/가 없어 깨진다).
+- **영어판:** 슬라이드쇼는 한국어판 하나뿐이다. 영어 사이트의 탭과 간판 단추는 `tools/i18n_en.py`가 `../story/`로 바꿔 한국어 슬라이드쇼로 보낸다.
 
 ### 9. 🌐 영어판 (English version)
 - **`en/` 폴더 전체가 영어 사이트입니다** (`https://ttlkjk.github.io/bible/en/`). 맨 위 `🌐 English` 단추로 오가고, 판서 강의 페이지에는 메뉴에 `English` / `한국어` 단추가 붙습니다.
