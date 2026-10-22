@@ -54,6 +54,9 @@ body { overflow: hidden; }
 .gate-buttons { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
 .gate button { background: var(--gold); color: #1a1408; border: 0; border-radius: 10px; padding: 12px 22px; font: 900 16px var(--serif); cursor: pointer; }
 .gate button#resume { background: var(--btn); color: var(--ink); border: 1px solid var(--gold); }
+/* 같은 이야기를 유튜브 영상으로 */
+.gate .yt { display: inline-flex; align-items: center; border-radius: 10px; padding: 12px 22px; font: 900 16px var(--serif); color: var(--ink); text-decoration: none; border: 1px solid rgba(236, 230, 218, .5); }
+.gate .yt:hover, .gate .yt:focus-visible { background: rgba(236, 230, 218, .12); }
 .gate-note { font-size: 12.5px; margin-top: 18px; }
 
 /* 자막: 화면 아래, 지금 읽는 한 문장만. 단추 줄이 보이면 그 위로 올라간다. 제목·작가는 그 아래 왼쪽 끝에 작게 */
