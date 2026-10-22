@@ -77,4 +77,5 @@ window.MOVIES = [
   { id: "john2", title: "2 John", subtitle: "Beware the antichrist heresy of Gnosticism, abide in the truth, do not even open the door to heretics", minutes: 2, youtube: "vEzUCjMU5VU", pansuh: "pansuh/john2.html" },
   { id: "john3", title: "3 John", subtitle: "Walk in the truth, welcome traveling preachers, Diotrephes and Gaius", minutes: 2, youtube: "HWJH8jdakR0", pansuh: "pansuh/john3.html" },
   { id: "jude", title: "Jude", subtitle: "Discerning heresy, hidden reefs at the love feasts and clouds without water, build yourselves up in faith", minutes: 2, youtube: "SCU4uTcv-wY", pansuh: "pansuh/jude.html" },
+  { id: "revelation", title: "Revelation", subtitle: "Do not fear, the seven seals, trumpets and bowls, and the saints across the sea of glass", minutes: 25, youtube: "EFYczOkETk8", pansuh: "pansuh/revelation.html" },
 ];
