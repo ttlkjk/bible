@@ -1,0 +1,10 @@
+{
+ "${order.length}편": "${order.length} Shorts",
+ "◀ 이전 편": "◀ Previous",
+ "처음입니다": "This is the first",
+ "다음 편 ▶": "Next ▶",
+ "마지막 편입니다": "This is the last",
+ "한 편이 끝나면 다음 편 자동 재생": "Play the next one automatically when one ends",
+ "🎬 본편 영화 (${m.minutes}분)": "🎬 Full film (${m.minutes} min)",
+ "YouTube에서 보기 ↗": "Watch on YouTube ↗"
+}

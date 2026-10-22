@@ -69,6 +69,9 @@
         <button data-nav-view="story" class="px-3 min-[1920px]:px-4 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap text-[#AED6F1] hover:bg-[#2980B9] hover:text-white transition-all">
           🖼️ 명화로 읽는 성경
         </button>
+        <button data-nav-view="shorts" class="px-3 min-[1920px]:px-4 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap text-[#AED6F1] hover:bg-[#2980B9] hover:text-white transition-all">
+          ⏱️ 1분 성경
+        </button>
         <button data-nav-view="pansuh" class="px-3 min-[1920px]:px-4 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap text-[#AED6F1] hover:bg-[#2980B9] hover:text-white transition-all">
           🖍️ 판서 강의
         </button>
@@ -115,6 +118,7 @@
     <div class="flex min-[1440px]:hidden border-t border-[#154360] px-4 py-2 bg-[#D6EAF8] dark:bg-slate-900 justify-around text-xs font-bold">
       <button data-nav-view="movie" class="text-amber-600">대하 MOVIE</button>
       <button data-nav-view="story" class="text-slate-500">명화 성경</button>
+      <button data-nav-view="shorts" class="text-slate-500">1분 성경</button>
       <button data-nav-view="pansuh" class="text-slate-500">판서 강의</button>
       <button data-nav-view="bible" class="text-slate-500">66권 강좌</button>
       <button data-nav-view="timeline" class="text-slate-500">연대기 타임라인</button>
@@ -486,6 +490,19 @@
       </div>
     </section>
 
+    <!-- ================================================================== -->
+    <!-- VIEW 7: 1분 성경 (대하 MOVIE 영화의 한 장면을 담은 유튜브 쇼츠) — js/shorts.js가 채운다.
+         목록은 js/shorts_index.js (판서강좌/movie/tools/shorts_index.py가 만든다) -->
+    <!-- ================================================================== -->
+    <section id="view-shorts" class="hidden space-y-8 animate-fade-in">
+      <div class="max-w-4xl mx-auto text-center">
+        <h3 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-slate-100">⏱️ 1분 성경</h3>
+        <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">대하 MOVIE 영화의 한 장면을 1분 안에 담은 쇼츠 <span id="shorts-count" class="font-bold text-amber-600"></span> · 다음 편 단추로 이어서 보세요</p>
+      </div>
+      <div id="shorts-stage" class="max-w-4xl mx-auto"></div>
+      <div id="shorts-shelf" class="space-y-8"></div>
+    </section>
+
   </main>
 
   <!-- ==================================================================== -->
@@ -565,5 +582,7 @@
   <script src="js/movies_index.js?v=04b69802"></script>
   <script src="js/movies.js?v=20261020a"></script>
   <script src="js/story_tab.js?v=20261021a"></script>
+  <script src="js/shorts_index.js?v=aaa4eb60"></script>
+  <script src="js/shorts.js?v=20261022a"></script>
 </body>
 </html>
