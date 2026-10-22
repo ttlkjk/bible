@@ -78,4 +78,5 @@ window.MOVIES = [
   { id: "john3", title: "3 John", subtitle: "Walk in the truth, welcome traveling preachers, Diotrephes and Gaius", minutes: 2, youtube: "HWJH8jdakR0", pansuh: "pansuh/john3.html" },
   { id: "jude", title: "Jude", subtitle: "Discerning heresy, hidden reefs at the love feasts and clouds without water, build yourselves up in faith", minutes: 2, youtube: "SCU4uTcv-wY", pansuh: "pansuh/jude.html" },
   { id: "revelation", title: "Revelation", subtitle: "Do not fear, the seven seals, trumpets and bowls, and the saints across the sea of glass", minutes: 25, youtube: "EFYczOkETk8", pansuh: "pansuh/revelation.html" },
+  { id: "intro", title: "Into the Bible", subtitle: "The standard, the book of promise, the axis of the Old Testament, the prophets 4-4-4-4", minutes: 10, youtube: "mqtyqVPgHPY", pansuh: "pansuh/intro.html" },
 ];
