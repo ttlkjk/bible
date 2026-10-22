@@ -77,4 +77,5 @@ window.MOVIES = [
   { id: "john2", title: "요한이서", subtitle: "적그리스도 영지주의 이단 경계, 진리 안에 거하라, 이단에게는 문도 열어 주지 말라", minutes: 2, youtube: "vEzUCjMU5VU", pansuh: "pansuh/john2.html" },
   { id: "john3", title: "요한삼서", subtitle: "진리 안에서 행하자, 나그네 영접, 디오드레베와 가이오", minutes: 2, youtube: "HWJH8jdakR0", pansuh: "pansuh/john3.html" },
   { id: "jude", title: "유다서", subtitle: "이단의 분별, 애찬의 암초와 물 없는 구름, 믿음 위에 자신을 세우라", minutes: 2, youtube: "SCU4uTcv-wY", pansuh: "pansuh/jude.html" },
+  { id: "revelation", title: "요한계시록", subtitle: "두려워하지 말라, 일곱 인·나팔·대접, 유리바다 건너편의 성도", minutes: 25, youtube: "EFYczOkETk8", pansuh: "pansuh/revelation.html" },
 ];
